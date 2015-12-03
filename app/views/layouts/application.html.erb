@@ -9,27 +9,34 @@
 </head>
 <body>
   <div class="container">
-    <ul class="nav nav-tabs center-block">
+    <ul class="nav nav-tabs">
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "About", about_path %></li>
       <li><%= link_to "Columns", "#" %></li>
       <li><%= link_to "Rankings", "#" %></li>
       <li><%= link_to "Teams", "#" %></li>
       <li><%= link_to "Forums", "#" %></li>
+      <div class="pull-right user-info text">
+        <% if current_user %>
+          Hello, <%= link_to (current_user.username), edit_user_registration_path %>! <%= link_to "Sign out", destroy_user_session_path, {:style => 'color: #000000', method: :delete} %>
+        <% else %>
+          <%= link_to "Log in", new_user_session_path, {:style => 'color: #000000'}  %>
+        <% end %>
+      </div> 
     </ul>
     <% if flash[:notice] %>
       <div class="alert alert-success">
-        <button type="button" class=”close” data-dismiss="alert">&times;</button>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
         <%= flash[:notice] %>
       </div>
     <% elsif  flash[:error] %>
       <div class="alert alert-danger">
-        <button type="button" class=”close” data-dismiss="alert">&times;</button>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
         <%= flash[:error] %>
       </div>
     <% elsif flash[:alert] %>
       <div class="alert alert-warning">
-        <button type="button" class=”close” data-dismiss="alert">&times;</button>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
         <%= flash[:alert] %>
       </div>
     <% end %>
