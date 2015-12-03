@@ -15,8 +15,8 @@ users = User.all
 
 #Create Admin User
 admin = User.new(
-  username: 'Admin',
-  email:    'admin@gmail.com',
+  username: 'admin',
+  email:    'admin@example.com',
   password: 'helloworld'
  )
  admin.skip_confirmation!
@@ -24,8 +24,8 @@ admin = User.new(
  
  #Create Standard User
  standard = User.new(
-  username: 'Standard',
-  email:    'standard@gmail.com',
+  username: 'standard',
+  email:    'standard@example.com',
   password: 'helloworld'
  )
  standard.skip_confirmation!
