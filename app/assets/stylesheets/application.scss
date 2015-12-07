@@ -18,8 +18,25 @@
 @import "bootstrap";
 
 
-.body {
+body {
+  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/noisy_net.png");
+}
 
+h1 {
+  color: #ffffff;
+}
+
+h1.title {
+  color: #12171C;
+}
+
+h2 {
+  color: #ffffff;
+}
+
+p.about {
+  font-size: 18px;
+  color: #397D02;
 }
 
 .nav {
@@ -30,8 +47,87 @@
   margin-top: 10px;
 }
 
+.jumbotron {
+  min-height: 300px;
+  width: 750px;
+  background-color: #397D02;
+}
+
 .center-block {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.text {
+  color: #ffffff;
+}
+
+.alert-success {
+  border: none;
+  color: #ffffff;
+  background-color: #499871;
+}
+
+.alert-danger {
+  border: none;
+  color: #ffffff;
+  background-color: #497198;
+}
+
+.alert-warning {
+  border: none;
+  color: #ffffff;
+  background-color: #984949;
+}
+
+.index.btn-success {
+  border-color: #ffffff;
+  background-color: #171C21;
+}
+
+.index.btn-success:hover {
+  border-color: #ffffff;
+  background-color: #573A22 !important;
+}
+
+.index.btn-success:active {
+  border-color: #ffffff;
+  background-color: #171C21 !important;
+}
+
+.devise.btn-success {
+  border-color: #ffffff;
+  background-color: #171C21;
+}
+
+.devise.btn-success:hover {
+  border-color: #ffffff;
+  background-color: #397D02;
+}
+
+.devise.btn:active {
+  border-color: #ffffff;
+  background-color: #171C21 !important;
+}
+
+.devise.btn:focus {
+  outline: none !important;
+}
+
+.nav-links {
+  font-size: 15px;
+  color: #397D02 !important;
+}
+
+.input-group {
+  width: 300px;
+}
+
+.fanduel {
+  margin-right: 25px;
+}
+
+.draftkings {
+  margin-left: 25px;
 }

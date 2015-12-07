@@ -8,38 +8,48 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if flash[:notice] %>
+    <div class="alert alert-success text-center">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:notice] %>
+    </div>
+  <% elsif  flash[:error] %>
+    <div class="alert alert-danger text-center">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:error] %>
+    </div>
+  <% elsif flash[:alert] %>
+    <div class="alert alert-warning text-center">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
   <div class="container">
-    <ul class="nav nav-tabs">
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About", about_path %></li>
-      <li><%= link_to "Columns", "#" %></li>
-      <li><%= link_to "Rankings", "#" %></li>
-      <li><%= link_to "Teams", "#" %></li>
-      <li><%= link_to "Forums", "#" %></li>
-      <div class="pull-right user-info text">
-        <% if current_user %>
-          Hello, <%= link_to (current_user.username), edit_user_registration_path %>! <%= link_to "Sign out", destroy_user_session_path, {:style => 'color: #000000', method: :delete} %>
-        <% else %>
-          <%= link_to "Log in", new_user_session_path, {:style => 'color: #000000'}  %>
-        <% end %>
-      </div> 
-    </ul>
-    <% if flash[:notice] %>
-      <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash[:notice] %>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">FantasyMetrix</a>
+        </div>
+        <div>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Home", root_path, class: 'nav-links' %></li>
+            <li><%= link_to "Column", "#", class: 'nav-links' %></li>
+            <li><%= link_to "Rankings", "#", class: 'nav-links' %></li>
+            <li><%= link_to "Teams", "#", class: 'nav-links' %></li>
+            <li><%= link_to "Forums", "#", class: 'nav-links' %></li>
+            <li><%= link_to "About", about_path, class: 'nav-links' %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if !current_user %>
+              <li><%= link_to " Login", new_user_session_path, class: "glyphicon glyphicon-log-in" %><li>
+            <% else %>
+              <li><%= link_to " #{current_user.username}", edit_user_registration_path, class: 'glyphicon glyphicon-user' %></li> 
+              <li><%= link_to " Logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-    <% elsif  flash[:error] %>
-      <div class="alert alert-danger">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash[:error] %>
-      </div>
-    <% elsif flash[:alert] %>
-      <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
+    </nav>
 
     <%= yield %>
   
