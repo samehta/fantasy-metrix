@@ -19,7 +19,7 @@
 
 
 body {
-  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/noisy_net.png");
+  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_dotted2.png");
 }
 
 h1 {
@@ -39,12 +39,40 @@ p.about {
   color: #397D02;
 }
 
-.nav {
-  margin-top: 5px;
+.alert-success {
+  border: none;
+  border-radius: 0px;
+  color: #ffffff;
+  background-color: #499871;
 }
 
-.user-info {
-  margin-top: 10px;
+.alert-danger {
+  border: none;
+  border-radius: 0px;
+  color: #ffffff;
+  background-color: #497198;
+}
+
+.alert-warning {
+  border: none;
+  border-radius: 0px;
+  color: #ffffff;
+  background-color: #984949;
+}
+
+.container {
+  margin-top: 15px;
+}
+
+.home {
+  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/noisy_net.png");
+  border-radius: 5px;
+}
+
+.about {
+  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/noisy_net.png");
+  border-radius: 5px;
+  min-height: 480px;
 }
 
 .jumbotron {
@@ -63,45 +91,81 @@ p.about {
   color: #ffffff;
 }
 
-.alert-success {
-  border: none;
-  color: #ffffff;
-  background-color: #499871;
+.nav {
+  margin-top: 5px;
 }
 
-.alert-danger {
-  border: none;
-  color: #ffffff;
-  background-color: #497198;
+.navbar-brand {
+  color: #B7B7B7;
 }
 
-.alert-warning {
-  border: none;
-  color: #ffffff;
-  background-color: #984949;
+.navbar-brand:hover {
+  color: #B7B7B7 !important;
 }
 
-.index.btn-success {
+.nav-links {
+  font-size: 15px;
+  color: #397D02 !important;
+}
+
+.nav-links:hover {
+  font-size: 15px;
+  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_dotted2.png") !important;
+}
+
+.devise-links {
+  color: #397D02;
+}
+
+.devise-links:hover {
+  color: #397D02;
+}
+
+.glyphicon-user {
+  color: #397D02 !important;
+}
+
+.glyphicon-user:hover {
+  color: #B7B7B7 !important;
+}
+
+.glyphicon-log-in {
+  color: #397D02 !important;
+}
+
+.glyphicon-log-in:hover {
+  color: #B7B7B7 !important;
+}
+
+.glyphicon-log-out {
+  color: #984949 !important;
+}
+
+.glyphicon-log-out:hover {
+  color: #B7B7B7 !important;
+}
+
+.index.btn {
   border-color: #ffffff;
   background-color: #171C21;
 }
 
-.index.btn-success:hover {
+.index.btn:hover {
   border-color: #ffffff;
-  background-color: #573A22 !important;
+  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_dotted2.png") !important;
 }
 
-.index.btn-success:active {
+.index.btn:active {
   border-color: #ffffff;
   background-color: #171C21 !important;
 }
 
-.devise.btn-success {
+.devise.btn {
   border-color: #ffffff;
   background-color: #171C21;
 }
 
-.devise.btn-success:hover {
+.devise.btn:hover {
   border-color: #ffffff;
   background-color: #397D02;
 }
@@ -113,11 +177,6 @@ p.about {
 
 .devise.btn:focus {
   outline: none !important;
-}
-
-.nav-links {
-  font-size: 15px;
-  color: #397D02 !important;
 }
 
 .input-group {
