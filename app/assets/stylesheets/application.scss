@@ -17,9 +17,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
 body {
   background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_dotted2.png");
+  background-color: #171C21 !important;
 }
 
 h1 {
@@ -95,14 +95,6 @@ p.about {
   margin-top: 5px;
 }
 
-.navbar-brand {
-  color: #B7B7B7;
-}
-
-.navbar-brand:hover {
-  color: #B7B7B7 !important;
-}
-
 .nav-links {
   font-size: 15px;
   color: #397D02 !important;
@@ -152,7 +144,7 @@ p.about {
 
 .index.btn:hover {
   border-color: #ffffff;
-  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_dotted2.png") !important;
+  background-color: #2f3944 !important;
 }
 
 .index.btn:active {
