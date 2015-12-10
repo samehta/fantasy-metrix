@@ -2,7 +2,7 @@ require 'faker'
 
 
 # Create Users
-10.times do
+8.times do
 user = User.new(
   username: Faker::Name.name,
   email: Faker::Internet.email,
@@ -32,10 +32,20 @@ admin = User.new(
  standard.save!
 
 
+ # Create Topics
+ 5.times do
+   Topic.create!(
+     name:         Faker::Lorem.sentence,
+     description:  Faker::Lorem.paragraph
+   )
+ end
+ topics = Topic.all
+
 # Create Posts
  50.times do
    Post.create!(
     user: users.sample,
+    topic: topics.sample,
     title:  Faker::Lorem.sentence,
     body:   Faker::Lorem.paragraph
    )
@@ -52,6 +62,7 @@ admin = User.new(
 
 
 puts "Seed finished"
-puts "#{User.count} users counted"
+puts "#{User.count} users created"
+puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"

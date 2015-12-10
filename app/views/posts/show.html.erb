@@ -1,3 +1,9 @@
-<h1><%= @post.title %></h1>
-<p class="text"><%= @post.body %></p>
-<%= link_to "Edit", edit_post_path(@post), class: 'btn btn-success' %>
+<div class="home">
+  <div class="row">
+    <h1><%= @post.title %></h1>
+    <h5 class="author">Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.username %></h5><br>
+    <p class="text"><%= @post.body %></p><br>
+    <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'devise btn btn-success' %><br>
+    </div>
+  </div>
+</div><br><br>

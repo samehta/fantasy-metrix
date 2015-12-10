@@ -34,9 +34,17 @@ h2 {
   color: #ffffff;
 }
 
-p.about {
+h5.author {
+  color: #23527C;
+}
+
+p.text {
   font-size: 18px;
   color: #397D02;
+}
+
+p.line {
+  color: #23527C;
 }
 
 .alert-success {
@@ -67,12 +75,7 @@ p.about {
 .home {
   background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/noisy_net.png");
   border-radius: 5px;
-}
-
-.about {
-  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/noisy_net.png");
-  border-radius: 5px;
-  min-height: 480px;
+  min-height: 600px;
 }
 
 .jumbotron {
@@ -91,18 +94,40 @@ p.about {
   color: #ffffff;
 }
 
+.green {
+  color: #397D02;
+}
+
 .nav {
   margin-top: 5px;
 }
 
 .nav-links {
-  font-size: 15px;
+  font-size: 16px;
   color: #397D02 !important;
 }
 
 .nav-links:hover {
-  font-size: 15px;
+  font-size: 16px;
   background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_dotted2.png") !important;
+}
+
+.topic-links {
+  color: #23527C !important;
+}
+
+.topic-links:hover {
+  text-decoration: none;
+  color: #397D02 !important;
+}
+
+.post-links {
+  color: #397D02 !important;
+}
+
+.post-links:hover {
+  text-decoration: none;
+  color: #ffffff !important;
 }
 
 .devise-links {

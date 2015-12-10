@@ -24,36 +24,22 @@
       <%= flash[:alert] %>
     </div>
   <% end %>
+  
   <div class="container">
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand">FantasyMetrix</a>
-        </div>
-        <div>
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Home", root_path, class: 'nav-links' %></li>
-            <li><%= link_to "Columns", "#", class: 'nav-links' %></li>
-            <li><%= link_to "Rankings", "#", class: 'nav-links' %></li>
-            <li><%= link_to "Teams", "#", class: 'nav-links' %></li>
-            <li><%= link_to "Forums", "#", class: 'nav-links' %></li>
-            <li><%= link_to "About", about_path, class: 'nav-links' %></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <% if !current_user %>
-              <li><%= link_to " Login", new_user_session_path, class: "glyphicon glyphicon-log-in" %><li>
-            <% else %>
-              <li><%= link_to " #{current_user.username}", edit_user_registration_path, class: 'glyphicon glyphicon-user' %></li> 
-              <li><%= link_to " Logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %></li>
-            <% end %>
-          </ul>
+    <%= render "layouts/header" %>
+    <div class="home"><br><br>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+
+          <%= yield %>
+
         </div>
       </div>
-    </nav>
+    </div>
+  </div><br><br>
 
-    <%= yield %>
-  
-  </div>
+  <%= render "layouts/footer" %>
 
 </body>
 </html>

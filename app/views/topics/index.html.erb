@@ -1,0 +1,9 @@
+<div class="home">
+  <div class="row">
+    <h1>Forums</h1>
+    <% @topics.each do |topic| %>
+      <h3 class="text"><%= link_to topic.name, topic, class: 'topic-links' %></h3>
+    <% end %><br>
+    <%= link_to "New Topic", new_topic_path, class: 'devise btn btn-success' %><br>
+  </div>
+</div>

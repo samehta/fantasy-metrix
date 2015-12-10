@@ -1,0 +1,25 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">FantasyMetrix</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Home", root_path, class: 'nav-links' %></li>
+        <li><%= link_to "Articles", "#", class: 'nav-links' %></li>
+        <li><%= link_to "Rankings", "#", class: 'nav-links' %></li>
+        <li><%= link_to "Teams", "#", class: 'nav-links' %></li>
+        <li><%= link_to "Forums", topics_path, class: 'nav-links' %></li>
+        <li><%= link_to "About", about_path, class: 'nav-links' %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if !current_user %>
+          <li><%= link_to " Login", new_user_session_path, class: "glyphicon glyphicon-log-in" %><li>
+        <% else %>
+          <li><%= link_to " #{current_user.username}", edit_user_registration_path, class: 'glyphicon glyphicon-user' %></li> 
+          <li><%= link_to " Logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
