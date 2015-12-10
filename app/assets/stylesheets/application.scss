@@ -18,20 +18,29 @@
 @import "bootstrap";
 
 body {
-  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_dotted2.png");
+  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/hixs_pattern_evolution.png");
+  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/subtle_carbon.png");
   background-color: #171C21 !important;
 }
 
 h1 {
-  color: #ffffff;
+  color: #397D02;
 }
 
 h1.title {
-  color: #12171C;
+  color: #397D02;
 }
 
 h2 {
   color: #ffffff;
+}
+
+h4 {
+  color: #397D02;
+}
+
+h5 {
+  color: #397D02;
 }
 
 h5.author {
@@ -40,11 +49,15 @@ h5.author {
 
 p.text {
   font-size: 18px;
-  color: #397D02;
+  color: #D5CAC8;
 }
 
 p.line {
   color: #23527C;
+}
+
+.navbar {
+  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/outlets.png");
 }
 
 .alert-success {
@@ -81,7 +94,7 @@ p.line {
 .jumbotron {
   min-height: 300px;
   width: 750px;
-  background-color: #397D02;
+  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/outlets.png");
 }
 
 .center-block {
@@ -109,20 +122,20 @@ p.line {
 
 .nav-links:hover {
   font-size: 16px;
-  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_dotted2.png") !important;
+  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/noisy_net.png") !important;
 }
 
 .topic-links {
-  color: #23527C !important;
+  color: #D5CAC8 !important;
 }
 
 .topic-links:hover {
   text-decoration: none;
-  color: #397D02 !important;
+  color: #ffffff !important;
 }
 
 .post-links {
-  color: #397D02 !important;
+  color: #D5CAC8 !important;
 }
 
 .post-links:hover {
@@ -169,7 +182,7 @@ p.line {
 
 .index.btn:hover {
   border-color: #ffffff;
-  background-color: #2f3944 !important;
+  background-color: #397D02 !important;
 }
 
 .index.btn:active {
@@ -201,9 +214,5 @@ p.line {
 }
 
 .fanduel {
-  margin-right: 25px;
-}
 
-.draftkings {
-  margin-left: 25px;
 }

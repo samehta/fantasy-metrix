@@ -1,9 +1,12 @@
 <div class="home">
   <div class="row">
     <h1><%= @post.title %></h1>
-    <h5 class="author">Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.username %></h5><br>
+    <div class="pull-right">
+      <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'devise btn btn-success' %><br>
+    </div>
+    <h5 class="author">Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.username %></h5>
+    <p class="line">___________________________________________________________________________________________________________________________________________</p><br>
     <p class="text"><%= @post.body %></p><br>
-    <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'devise btn btn-success' %><br>
     </div>
   </div>
 </div><br><br>
