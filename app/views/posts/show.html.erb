@@ -2,10 +2,9 @@
   <div class="row">
     <h1><%= @post.title %></h1>
     <div class="pull-right">
-      <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'devise btn btn-success' %><br>
+      <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'devise btn btn-success' %>
     </div>
-    <h5 class="author">Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.username %></h5>
-    <p class="line">___________________________________________________________________________________________________________________________________________</p><br>
+    <h5 class="author">Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.username %></h5><br><br>
     <p class="text"><%= @post.body %></p><br>
     </div>
   </div>

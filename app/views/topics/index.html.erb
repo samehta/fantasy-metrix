@@ -1,9 +1,14 @@
 <div class="home">
-  <div class="row">
-    <h1>Forums</h1>
-    <% @topics.each do |topic| %>
-      <h3 class="text"><%= link_to topic.name, topic, class: 'topic-links' %></h3>
-    <% end %><br>
-    <%= link_to "New Topic", new_topic_path, class: 'devise btn btn-success' %><br>
-  </div>
+  <h1 class="text-center">Forums</h1>
+  <%= link_to "New Topic", new_topic_path, class: 'pull-right devise btn btn-success' %><br><br>
+  <% @topics.each_slice(3) do |topics| %>
+    <div class="row">
+      <% topics.each do |topic| %>
+        <h3 class="col-md-4 text text-center"><%= link_to topic.name, topic, class: 'topic-links' %></h3>
+        <%#= image_tag topic.image_path %>
+      <% end %>
+    </div><br><br>
+  <% end %>
 </div>
+
+

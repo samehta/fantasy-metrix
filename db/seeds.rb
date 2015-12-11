@@ -33,7 +33,7 @@ admin = User.new(
 
 
  # Create Topics
- 5.times do
+ 6.times do
    Topic.create!(
      name:         Faker::Lorem.sentence,
      description:  Faker::Lorem.paragraph

@@ -38,10 +38,6 @@ h4 {
   color: #397D02;
 }
 
-h5 {
-  color: #397D02;
-}
-
 h5.author {
   color: #23527C;
 }
@@ -205,6 +201,25 @@ p.line {
 }
 
 .devise.btn:focus {
+  outline: none !important;
+}
+
+.cancel.btn {
+  border-color: #ffffff;
+  background-color: #171C21;
+}
+
+.cancel.btn:hover {
+  border-color: #ffffff;
+  background-color: #984949 !important;
+}
+
+.cancel.btn:active {
+  border-color: #ffffff;
+  background-color: #171C21 !important;
+}
+
+.cancel.btn:focus {
   outline: none !important;
 }
 

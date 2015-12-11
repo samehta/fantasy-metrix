@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:topic_id])
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def create
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:topic_id])
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
     if @post.update_attributes(post_params)
       flash[:notice] = "Post was successfully updated."
       redirect_to [@topic, @post]

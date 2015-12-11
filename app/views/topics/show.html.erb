@@ -3,12 +3,10 @@
     <h1><%= @topic.name %></h1>
     <div class="pull-right">
       <%= link_to "New Post", new_topic_post_path(@topic), class: 'devise btn btn-success' %>
-    </div>
-    <p class="line">___________________________________________________________________________________________________________________________________________</p>
+    </div><br>
     <% @posts.each do |post| %>
       <h3 class="text"><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
-      <h5>By <%= post.user.username %></h5>
-      <p class="line">___________________________________________________________________________________________________________________________________________</p>
+      <h5 class="author">By <%= post.user.username %></h5>
     <% end %><br>
   </div>
 </div><br><br>
