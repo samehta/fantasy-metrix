@@ -2,7 +2,7 @@
   <div class="row">
     <h1><%= @post.title %></h1>
     <div class="pull-right">
-      <% if policy(Post.new).update? %>
+      <% if policy(@post).update? %>
         <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'devise btn btn-success' %>
       <% end %>
     </div>
