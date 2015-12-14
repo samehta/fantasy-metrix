@@ -17,12 +17,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 body {
   background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/subtle_carbon.png");
   background-color: #171C21 !important;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
+  color: #D5CAC8;
+}
+
+h1.topic {
+  color: #397D02;
+}
+
+h1.post {
   color: #397D02;
 }
 
@@ -30,12 +39,8 @@ h1.title {
   color: #397D02;
 }
 
-h2 {
-  color: #ffffff;
-}
-
-h4 {
-  color: #397D02;
+h4.body {
+  color: #D5CAC8;
 }
 
 h5.author {
@@ -45,10 +50,6 @@ h5.author {
 p.text {
   font-size: 18px;
   color: #D5CAC8;
-}
-
-p.line {
-  color: #23527C;
 }
 
 .navbar {

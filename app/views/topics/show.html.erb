@@ -1,6 +1,6 @@
 <div class="home">
   <div class="row">
-    <h1><%= @topic.name %></h1>
+    <h1 class="topic"><%= @topic.name %></h1>
     <div class="pull-right">
       <% if policy(@topic).update? %>
         <%= link_to "Edit Topic", edit_topic_path(@topic), class: 'devise btn btn-success' %>
@@ -10,7 +10,7 @@
       <% end %>
     </div><br>
     <% @posts.each do |post| %>
-      <h3 class="text"><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
+      <h3><%= link_to (markdown_to_html post.title), [@topic, post], class: 'post-links' %></h3>
       <h5 class="author">By <%= post.user.username %></h5>
     <% end %><br>
   </div>

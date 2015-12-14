@@ -1,13 +1,12 @@
 <div class="home">
   <div class="row">
-    <h1><%= @post.title %></h1>
+    <h1 class="post"><%= markdown_to_html @post.title %></h1>
     <div class="pull-right">
       <% if policy(@post).update? %>
         <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'devise btn btn-success' %>
       <% end %>
     </div>
-    <h5 class="author">Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.username %></h5><br><br>
-    <p class="text"><%= @post.body %></p><br>
-    </div>
+    <h5 class="author">Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.username %></h5><br>
+    <h4 class="body"><%= markdown_to_html @post.body %></h4><br>
   </div>
 </div><br><br>
