@@ -1,17 +1,22 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
+
   def show
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
+    authorize @post
   end
 
   def new
     @topic = Topic.find(params[:topic_id])
     @post = Post.new
+    authorize @post
   end
 
   def edit
     @topic = Topic.find(params[:topic_id])
     @post = current_user.posts.find(params[:id])
+    authorize @post
   end
 
   def create
@@ -19,6 +24,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     @post.topic = @topic
+    authorize @post
     if @post.save
       flash[:notice] = "Post was successfully saved."
       redirect_to [@topic, @post]
@@ -31,6 +37,7 @@ class PostsController < ApplicationController
   def update
     @topic = Topic.find(params[:topic_id])
     @post = current_user.posts.find(params[:id])
+    authorize @post
     if @post.update_attributes(post_params)
       flash[:notice] = "Post was successfully updated."
       redirect_to [@topic, @post]

@@ -1,23 +1,30 @@
 class TopicsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @topics = Topic.all
+    authorize @topics
   end
 
   def show
     @topic = Topic.find(params[:id])
     @posts = @topic.posts
+    authorize @topic
   end
 
   def new
     @topic = Topic.new
+    authorize @topic
   end
 
   def edit
     @topic = Topic.find(params[:id])
+    authorize @topic
   end
 
   def create
     @topic = Topic.new(topic_params)
+    authorize @topic
     if @topic.save
       flash[:notice] = "Topic was successfully saved."
       redirect_to @topic
@@ -29,6 +36,7 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
+    authorize @topic
     if @topic.update_attribtues(topic_params)
       flash[:notice] = "Topic was successfully updated."
       redirect_to @topic

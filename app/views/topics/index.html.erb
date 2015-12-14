@@ -1,14 +1,17 @@
-<div class="home">
-  <h1 class="text-center">Forums</h1>
-  <%= link_to "New Topic", new_topic_path, class: 'pull-right devise btn btn-success' %><br><br>
+<div class="home"><br><br>
   <% @topics.each_slice(3) do |topics| %>
     <div class="row">
       <% topics.each do |topic| %>
         <h3 class="col-md-4 text text-center"><%= link_to topic.name, topic, class: 'topic-links' %></h3>
         <%#= image_tag topic.image_path %>
       <% end %>
-    </div><br><br>
+    </div><br><br><br>
   <% end %>
+  <div class="text-center">
+    <% if policy(Topic.new).create? %>
+      <%= link_to "New Topic", new_topic_path, class: 'devise btn btn-success' %>
+    <% end %>
+  </div>
 </div>
 
 
