@@ -6,7 +6,10 @@
         <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'devise btn btn-success' %>
       <% end %>
     </div>
-    <h5 class="author">Submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.username %></h5><br>
+    <small class="author">
+      submitted <%= time_ago_in_words(@post.created_at) %> ago by
+      <%= @post.user.username %><br><br>
+    </small>
     <h4 class="body"><%= markdown_to_html @post.body %></h4><br>
   </div>
 </div><br><br>

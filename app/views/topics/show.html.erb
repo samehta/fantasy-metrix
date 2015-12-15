@@ -11,7 +11,7 @@
     </div><br>
     <% @posts.each do |post| %>
       <h3><%= link_to (markdown_to_html post.title), [@topic, post], class: 'post-links' %></h3>
-      <h5 class="author">By <%= post.user.username %></h5>
+      <small class="author">By <%= post.user.username %></small>
     <% end %><br>
   </div>
 </div><br><br>

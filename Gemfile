@@ -24,6 +24,9 @@ gem 'figaro', '1.0'
 gem 'faker'
 gem 'pundit'
 gem 'redcarpet'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
          :confirmable
 
   has_many :posts
+  mount_uploader :avatar, AvatarUploader
 
   def admin?
     role == 'admin'
