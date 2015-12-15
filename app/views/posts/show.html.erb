@@ -1,6 +1,6 @@
 <div class="home">
   <div class="row">
-    <h1 class="post"><%= markdown_to_html @post.title %></h1>
+    <h1 class="post"><%= @post.title %></h1>
     <div class="pull-right">
       <% if policy(@post).update? %>
         <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'devise btn btn-success' %>

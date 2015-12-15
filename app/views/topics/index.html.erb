@@ -2,7 +2,7 @@
   <% @topics.each_slice(3) do |topics| %>
     <div class="row">
       <% topics.each do |topic| %>
-        <h3 class="col-md-4 text text-center"><%= link_to topic.name, topic, class: 'topic-links' %></h3>
+        <h2 class="col-md-4 text text-center"><%= link_to topic.name, topic, class: 'topic-links' %></h2>
         <%#= image_tag topic.image_path %>
       <% end %>
     </div><br><br><br>
@@ -13,5 +13,3 @@
     <% end %>
   </div>
 </div>
-
-

@@ -10,8 +10,9 @@
       <% end %>
     </div><br>
     <% @posts.each do |post| %>
-      <h3><%= link_to (markdown_to_html post.title), [@topic, post], class: 'post-links' %></h3>
+      <h3><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
       <small class="author">By <%= post.user.username %></small>
-    <% end %><br>
+    <% end %><br><br>
+    <h5 class="text-center paginate"><%= will_paginate @posts %></h5>
   </div>
 </div><br><br>
