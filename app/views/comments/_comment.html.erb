@@ -1,0 +1,6 @@
+<p>
+  <%= comment.body %>
+  <% if comment.user %>
+    <small class="author">By <%= comment.user.username %></small>
+  <% end %>
+</p><br>

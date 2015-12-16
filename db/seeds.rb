@@ -5,7 +5,7 @@ require 'faker'
 8.times do
 user = User.new(
   username: Faker::Name.name,
-  email: Faker::Internet.email,
+  email:    Faker::Internet.email,
   password: Faker::Lorem.characters(10)
 )
 user.skip_confirmation!
@@ -17,8 +17,8 @@ users = User.all
 admin = User.new(
   username: 'Admin',
   email:    'admin@example.com',
-  password: 'helloworld',
-  role: 'admin'
+  password: 'password',
+  role:     'admin'
 )
 admin.skip_confirmation!
 admin.save!
@@ -27,7 +27,7 @@ admin.save!
 standard = User.new(
   username: 'Sahil',
   email:    'samehta91@gmail.com',
-  password: 'helloworld'
+  password: 'password'
 )
 standard.skip_confirmation!
 standard.save!
@@ -42,20 +42,21 @@ end
 topics = Topic.all
 
 # Create Posts
-50.times do
+250.times do
   Post.create!(
-    user: users.sample,
+    user:  users.sample,
     topic: topics.sample,
-    title:  Faker::Lorem.sentence,
-    body:   Faker::Lorem.paragraph
+    title: Faker::Lorem.sentence,
+    body:  Faker::Lorem.paragraph
   )
 end
 posts = Post.all
  
  # Create Comments
-100.times do
+1000.times do
   Comment.create!(
     post: posts.sample,
+    user: users.sample,
     body: Faker::Lorem.paragraph
   )
 end

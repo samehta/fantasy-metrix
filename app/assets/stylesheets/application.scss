@@ -24,19 +24,23 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, p {
-  color: #D5CAC8;
-}
-
-h1.topic {
-  color: #397D02;
-}
-
-h1.post {
-  color: #397D02;
+  color: #ffffff;
 }
 
 h1.title {
   color: #397D02;
+}
+
+h1.topic {
+  color: #23527C;
+}
+
+h1.post {
+  color: #23527C;
+}
+
+h2.comments {
+  color: #23527C;
 }
 
 h4.body {
@@ -44,12 +48,28 @@ h4.body {
 }
 
 small.author {
-  color: #23527C;
+  color: #397D02;
 }
 
 p.text {
   font-size: 18px;
   color: #D5CAC8;
+}
+
+.text {
+  color: #ffffff;
+}
+
+.green {
+  color: #397D02;
+}
+
+.white {
+  color: #D5CAC8;
+}
+
+.blue {
+  color: #23527C;
 }
 
 .navbar {
@@ -99,14 +119,6 @@ p.text {
   margin-right: auto;
 }
 
-.text {
-  color: #ffffff;
-}
-
-.green {
-  color: #397D02;
-}
-
 .nav {
   margin-top: 5px;
 }
@@ -121,8 +133,12 @@ p.text {
   background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/noisy_net.png") !important;
 }
 
+.input-group {
+  width: 300px;
+}
+
 .topic-links {
-  color: #D5CAC8 !important;
+  color: #397D02 !important;
 }
 
 .topic-links:hover {
@@ -223,12 +239,3 @@ p.text {
 .cancel.btn:focus {
   outline: none !important;
 }
-
-.input-group {
-  width: 300px;
-}
-
-h5.paginate {
-  margin-bottom: 20px;
-}
-

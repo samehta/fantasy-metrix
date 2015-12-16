@@ -10,6 +10,8 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 gem 'sass-rails', '~> 5.0'
@@ -27,7 +29,7 @@ gem 'redcarpet'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
-gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

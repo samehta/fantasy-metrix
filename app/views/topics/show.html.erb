@@ -13,6 +13,8 @@
       <h3><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
       <small class="author">By <%= post.user.username %></small>
     <% end %><br><br>
-    <h5 class="text-center paginate"><%= will_paginate @posts %></h5>
+    <div class="text-center center-block pagination">
+      <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+    </div>
   </div>
 </div><br><br>

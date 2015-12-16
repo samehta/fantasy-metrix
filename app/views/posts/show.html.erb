@@ -7,9 +7,19 @@
       <% end %>
     </div>
     <small class="author">
-      submitted <%= time_ago_in_words(@post.created_at) %> ago by
+      Submitted <%= time_ago_in_words(@post.created_at) %> ago by
       <%= @post.user.username %><br><br>
     </small>
-    <h4 class="body"><%= markdown_to_html @post.body %></h4><br>
+    <h4 class="body"><%= markdown_to_html @post.body %></h4><br><br><br>
   </div>
-</div><br><br>
+  <div class="col-md-10">
+    <h2 class="comments">Comments</h2>
+    <%= render @comments %>
+  </div>
+  <% if current_user %>
+    <div class="col-md-7">
+      <h4>New Comment</h4>
+      <%= render partial: 'comments/form', locals: { post: @post, comment: @comment } %>
+    </div>
+  <% end %>
+</div>

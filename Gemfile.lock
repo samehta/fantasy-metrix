@@ -42,6 +42,10 @@ GEM
       execjs
       json
     bcrypt (3.1.10)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.5.1)
@@ -60,6 +64,7 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -311,6 +316,8 @@ GEM
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     will_paginate (3.0.7)
+    will_paginate-bootstrap (1.0.1)
+      will_paginate (>= 3.0.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -318,6 +325,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
+  binding_of_caller
   bootstrap-sass
   byebug
   capybara
@@ -344,7 +353,7 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
-  will_paginate (~> 3.0.6)
+  will_paginate-bootstrap
 
 BUNDLED WITH
    1.10.6
