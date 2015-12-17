@@ -1,6 +1,7 @@
-<p>
-  <%= comment.body %>
-  <% if comment.user %>
-    <small class="author">By <%= comment.user.username %></small>
+<small class="author">
+  <%= comment.user.username %> commented <%= time_ago_in_words(comment.created_at) %> ago
+  <% if policy(comment).destroy? %>
+    <%= link_to "Delete", [comment.post, comment], method: :delete %>
   <% end %>
-</p><br>
+</small>
+<p><%= comment.body %></p><br>

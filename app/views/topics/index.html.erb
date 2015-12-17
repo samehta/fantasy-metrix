@@ -5,11 +5,11 @@
         <h1 class="col-md-4 text-center"><%= link_to topic.name, topic, class: 'topic-links' %></h2>
         <%#= image_tag topic.image_path %>
       <% end %>
-    </div><br><br><br>
+    </div><br>
   <% end %>
   <div class="text-center">
-    <% if policy(Topic.new).create? %>
-      <%= link_to "New Topic", new_topic_path, class: 'devise btn btn-success' %>
-    <% end %>
+    <%# if policy(Topic.new).create? %>
+      <%#= link_to "New Topic", new_topic_path, class: 'devise btn btn-success' %>
+    <%# end %>
   </div>
-</div>
+</div><br><br>

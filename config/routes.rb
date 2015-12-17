@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     resources :posts, except: [:index]
   end
 
-  resources :posts do 
-    resources :comments, only: [:create]
+  resources :posts, only: [] do 
+    resources :comments, only: [:create, :destroy]
   end
 
   root to: "welcome#index"

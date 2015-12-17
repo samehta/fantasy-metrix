@@ -19,7 +19,7 @@
 
 
 body {
-  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/subtle_carbon.png");
+  background-image: url("carbon.png");
   background-color: #171C21 !important;
 }
 
@@ -45,6 +45,10 @@ h2.comments {
 
 h4.body {
   color: #D5CAC8;
+}
+
+h4.paginate {
+  color: #397D02;
 }
 
 small.author {
@@ -73,7 +77,7 @@ p.text {
 }
 
 .navbar {
-  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/outlets.png");
+  background: url("outlets.png");
 }
 
 .alert-success {
@@ -102,7 +106,7 @@ p.text {
 }
 
 .home {
-  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/noisy_net.png");
+  background: url("noisy.png");
   border-radius: 5px;
   min-height: 600px;
 }
@@ -110,7 +114,7 @@ p.text {
 .jumbotron {
   min-height: 300px;
   width: 750px;
-  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/outlets.png");
+  background: url("outlets.png");
 }
 
 .center-block {
@@ -130,7 +134,7 @@ p.text {
 
 .nav-links:hover {
   font-size: 16px;
-  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/noisy_net.png") !important;
+  background: url("noisy.png") !important;
 }
 
 .input-group {
@@ -239,3 +243,23 @@ p.text {
 .cancel.btn:focus {
   outline: none !important;
 }
+
+.edit.btn {
+  border-color: #ffffff;
+  background-color: #171C21;
+}
+
+.edit.btn:hover {
+  border-color: #ffffff;
+  background-color: #497198 !important;
+}
+
+.edit.btn:active {
+  border-color: #ffffff;
+  background-color: #171C21 !important;
+}
+
+.edit.btn:focus {
+  outline: none !important;
+}
+
