@@ -1,0 +1,19 @@
+<div class="home">
+  <div class="row">
+    <% @articles.each do |article| %>
+      <h1><%= link_to article.title, article, class: 'article-links' %></h1>
+      <small class="author">
+        By <%= article.user.username %> on 
+        <%= article.created_at.time.to_formatted_s(:long) %>
+      </small><br><br>
+    <% end %>
+    <h4 class="text-center paginate"><%= will_paginate @articles %></h4>
+  </div>
+  <div class="row">
+    <div class="text-center">
+      <% if policy(Article.new).create? %>
+        <%= link_to "New Article", new_article_path, class: 'devise btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</div><br><br>

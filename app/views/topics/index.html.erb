@@ -8,8 +8,8 @@
     </div><br>
   <% end %>
   <div class="text-center">
-    <%# if policy(Topic.new).create? %>
-      <%#= link_to "New Topic", new_topic_path, class: 'devise btn btn-success' %>
-    <%# end %>
+    <% if policy(Topic.new).create? %>
+      <%= link_to "New Topic", new_topic_path, class: 'devise btn btn-success' %>
+    <% end %>
   </div>
-</div><br><br>
+</div>

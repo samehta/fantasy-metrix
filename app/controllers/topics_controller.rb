@@ -42,7 +42,7 @@ class TopicsController < ApplicationController
       redirect_to @topic
     else
       flash[:error] = "There was an error updating the topic. Please try again."
-      render :new
+      render :edit
     end
   end
 
@@ -61,6 +61,6 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:name, :description, :public)
+    params.require(:topic).permit(:name, :description)
   end
 end

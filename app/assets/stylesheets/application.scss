@@ -19,7 +19,7 @@
 
 
 body {
-  background-image: url("carbon.png");
+  background-image: url("Carbon.png");
   background-color: #171C21 !important;
 }
 
@@ -41,10 +41,6 @@ h1.post {
 
 h2.comments {
   color: #23527C;
-}
-
-h4.body {
-  color: #D5CAC8;
 }
 
 h4.paginate {
@@ -77,7 +73,7 @@ p.text {
 }
 
 .navbar {
-  background: url("outlets.png");
+  background: url("Outlets.png");
 }
 
 .alert-success {
@@ -106,7 +102,7 @@ p.text {
 }
 
 .home {
-  background: url("noisy.png");
+  background: url("Noisy.png");
   border-radius: 5px;
   min-height: 600px;
 }
@@ -114,7 +110,7 @@ p.text {
 .jumbotron {
   min-height: 300px;
   width: 750px;
-  background: url("outlets.png");
+  background: url("Outlets.png");
 }
 
 .center-block {
@@ -134,7 +130,7 @@ p.text {
 
 .nav-links:hover {
   font-size: 16px;
-  background: url("noisy.png") !important;
+  background: url("Noisy.png") !important;
 }
 
 .input-group {
@@ -146,6 +142,15 @@ p.text {
 }
 
 .topic-links:hover {
+  text-decoration: none;
+  color: #ffffff !important;
+}
+
+.article-links {
+  color: #23527C !important;
+}
+
+.article-links:hover {
   text-decoration: none;
   color: #ffffff !important;
 }

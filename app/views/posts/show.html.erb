@@ -2,7 +2,7 @@
   <div class="row">
     <h1 class="post"><%= @post.title %></h1>
     <small class="author">
-      Submitted <%= time_ago_in_words(@post.created_at) %> ago by
+      Posted <%= time_ago_in_words(@post.created_at) %> ago by
       <%= @post.user.username %>
     </small><br><br>
     <div>
@@ -13,7 +13,7 @@
         <%= link_to "Delete Post", [@topic, @post], method: :delete, class: 'cancel btn btn-danger', data: { confirm: 'Are you sure you want to delete this post?' } %><br><br>
       <% end %>
     </div>
-    <h4 class="body"><%= markdown_to_html @post.body %></h4><br><br><br>
+    <p><%= markdown_to_html @post.body %></p><br><br><br>
   </div>
   <div class="col-md-10">
     <h2 class="comments">Comments</h2>
