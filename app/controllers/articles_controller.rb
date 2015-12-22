@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @articles = Article.all.paginate(page: params[:page], per_page: 10)
+    @articles = Article.all.paginate(page: params[:page], per_page: 5)
   end
 
   def show
