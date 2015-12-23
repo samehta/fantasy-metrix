@@ -34,7 +34,7 @@ standard.save!
 
 
 # Create Articles
-20.times do
+24.times do
   Article.create!(
     user: users.sample,
     title: Faker::Lorem.sentence,
@@ -45,11 +45,12 @@ articles = Article.all
 
 
 # Create Topics
-6.times do
-  Topic.create!(
-    name: Faker::Lorem.sentence
-  )
-end
+Topic.create!(name: 'Sleepers')
+Topic.create!(name: 'Dynasty')
+Topic.create!(name: 'Injuries')
+Topic.create!(name: 'Waiver Wire')
+Topic.create!(name: 'Start / Sit')
+Topic.create!(name: 'Trade Advice')
 topics = Topic.all
 
 # Create Posts

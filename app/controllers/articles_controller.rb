@@ -2,23 +2,28 @@ class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @articles = Article.all.paginate(page: params[:page], per_page: 5)
+    @articles = Article.all.paginate(page: params[:page], per_page: 8)
+    authorize @articles
   end
 
   def show
     @article = Article.find(params[:id])
+    authorize @article
   end
 
   def new
     @article = Article.new
+    authorize @article
   end
 
   def edit
     @article = Article.find(params[:id])
+    authorize @article
   end
 
   def create
     @article = Article.new(article_params)
+    authorize @article
     if @article.save
       flash[:notice] = "Article was successfully saved."
       redirect_to @article
@@ -29,7 +34,8 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
+    authorize @article
     if @article.update_attributes(article_params)
       flash[:notice] = "Article was successfully updated."
       redirect_to @article
@@ -40,7 +46,8 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
+    authorize @article
     if @article.destroy
       flash[:notice] = "The article was successfully deleted."
       redirect_to articles_path
