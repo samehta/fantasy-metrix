@@ -19,7 +19,7 @@
 
 
 body {
-  background: image_url("Carbon.png");
+  background: asset-url('Carbon.png');
   background-color: #171C21 !important;
 }
 
@@ -73,7 +73,7 @@ p.text {
 }
 
 .navbar {
-  background: image_url("Outlets.png");
+  background: asset-url("Outlets.png");
 }
 
 .alert-success {
@@ -102,7 +102,7 @@ p.text {
 }
 
 .home {
-  background: image_url("Noisy.png");
+  background: asset-url("Noisy.png");
   border-radius: 5px;
   min-height: 600px;
 }
@@ -110,7 +110,7 @@ p.text {
 .jumbotron {
   min-height: 300px;
   width: 750px;
-  background: image_url("Outlets.png");
+  background: asset-url("Outlets.png");
 }
 
 .center-block {
@@ -130,7 +130,7 @@ p.text {
 
 .nav-links:hover {
   font-size: 16px;
-  background: image-url("Noisy.png") !important;
+  background: asset-url("Noisy.png") !important;
 }
 
 .input-group {
