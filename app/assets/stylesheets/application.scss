@@ -19,7 +19,7 @@
 
 
 body {
-  background: asset-url('Carbon.png');
+  background: asset-url('carbon-bg.png');
   background-color: #171C21 !important;
 }
 
@@ -73,7 +73,7 @@ p.text {
 }
 
 .navbar {
-  background: asset-url("Outlets.png");
+  background: asset-url('outlets-bg.png');
 }
 
 .alert-success {
@@ -102,7 +102,7 @@ p.text {
 }
 
 .home {
-  background: asset-url("Noisy.png");
+  background: asset-url('noisy-bg.png');
   border-radius: 5px;
   min-height: 600px;
 }
@@ -110,7 +110,7 @@ p.text {
 .jumbotron {
   min-height: 300px;
   width: 750px;
-  background: asset-url("Outlets.png");
+  background: asset-url('outlets-bg.png');
 }
 
 .center-block {
@@ -130,7 +130,7 @@ p.text {
 
 .nav-links:hover {
   font-size: 16px;
-  background: asset-url("Noisy.png") !important;
+  background: asset-url('noisy-bg.png') !important;
 }
 
 .input-group {

@@ -1,4 +1,4 @@
-[FantasyMetrix](https://fantasymetrix.herokuapp.com)
+# [FantasyMetrix](https://fantasymetrix.herokuapp.com)
 
 # Developer Setup
 
