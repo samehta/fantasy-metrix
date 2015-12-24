@@ -1,16 +1,11 @@
 <div class="home">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
       <h1 class="post"><%= @article.title %></h1>
       <small class="author">
         Submitted <%= time_ago_in_words(@article.created_at) %>
         By <%= @article.user.username %>
       </small><br><br>
-    </div>
-    <div class="col-md-3">
-      <%= image_tag(@article.image_path, :width => 150, :height => 150) %><br><br>
-    </div>
-    <div>
       <% if policy(@article).update? %>
         <%= link_to "Edit Article", edit_article_path(@article), class: 'edit btn btn-success' %>
       <% end %>
@@ -18,6 +13,11 @@
         <%= link_to "Delete Article", @article, method: :delete, class: 'cancel btn btn-danger', data: { confirm: 'Are you sure you want to delete this article?' } %><br><br>
       <% end %>
     </div>
+    <% if @article.image_path %>
+      <div class="col-md-4">
+        <%= image_tag(@article.image_path, :width => 200, :height => 200) %><br><br>
+      </div>
+    <% end %>
   </div>
   <div class="row">
     <div class="col-md-12">

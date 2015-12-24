@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = current_user.articles.find(params[:id])
+    @article = Article.find(params[:id])
     authorize @article
   end
 
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = current_user.articles.find(params[:id])
+    @article = Article.find(params[:id])
     authorize @article
     if @article.update_attributes(article_params)
       flash[:notice] = "Article was successfully updated."
