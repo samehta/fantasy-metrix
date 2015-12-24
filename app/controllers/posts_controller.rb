@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 
   def destroy
     @topic = Topic.find(params[:topic_id])
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
     authorize @post
     if @post.destroy
       flash[:notice] = "\"#{@post.title}\" was successfully deleted."

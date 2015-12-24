@@ -2,8 +2,8 @@
   <div class="row">
     <h1 class="post"><%= @post.title %></h1>
     <small class="author">
-      Posted <%= time_ago_in_words(@post.created_at) %> ago by
-      <%= @post.user.username %>
+      Posted <%= time_ago_in_words(@post.created_at) %> ago
+      By <%= @post.user.username %>
     </small><br><br>
     <div>
       <% if policy(@post).update? %>

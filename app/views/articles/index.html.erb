@@ -1,11 +1,24 @@
 <div class="home">
   <div class="row">
+    <div class="col-md-12">
+      <h1 class="green">Articles</h1><br>
+      <p>___________________________________________________________________________________________________________________________________________</p>
+    </div>
+  </div>
+  <div class="row">
     <% @articles.each do |article| %>
-      <h1><%= link_to article.title, article, class: 'article-links' %></h1>
-      <small class="author">
-        By <%= article.user.username %> on 
-        <%= article.created_at.time.to_formatted_s(:long) %>
-      </small><br><br>
+      <div class="col-md-9">
+        <h1><%= link_to article.title, article, class: 'article-links' %></h1>
+        <small class="author">
+          By <%= article.user.username %>
+        </small><br><br>
+      </div>
+      <div class="col-md-3">
+        <%= image_tag(article.image_path, :width => 150, :height => 150) %>
+      </div>
+      <div class="col-md-12">
+        <p>___________________________________________________________________________________________________________________________________________</p>
+      </div>
     <% end %>
     <h4 class="text-center paginate"><%= will_paginate @articles %></h4>
   </div>

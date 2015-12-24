@@ -4,15 +4,17 @@
     <% if policy(@topic).update? %>
       <%= link_to "Edit Topic", edit_topic_path(@topic), class: 'edit btn btn-success' %>
     <% end %>
-    <%# if policy(@topic).destroy? %>
-      <%#= link_to "Delete Topic", @topic, method: :delete, class: 'cancel btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %> 
-    <%# end %>
+    <% if policy(@topic).destroy? %>
+      <%= link_to "Delete Topic", @topic, method: :delete, class: 'cancel btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %> 
+    <% end %>
     <% if policy(Post.new).create? %>
       <%= link_to "New Post", new_topic_post_path(@topic), class: 'devise btn btn-success' %>
-    <% end %><br>
+    <% end %><br><br>
+    <p>___________________________________________________________________________________________________________________________________________</p>
     <% @posts.each do |post| %>
       <h3><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
       <small class="author">By <%= post.user.username %></small>
+      <p>___________________________________________________________________________________________________________________________________________</p>
     <% end %><br><br>
     <h4 class="text-center paginate"><%= will_paginate @posts %></h4>
   </div>

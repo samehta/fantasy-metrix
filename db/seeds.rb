@@ -38,19 +38,20 @@ standard.save!
   Article.create!(
     user: users.sample,
     title: Faker::Lorem.sentence,
-    body: Faker::Lorem.paragraphs(50)
+    body: Faker::Lorem.paragraphs(30),
+    image_path: Faker::Avatar.image
   )
 end
 articles = Article.all
 
 
 # Create Topics
-Topic.create!(name: 'Sleepers')
-Topic.create!(name: 'Dynasty')
-Topic.create!(name: 'Injuries')
-Topic.create!(name: 'Waiver Wire')
-Topic.create!(name: 'Start / Sit')
-Topic.create!(name: 'Trade Advice')
+Topic.create!(name: 'Sleepers', image_path: Faker::Avatar.image)
+Topic.create!(name: 'Dynasty', image_path: Faker::Avatar.image)
+Topic.create!(name: 'Injuries', image_path: Faker::Avatar.image)
+Topic.create!(name: 'Waiver Wire', image_path: Faker::Avatar.image)
+Topic.create!(name: 'Start / Sit', image_path: Faker::Avatar.image)
+Topic.create!(name: 'Trade Advice', image_path: Faker::Avatar.image)
 topics = Topic.all
 
 # Create Posts

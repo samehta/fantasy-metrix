@@ -17,13 +17,14 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
     authorize @article
   end
 
   def create
     @article = Article.new(article_params)
     authorize @article
+    @article.user = current_user
     if @article.save
       flash[:notice] = "Article was successfully saved."
       redirect_to @article
@@ -46,7 +47,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = current_user.articles.find(params[:id])
+    @article = Article.find(params[:id])
     authorize @article
     if @article.destroy
       flash[:notice] = "The article was successfully deleted."
