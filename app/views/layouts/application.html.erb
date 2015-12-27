@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< Updated upstream
   <title>Fantasy</title>
+=======
+  <title>FantasyMetrix</title>
+  <%= favicon_link_tag 'favicon.ico' %>
+>>>>>>> Stashed changes
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -24,6 +29,12 @@
       <%= flash[:alert] %>
     </div>
   <% end %>
+<<<<<<< Updated upstream
+=======
+  
+  <%= render "layouts/header" %>
+
+>>>>>>> Stashed changes
   <div class="container">
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
@@ -33,6 +44,7 @@
         <div>
           <ul class="nav navbar-nav">
             <li><%= link_to "Home", root_path, class: 'nav-links' %></li>
+<<<<<<< Updated upstream
             <li><%= link_to "Columns", "#", class: 'nav-links' %></li>
             <li><%= link_to "Rankings", "#", class: 'nav-links' %></li>
             <li><%= link_to "Teams", "#", class: 'nav-links' %></li>
@@ -41,12 +53,32 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if !current_user %>
+=======
+            <li><%= link_to "Articles", articles_path, class: 'nav-links' %></li>
+            <li><%= link_to "Rankings", "#", class: 'nav-links' %></li>
+            <li><%= link_to "Teams", "#", class: 'nav-links' %></li>
+            <li><%= link_to "Forums", topics_path, class: 'nav-links' %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if !user_signed_in? %>
+>>>>>>> Stashed changes
               <li><%= link_to " Login", new_user_session_path, class: "glyphicon glyphicon-log-in" %><li>
             <% else %>
               <li><%= link_to " #{current_user.username}", edit_user_registration_path, class: 'glyphicon glyphicon-user' %></li> 
               <li><%= link_to " Logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %></li>
             <% end %>
           </ul>
+<<<<<<< Updated upstream
+=======
+        </div>
+      </div>
+    </nav>
+    <div class="home"><br><br>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <%= yield %>
+>>>>>>> Stashed changes
         </div>
       </div>
     </nav>
