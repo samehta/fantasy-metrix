@@ -7,17 +7,17 @@
   </div>
   <div class="row">
     <% @articles.each do |article| %>
-      <div class="col-md-9">
-        <h1><%= link_to article.title, article, class: 'article-links' %></h1>
-        <small class="author">
-          By <%= article.user.username %>
-        </small><br><br>
-      </div>
       <% if article.image_path? %>
         <div class="col-md-3">
           <%= image_tag(article.image_path, :width => 150, :height => 150) %>
         </div>
       <% end %>
+      <div class="col-md-9">
+        <h2><%= link_to article.title, article, class: 'article-links' %></h2>
+        <small class="author">
+          By <%= article.user.username %>
+        </small><br><br>
+      </div>
       <div class="col-md-12">
         <p>___________________________________________________________________________________________________________________________________________</p>
       </div>
