@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <h1 class="post"><%= @article.title %></h1>
       <small class="author">
-        Submitted <%= time_ago_in_words(@article.created_at) %>
+        Submitted <%= time_ago_in_words(@article.created_at) %> ago
         By <%= @article.user.username %>
       </small><br><br>
       <% if policy(@article).update? %>
@@ -18,7 +18,7 @@
     <div class="col-md-12">
       <% if @article.image_path %>
       <div class="col-md-4 image">
-        <%= image_tag(@article.image_path, :width => 200, :height => 200) %><br><br>
+        <%= image_tag(@article.image_path, :width => 220, :height => 220) %><br><br>
       </div>
       <% end %>
       <p><%= markdown_to_html @article.body %></p><br><br><br>

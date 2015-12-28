@@ -46,12 +46,12 @@ articles = Article.all
 
 
 # Create Topics
-Topic.create!(name: 'Sleepers', image_path: Faker::Avatar.image)
-Topic.create!(name: 'Dynasty', image_path: Faker::Avatar.image)
-Topic.create!(name: 'Injuries', image_path: Faker::Avatar.image)
-Topic.create!(name: 'Waiver Wire', image_path: Faker::Avatar.image)
-Topic.create!(name: 'Start / Sit', image_path: Faker::Avatar.image)
-Topic.create!(name: 'Trade Advice', image_path: Faker::Avatar.image)
+Topic.create!(name: 'SLEEPERS', image_path: Faker::Avatar.image)
+Topic.create!(name: 'DYNASTY', image_path: Faker::Avatar.image)
+Topic.create!(name: 'INJURIES', image_path: Faker::Avatar.image)
+Topic.create!(name: 'WAIVER WIRE', image_path: Faker::Avatar.image)
+Topic.create!(name: 'START / SIT', image_path: Faker::Avatar.image)
+Topic.create!(name: 'TRADE ADVICE', image_path: Faker::Avatar.image)
 topics = Topic.all
 
 # Create Posts

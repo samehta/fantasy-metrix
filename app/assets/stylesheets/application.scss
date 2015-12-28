@@ -20,11 +20,11 @@
 
 body {
   background: asset-url('carbon-bg.png');
-  background-color: #171C21 !important;
+  background-color: #181D22 !important;
 }
 
 h1, h2, h3, h4, h5, h6, p {
-  color: #D5CAC8;
+  color: #ffffff;
 }
 
 h1.title {
@@ -57,15 +57,11 @@ p.text {
 }
 
 .text {
-  color: #D5CAC8;
+  color: #ffffff;
 }
 
 .green {
   color: #397D02;
-}
-
-.white {
-  color: #D5CAC8;
 }
 
 .blue {
@@ -77,6 +73,7 @@ p.text {
 }
 
 .alert-success {
+  margin-bottom: 0px;
   border: none;
   border-radius: 0px;
   color: #ffffff;
@@ -102,15 +99,15 @@ p.text {
 }
 
 .home {
-  background: asset-url('noisy-bg.png');
   border-radius: 5px;
   min-height: 600px;
+  background: asset-url('outlets-bg.png');
 }
 
 .jumbotron {
   min-height: 300px;
   width: 750px;
-  background: asset-url('outlets-bg.png');
+  background: asset-url('noisy-bg.png');
 }
 
 .center-block {
@@ -271,4 +268,3 @@ p.text {
 .image {
   float: right;
 }
-

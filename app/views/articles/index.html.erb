@@ -1,7 +1,7 @@
 <div class="home">
   <div class="row">
     <div class="col-md-12">
-      <h1 class="green">Articles</h1><br>
+      <h1 class="green">ARTICLES</h1><br>
       <p>___________________________________________________________________________________________________________________________________________</p>
     </div>
   </div>
@@ -9,7 +9,7 @@
     <% @articles.each do |article| %>
       <% if article.image_path? %>
         <div class="col-md-3">
-          <%= image_tag(article.image_path, :width => 150, :height => 150) %>
+          <%= image_tag(article.image_path, :width => 175, :height => 175) %>
         </div>
       <% end %>
       <div class="col-md-9">
@@ -17,6 +17,7 @@
         <small class="author">
           By <%= article.user.username %>
         </small><br><br>
+        <p><%= article.body[0...400] %>...</p>
       </div>
       <div class="col-md-12">
         <p>___________________________________________________________________________________________________________________________________________</p>
