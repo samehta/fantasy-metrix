@@ -19,7 +19,7 @@
 
 
 body {
-  background: asset-url('classy-bg.png');
+  background: asset-url('background/classy.png');
   background-color: #13181A !important;
 }
 
@@ -95,24 +95,23 @@ p.text {
 
 .navbar {
   height: 60px;
-  background: asset-url('carbon-bg.png');
+  background: asset-url('background/carbon.png');
 }
 
 .home {
   border-radius: 5px;
   min-height: 600px;
-  background: asset-url('carbon-bg.png');
+  background: asset-url('background/carbon.png');
 }
 
 .jumbotron {
   min-height: 300px;
   width: 750px;
-  background: asset-url('evolution-bg.png');
+  background: asset-url('background/evolution.png');
 }
 
-.nav-links:hover {
-  font-size: 16px;
-  background: asset-url('outlets-bg.png');
+ul.nav a:hover { 
+  color: #ffffff !important; 
 }
 
 .center-block {

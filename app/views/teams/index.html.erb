@@ -1,17 +1,11 @@
 <div>
   <div class="row">
-    <div class="col-md-12">
-    <% @teams.each_slice(4) do |teams| %>
-      <div class="row">
-        <% teams.each do |team| %>
-          <div class="col-md-3 text-center">
-            <h2><%= link_to team.name, team, class: 'team-links' %></h2>
-            <%= image_tag(team.image_path, :width => 100, :height => 100) %>
-          </div>
-        <% end %>
-      </div><br><br><br>
+    <% @teams.each do |team| %>
+      <div class="col-md-2 text-center"><br>
+        <%= link_to image_tag(team.image_path, :width => 140, :height => 115), team %>
+      </div>
     <% end %>
-  </div>
+  </div><br><br><br> 
   <div class="row">
     <div class="col-md-12 text-center">
       <% if policy(Team.new).create? %>

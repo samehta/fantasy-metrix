@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h1 class="blue"><%= @team.name %></h1><br>
+    <h1 class="white text-center"><%= @team.name %></h1><br>
     <% if policy(@team).destroy? %>
       <%= link_to "Delete Team", @team, method: :delete, class: 'cancel btn btn-danger', data: { confirm: 'Are you sure you want to delete this team?' } %>
     <% end %>
