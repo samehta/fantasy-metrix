@@ -14,9 +14,9 @@
   </div>
   <div class="row">
     <div class="col-md-12 text-center">
-      <%# if policy(Team.new).create? %>
+      <% if policy(Team.new).create? %>
         <%= link_to "New Team", new_team_path, class: 'devise btn btn-success' %>
-      <%# end %>
+      <% end %>
     </div>
   </div><br><br><br>
 </div>
