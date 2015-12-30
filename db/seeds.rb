@@ -45,6 +45,42 @@ end
 articles = Article.all
 
 
+# Create Teams
+Team.create!(name: 'CARDINALS', image_path: Faker::Avatar.image)
+Team.create!(name: 'SEAHAWKS', image_path: Faker::Avatar.image)
+Team.create!(name: 'RAMS', image_path: Faker::Avatar.image)
+Team.create!(name: '49ERS', image_path: Faker::Avatar.image)
+Team.create!(name: 'PACKERS', image_path: Faker::Avatar.image)
+Team.create!(name: 'VIKINGS', image_path: Faker::Avatar.image)
+Team.create!(name: 'BEARS', image_path: Faker::Avatar.image)
+Team.create!(name: 'LIONS', image_path: Faker::Avatar.image)
+Team.create!(name: 'REDSKINS', image_path: Faker::Avatar.image)
+Team.create!(name: 'GIANTS', image_path: Faker::Avatar.image)
+Team.create!(name: 'EAGLES', image_path: Faker::Avatar.image)
+Team.create!(name: 'COWBOYS', image_path: Faker::Avatar.image)
+Team.create!(name: 'PANTHERS', image_path: Faker::Avatar.image)
+Team.create!(name: 'FALCONS', image_path: Faker::Avatar.image)
+Team.create!(name: 'BUCCANEERS', image_path: Faker::Avatar.image)
+Team.create!(name: 'SAINTS', image_path: Faker::Avatar.image)
+Team.create!(name: 'BRONCOS', image_path: Faker::Avatar.image)
+Team.create!(name: 'CHIEFS', image_path: Faker::Avatar.image)
+Team.create!(name: 'RAIDERS', image_path: Faker::Avatar.image)
+Team.create!(name: 'CHARGERS', image_path: Faker::Avatar.image)
+Team.create!(name: 'BENGALS', image_path: Faker::Avatar.image)
+Team.create!(name: 'STEELERS', image_path: Faker::Avatar.image)
+Team.create!(name: 'RAVENS', image_path: Faker::Avatar.image)
+Team.create!(name: 'BROWNS', image_path: Faker::Avatar.image)
+Team.create!(name: 'PATRIOTS', image_path: Faker::Avatar.image)
+Team.create!(name: 'JETS', image_path: Faker::Avatar.image)
+Team.create!(name: 'BILLS', image_path: Faker::Avatar.image)
+Team.create!(name: 'DOLPHINS', image_path: Faker::Avatar.image)
+Team.create!(name: 'TEXANS', image_path: Faker::Avatar.image)
+Team.create!(name: 'COLTS', image_path: Faker::Avatar.image)
+Team.create!(name: 'JAGUARS', image_path: Faker::Avatar.image)
+Team.create!(name: 'TITANS', image_path: Faker::Avatar.image)
+teams = Team.all
+
+
 # Create Topics
 Topic.create!(name: 'SLEEPERS', image_path: Faker::Avatar.image)
 Topic.create!(name: 'DYNASTY', image_path: Faker::Avatar.image)
@@ -78,6 +114,7 @@ end
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Article.count} articles created"
+puts "#{Team.count} teams created"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
