@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:topic_id])
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
     authorize @post
   end
 
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:topic_id])
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
     authorize @post
     if @post.update_attributes(post_params)
       flash[:notice] = "Post was successfully updated."
