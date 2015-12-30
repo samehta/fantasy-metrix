@@ -40,4 +40,10 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'selenium-webdriver'
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'database_cleaner'
 end

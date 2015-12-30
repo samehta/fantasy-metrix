@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Sign Up Process:" do
+feature "Sign Up Process:", js: true do
   
   before do 
     visit root_path
@@ -13,6 +13,7 @@ feature "Sign Up Process:" do
   end
   
   scenario "user receives confirmation email" do
+    expect(page).to have_content("A message with a confirmation link has been sent to your email address.")
     expect(ActionMailer::Base.deliveries.first.body).to match(/Confirm my account/)
   end
 
@@ -30,7 +31,7 @@ feature "Sign Up Process:" do
 end
 
 
-feature "Sign In Process:" do
+feature "Sign In Process:", js: true do
   
   before do
     @user = create(:user)
@@ -44,7 +45,7 @@ feature "Sign In Process:" do
   end
 
   scenario "displays username when signed in" do
-    expect(page).to have_content("#{@user.username}!")
+    expect(page).to have_content("#{@user.username}")
   end
   
   scenario "user signs out" do
