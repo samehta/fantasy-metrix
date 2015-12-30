@@ -19,8 +19,8 @@
 
 
 body {
-  background: asset-url('carbon-bg.png');
-  background-color: #181D22 !important;
+  background: asset-url('classy-bg.png');
+  background-color: #13181A !important;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -68,12 +68,7 @@ p.text {
   color: #23527C;
 }
 
-.navbar {
-  background: asset-url('outlets-bg.png');
-}
-
 .alert-success {
-  margin-bottom: 0px;
   border: none;
   border-radius: 0px;
   color: #ffffff;
@@ -98,16 +93,26 @@ p.text {
   margin-top: 15px;
 }
 
+.navbar {
+  height: 60px;
+  background: asset-url('carbon-bg.png');
+}
+
 .home {
   border-radius: 5px;
   min-height: 600px;
-  background: asset-url('outlets-bg.png');
+  background: asset-url('carbon-bg.png');
 }
 
 .jumbotron {
   min-height: 300px;
   width: 750px;
-  background: asset-url('noisy-bg.png');
+  background: asset-url('evolution-bg.png');
+}
+
+.nav-links:hover {
+  font-size: 16px;
+  background: asset-url('outlets-bg.png');
 }
 
 .center-block {
@@ -123,11 +128,6 @@ p.text {
 .nav-links {
   font-size: 16px;
   color: #397D02 !important;
-}
-
-.nav-links:hover {
-  font-size: 16px;
-  background: asset-url('noisy-bg.png') !important;
 }
 
 .input-group {
@@ -166,7 +166,17 @@ p.text {
 }
 
 .devise-links:hover {
+  color: #23527C;
+  text-decoration: none;
+}
+
+.team-links {
+  color: #D5CAC8;
+}
+
+.team-links:hover {
   color: #397D02;
+  text-decoration: none;
 }
 
 .glyphicon-user {

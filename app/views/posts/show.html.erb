@@ -1,4 +1,4 @@
-<div class="home">
+<div>
   <div class="row">
     <h1 class="post"><%= @post.title %></h1>
     <small class="author">
@@ -17,7 +17,8 @@
   </div>
   <div class="col-md-10">
     <h2 class="comments">Comments</h2>
-    <%= render @comments %><br>
+    <hr width="900">
+    <%= render @comments %><br><br><br>
   </div>
   <% if current_user %>
     <div class="col-md-7">

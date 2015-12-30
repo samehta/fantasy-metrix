@@ -1,4 +1,4 @@
-<div class="home">
+<div>
   <div class="row">
     <h1 class="topic"><%= @topic.name %></h1>
     <% if policy(@topic).update? %>
@@ -10,11 +10,11 @@
     <% if policy(Post.new).create? %>
       <%= link_to "New Post", new_topic_post_path(@topic), class: 'devise btn btn-success' %>
     <% end %><br><br>
-    <p>___________________________________________________________________________________________________________________________________________</p>
+    <hr width="975">
     <% @posts.each do |post| %>
       <h3><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
       <small class="author">By <%= post.user.username %></small>
-      <p>___________________________________________________________________________________________________________________________________________</p>
+      <hr width="975">
     <% end %><br><br>
     <h4 class="text-center paginate"><%= will_paginate @posts %></h4>
   </div>
