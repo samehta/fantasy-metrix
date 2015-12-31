@@ -3,18 +3,23 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all
+    authorize @teams
   end
 
   def show
     @team = Team.find(params[:id])
+    @players = @team.players
+    authorize @team
   end
 
   def new
     @team = Team.new
+    authorize @team
   end
 
   def create
     @team = Team.new(team_params)
+    authorize @team
     if @team.save
       flash[:notice] = "Team was successfully saved."
       redirect_to @team
@@ -26,6 +31,7 @@ class TeamsController < ApplicationController
 
   def destroy
     @team = Team.find(params[:id])
+    authorize @team
     if @team.destroy
       flash[:notice] = "\"#{@team.name}\" was successfully deleted."
       redirect_to teams_path
