@@ -36,8 +36,32 @@ h1.title {
                3px 3px #13181A;
 }
 
+h1.article {
+  color: #397D02;
+  text-shadow: 1px 1px #13181A, 
+               2px 2px #13181A, 
+               3px 3px #13181A;
+}
+
+h1.team {
+  color: #D5CAC8;
+  text-shadow: 1px 1px #13181A, 
+               2px 2px #13181A, 
+               3px 3px #13181A;
+}
+
+h1.player {
+  color: #D5CAC8;
+  text-shadow: 1px 1px #13181A, 
+               2px 2px #13181A, 
+               3px 3px #13181A;
+}
+
 h1.topic {
   color: #23527C;
+  text-shadow: 1px 1px #13181A, 
+               2px 2px #13181A, 
+               3px 3px #13181A;
 }
 
 h1.post {
@@ -71,6 +95,10 @@ p.text {
 
 .blue {
   color: #23527C;
+}
+
+.white {
+  color: #D5CAC8;
 }
 
 .alert-success {
@@ -144,6 +172,9 @@ ul.nav a:hover {
 
 .topic-links {
   color: #397D02 !important;
+  text-shadow: 1px 1px #13181A, 
+               2px 2px #13181A, 
+               3px 3px #13181A;
 }
 
 .topic-links:hover {
@@ -183,6 +214,15 @@ ul.nav a:hover {
 }
 
 .team-links:hover {
+  color: #397D02;
+  text-decoration: none;
+}
+
+.player-links {
+  color: #D5CAC8;
+}
+
+.player-links:hover {
   color: #397D02;
   text-decoration: none;
 }
@@ -286,4 +326,8 @@ ul.nav a:hover {
 .image {
   float: right;
   margin-left: 5px;
+}
+
+.heading h4 {
+  display: inline;
 }

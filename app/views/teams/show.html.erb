@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h1 class="white text-center"><%= @team.name %></h1><br>
+    <h1 class="team text-center"><%= @team.name %></h1><br>
   </div>
   <div class="col-md-12 text-center">
     <% if policy(Player.new).create? %>
@@ -11,10 +11,11 @@
     <% end %>
   </div>
   <div class="row">
-    <div class="col-md-12">
-      <% @players.each do |player| %>
-        <h3><%= link_to image_tag(player.image_path, :width => 150, :height => 150), [@team, player], class: 'player-links' %></h3>
-      <% end %>
-    </div>
+    <% @players.each do |player| %>
+      <div class="col-md-4 text-center"><br><br>
+        <h3><%= link_to image_tag(player.image_path, :width => 150, :height => 150), [@team, player] %></h3>
+        <h3><%= link_to player.name, [@team, player], class: 'player-links' %>
+      </div>
+    <% end %>
   </div>
-</div>
+</div><br><br><br>

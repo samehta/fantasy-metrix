@@ -17,7 +17,7 @@
   </div>
   <div class="form-group">
     <%= f.label :draft %>
-    <%= f.number_field :draft, class: 'form-control', placeholder: "Enter draft pick" %>
+    <%= f.number_field :draft, :step => 'any', class: 'form-control', placeholder: "Enter draft pick" %>
   </div>
   <div class="form-group">
     <%= f.submit "Save", class: 'devise btn btn-success' %>
