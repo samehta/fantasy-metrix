@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-
   devise_for :users
 
   resources :articles
 
-  resources :teams, except: [:edit, :update]
+  resources :teams, except: [:edit, :update] do
+    resources :players
+  end
   
   resources :topics do
     resources :posts, except: [:index]

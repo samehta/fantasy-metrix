@@ -25,10 +25,15 @@ body {
 
 h1, h2, h3, h4, h5, h6, p {
   color: #ffffff;
+  font: Helvetica, Arial, Sans-Serif;
 }
 
 h1.title {
   color: #397D02;
+  font-size: 90px;
+  text-shadow: 1px 1px #002A00, 
+               2px 2px #002A00, 
+               3px 3px #002A00;
 }
 
 h1.topic {
@@ -54,6 +59,10 @@ small.author {
 p.text {
   font-size: 18px;
   color: #D5CAC8;
+}
+
+.article {
+  text-align: justify;
 }
 
 .text {
@@ -107,7 +116,7 @@ p.text {
 .jumbotron {
   min-height: 300px;
   width: 750px;
-  background: asset-url('background/evolution.png');
+  background: none;
 }
 
 ul.nav a:hover { 
@@ -276,4 +285,5 @@ ul.nav a:hover {
 
 .image {
   float: right;
+  margin-left: 5px;
 }
