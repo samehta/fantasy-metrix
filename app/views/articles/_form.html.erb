@@ -4,6 +4,10 @@
     <%= f.text_field :title, class: 'form-control', placeholder: "Enter title" %>
   </div>
   <div class="form-group">
+    <%= f.label :image_path %>
+    <%= f.text_field :image_path, class: 'form-control', placeholder: "Enter image path" %>
+  </div>
+  <div class="form-group">
     <%= f.label :body %>
     <%= f.text_area :body, rows: 15, class: 'form-control', placeholder: "Enter body" %>
   </div>

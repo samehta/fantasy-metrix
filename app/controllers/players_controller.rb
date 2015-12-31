@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
 
   def show
     @team = Team.find(params[:team_id])

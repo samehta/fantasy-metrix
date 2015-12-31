@@ -1,17 +1,16 @@
-<div><br><br>
-  <% @topics.each_slice(3) do |topics| %>
-    <div class="row">
-      <% topics.each do |topic| %>
-        <div class="col-md-4 text-center">
-          <h1><%= link_to topic.name, topic, class: 'topic-links' %></h1>
-          <%= image_tag(topic.image_path, :width => 150, :height => 150) %>
-        </div>
-      <% end %>
-    </div><br><br><br>
-  <% end %>
-  <div class="text-center">
-    <% if policy(Topic.new).create? %>
-      <%= link_to "New Topic", new_topic_path, class: 'devise btn btn-success' %>
+<% @topics.each_slice(3) do |topics| %>
+  <div class="row">
+    <% topics.each do |topic| %>
+      <div class="col-md-4 text-center">
+        <h1><%= link_to topic.name, topic, class: 'topic-links' %></h1>
+        <%= image_tag(topic.image_path, :width => 150, :height => 150) %>
+      </div>
     <% end %>
   </div><br><br><br>
-</div>
+<% end %>
+<div class="text-center">
+  <% if policy(Topic.new).create? %>
+    <%= link_to "New Topic", new_topic_path, class: 'devise btn btn-success' %>
+  <% end %>
+</div><br><br><br>
+

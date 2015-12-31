@@ -1,16 +1,14 @@
-<div>
-  <div class="row">
-    <% @teams.each do |team| %>
-      <div class="col-md-2 text-center"><br>
-        <%= link_to image_tag(team.image_path, :width => 140, :height => 115), team %>
-      </div>
-    <% end %>
-  </div><br><br><br> 
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <% if policy(Team.new).create? %>
-        <%= link_to "New Team", new_team_path, class: 'devise btn btn-success' %>
-      <% end %>
+<div class="row">
+  <% @teams.each do |team| %>
+    <div class="col-md-2 text-center"><br>
+      <%= link_to image_tag(team.image_path, :width => 140, :height => 115), team %>
     </div>
-  </div><br><br><br>
-</div>
+  <% end %>
+</div><br><br><br> 
+<div class="row">
+  <div class="col-md-12 text-center">
+    <% if policy(Team.new).create? %>
+      <%= link_to "New Team", new_team_path, class: 'devise btn btn-success' %>
+    <% end %>
+  </div>
+</div><br><br><br>
