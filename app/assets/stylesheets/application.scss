@@ -31,9 +31,9 @@ h1, h2, h3, h4, h5, h6, p {
 h1.title {
   color: #397D02;
   font-size: 90px;
-  text-shadow: 1px 1px #002A00, 
-               2px 2px #002A00, 
-               3px 3px #002A00;
+  text-shadow: 1px 1px #13181A, 
+               2px 2px #13181A, 
+               3px 3px #13181A;
 }
 
 h1.topic {
@@ -59,10 +59,6 @@ small.author {
 p.text {
   font-size: 18px;
   color: #D5CAC8;
-}
-
-.article {
-  text-align: justify;
 }
 
 .text {
@@ -98,6 +94,12 @@ p.text {
   background-color: #984949;
 }
 
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .container {
   margin-top: 15px;
 }
@@ -119,18 +121,12 @@ p.text {
   background: none;
 }
 
-ul.nav a:hover { 
-  color: #ffffff !important; 
-}
-
-.center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .nav {
   margin-top: 5px;
+}
+
+ul.nav a:hover { 
+  color: #ffffff !important; 
 }
 
 .nav-links {
@@ -140,6 +136,10 @@ ul.nav a:hover {
 
 .input-group {
   width: 300px;
+}
+
+.article {
+  text-align: justify;
 }
 
 .topic-links {
