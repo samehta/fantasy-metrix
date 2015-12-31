@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-12 text-center">
     <h1 class="green"><%= @player.name %></h1>
+    <%= image_tag(@player.image_path, :width => 150, :height => 150) %>
     <h4>Age: <%= @player.age %></h4>
     <h4>College: <%= @player.college %></h4>
     <h4>Draft Pick: <%= @player.draft %></h4><br><br>
