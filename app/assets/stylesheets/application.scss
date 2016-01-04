@@ -137,6 +137,10 @@ p.text {
   background: asset-url('background/carbon.png');
 }
 
+.navbar-brand {
+  font-weight: bold;
+}
+
 .home {
   border-radius: 5px;
   min-height: 600px;
@@ -223,7 +227,7 @@ ul.nav a:hover {
 }
 
 .player-links:hover {
-  color: #397D02;
+  color: #ffffff;
   text-decoration: none;
 }
 

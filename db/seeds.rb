@@ -68,7 +68,7 @@ Team.create!(name: 'New England Patriots', image_path: 'new_england/patriots.png
 Team.create!(name: 'New Orleans Saints', image_path: 'new_orleans/saints.png')
 Team.create!(name: 'New York Giants', image_path: 'new_york_giants/giants.png')
 Team.create!(name: 'New York Jets', image_path: 'new_york_jets/jets.png')
-Team.create!(name: 'Oakland Radiers', image_path: 'oakland/raiders.png')
+Team.create!(name: 'Oakland Raiders', image_path: 'oakland/raiders.png')
 Team.create!(name: 'Philadelphia Eagles', image_path: 'philadelphia/eagles.png')
 Team.create!(name: 'Pittsburgh Steelers', image_path: 'pittsburgh/steelers.png')
 Team.create!(name: 'San Diego Chargers', image_path: 'san_diego/chargers.png')

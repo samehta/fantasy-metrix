@@ -1,7 +1,7 @@
 <div class="row">
   <% @teams.each do |team| %>
-    <div class="col-md-2 text-center"><br>
-      <%= link_to image_tag(team.image_path, :width => 140, :height => 115), team %>
+    <div class="col-md-3 text-center"><br>
+      <%= link_to image_tag(team.image_path, :width => 200, :height => 175), team %>
     </div>
   <% end %>
 </div><br><br><br> 

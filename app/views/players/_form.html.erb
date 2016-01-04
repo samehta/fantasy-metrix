@@ -4,10 +4,6 @@
     <%= f.text_field :name, class: 'form-control', placeholder: "Enter player name" %>
   </div>
   <div class="form-group">
-    <%= f.label :image_path %>
-    <%= f.text_field :image_path, class: 'form-control', placeholder: "Enter image path" %>
-  </div>
-  <div class="form-group">
     <%= f.label :age %>
     <%= f.number_field :age, class: 'form-control', placeholder: "Enter age" %>
   </div>
@@ -18,6 +14,10 @@
   <div class="form-group">
     <%= f.label :draft %>
     <%= f.number_field :draft, :step => 'any', class: 'form-control', placeholder: "Enter draft pick" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image_path %>
+    <%= f.text_field :image_path, class: 'form-control', placeholder: "Enter image path" %>
   </div>
   <div class="form-group">
     <%= f.submit "Save", class: 'devise btn btn-success' %>
