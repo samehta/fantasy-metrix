@@ -3,9 +3,11 @@
     <h1 class="player"><%= @player.name %></h1><br>
     <%= image_tag(@player.image_path) %>
   </div>
-  <div class="col-md-4 heading"><br><br><br><br><br>
-    <h4 class="blue">Age </h4><h4><%= @player.age %></h4><br><br><br><br>
-    <h4 class="blue">College </h4><h4><%= @player.college %></h4><br><br><br><br>
+  <div class="col-md-4 heading"><br><br><br>
+    <h4 class="blue">Age </h4><h4><%= @player.age %></h4><br><br>
+    <h4 class="blue">Team </h4><h4><%= @player.team_id %></h4><br><br>
+    <h4 class="blue">Position </h4><h4><%= @player.position %></h4><br><br>
+    <h4 class="blue">College </h4><h4><%= @player.college %></h4><br><br>
     <h4 class="blue">Draft Pick </h4><h4><%= @player.draft %></h4><br><br>
   </div>
 </div>
