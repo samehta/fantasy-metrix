@@ -37,31 +37,19 @@ h1.title {
 }
 
 h1.article {
-  color: #397D02;
-  text-shadow: 1px 1px #13181A, 
-               2px 2px #13181A, 
-               3px 3px #13181A;
+  color: #23527C;
 }
 
 h1.team {
-  color: #D5CAC8;
-  text-shadow: 1px 1px #13181A, 
-               2px 2px #13181A, 
-               3px 3px #13181A;
+  color: #23527C;
 }
 
 h1.player {
-  color: #D5CAC8;
-  text-shadow: 1px 1px #13181A, 
-               2px 2px #13181A, 
-               3px 3px #13181A;
+  color: #ffffff;
 }
 
 h1.topic {
   color: #23527C;
-  text-shadow: 1px 1px #13181A, 
-               2px 2px #13181A, 
-               3px 3px #13181A;
 }
 
 h1.post {
@@ -80,11 +68,6 @@ small.author {
   color: #397D02;
 }
 
-p.text {
-  font-size: 18px;
-  color: #D5CAC8;
-}
-
 .text {
   color: #ffffff;
 }
@@ -97,8 +80,8 @@ p.text {
   color: #23527C;
 }
 
-.white {
-  color: #D5CAC8;
+.red {
+  color: #984949;
 }
 
 .alert-success {
@@ -175,33 +158,29 @@ ul.nav a:hover {
 }
 
 .topic-links {
-  color: #397D02 !important;
-  text-shadow: 1px 1px #13181A, 
-               2px 2px #13181A, 
-               3px 3px #13181A;
+  color: #23527C;
 }
 
 .topic-links:hover {
   text-decoration: none;
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .article-links {
-  color: #23527C !important;
+  color: #23527C;
 }
 
 .article-links:hover {
   text-decoration: none;
-  color: #D5CAC8 !important;
+  color: #ffffff;
 }
 
 .post-links {
-  color: #D5CAC8 !important;
+  color: #ffffff;
 }
 
 .post-links:hover {
   text-decoration: none;
-  color: #ffffff !important;
 }
 
 .devise-links {
@@ -213,21 +192,11 @@ ul.nav a:hover {
   text-decoration: none;
 }
 
-.team-links {
-  color: #D5CAC8;
-}
-
-.team-links:hover {
-  color: #397D02;
-  text-decoration: none;
-}
-
 .player-links {
-  color: #D5CAC8;
+  color: #ffffff;
 }
 
 .player-links:hover {
-  color: #ffffff;
   text-decoration: none;
 }
 
@@ -277,7 +246,7 @@ ul.nav a:hover {
 
 .devise.btn:hover {
   border-color: #ffffff;
-  background-color: #397D02;
+  background-color: #397D02 !important;
 }
 
 .devise.btn:active {
