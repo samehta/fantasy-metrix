@@ -9,7 +9,7 @@
     <% end %>
     <% if policy(Post.new).create? %>
       <%= link_to "New Post", new_topic_post_path(@topic), class: 'devise btn btn-success' %>
-    <% end %><br>
+    <% end %>
   </div>
 </div>
 <table class="table">
@@ -17,9 +17,9 @@
     <% @posts.each do |post| %>
       <tr><td>
       <h3><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
-      <small class="author">By <%= post.user.username %></small>
+      <small class="author">By <%= post.user.username %></small><br><br>
       </td></tr>
-    <% end %><br><br>
+    <% end %><br>
     <tr><td></td></tr>
   </div>
 </table>
