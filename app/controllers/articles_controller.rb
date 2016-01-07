@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     authorize @article
     if @article.destroy
-      flash[:notice] = "The article was successfully deleted."
+      flash[:notice] = "Article was successfully deleted."
       redirect_to articles_path
     else
       flash[:error] = "There was an error deleting the article. Please try again."

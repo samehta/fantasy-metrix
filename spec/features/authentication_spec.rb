@@ -30,7 +30,6 @@ feature "Sign Up Process:", js: true do
   end
 end
 
-
 feature "Sign In Process:", js: true do
   
   before do
