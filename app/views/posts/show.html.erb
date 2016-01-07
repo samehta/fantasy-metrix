@@ -21,7 +21,7 @@
 </div>
 <% if current_user %>
   <div class="col-md-7">
-    <h4>New Comment</h4>
+    <h2>New Comment</h2>
     <%= render partial: 'comments/form', locals: { post: @post, comment: @comment } %>
   </div>
 <% end %>

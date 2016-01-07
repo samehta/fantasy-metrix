@@ -6,9 +6,9 @@
         <%= link_to image_tag(topic.image_path, :width => 150, :height => 150), topic %>
       </div>
     <% end %>
-  </div><br><br><br>
+  </div><br><br>
 <% end %>
-<div class="text-center">
+<div class="text-center"><br>
   <% if policy(Topic.new).create? %>
     <%= link_to "New Topic", new_topic_path, class: 'devise btn btn-success' %>
   <% end %>

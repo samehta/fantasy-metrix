@@ -1,23 +1,35 @@
 <div class="row">
+  <div class="col-md-4"><br><br><br><br><br><br><br>
+    <table class="table table-bordered green">
+      <tbody>
+        <tr><td>Age</td><td><%= @player.age %></td></tr>
+        <tr><td>Position</td><td><%= @player.position %></td></tr>
+        <tr><td>Team</td><td><%= @player.team.name %></td></tr>
+      </tbody>
+    </table>
+  </div>
   <div class="col-md-4 text-center">
     <h1 class="player"><%= @player.name %></h1><br>
     <%= image_tag(@player.image_path) %>
   </div>
-  <div class="col-md-4 heading"><br><br><br><br><br>
-    <h4 class="red">Age </h4><h4><%= @player.age %></h4><br><br>
-    <h4 class="red">Team </h4><h4><%= @player.team.name %></h4><br><br>
-    <h4 class="red">Position </h4><h4><%= @player.position %></h4><br><br>
-    <h4 class="red">College </h4><h4><%= @player.college %></h4><br><br>
-    <h4 class="red">Draft Pick </h4><h4><%= @player.draft %></h4><br><br>
+  <div class="col-md-4"><br><br><br><br><br><br><br>
+    <table class="table table-bordered green">
+      <tbody>
+        <tr><td>DOB</td><td><%= @player.age %></td></tr>
+        <tr><td>College</td><td><%= @player.college %></td></tr>
+        <tr><td>Draft Pick</td><td><%= @player.draft %></td></tr>
+      </tbody>
+    </table>
   </div>
-</div>
+</div><br>
 <div class="row">
+  <div class="col-md-4"></div>
   <div class="col-md-4 text-center">
     <% if policy(@player).update? %>
       <%= link_to "Edit Player", edit_team_player_path(@team, @player), class: 'edit btn btn-success' %>
     <% end %>
     <% if policy(@player).destroy? %>
-      <%= link_to "Delete Player", [@team, @player], method: :delete, class: 'cancel btn btn-danger', data: { confirm: 'Are you sure you want to delete this player?' } %><br><br>
+      <%= link_to "Delete Player", [@team, @player], method: :delete, class: 'cancel btn btn-danger', data: { confirm: 'Are you sure you want to delete this player?' } %>
     <% end %>
   </div>
 </div>

@@ -23,8 +23,13 @@ body {
   background-color: #13181A !important;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2 {
   color: #ffffff;
+  font: Helvetica, Arial, Sans-Serif;
+}
+
+h3, h4, h5, h6, p {
+  color: #B7B7B7;
   font: Helvetica, Arial, Sans-Serif;
 }
 
@@ -37,15 +42,16 @@ h1.title {
 }
 
 h1.article {
-  color: #23527C;
+  color: #B7B7B7;
 }
 
 h1.team {
-  color: #23527C;
+  font-size: 50px;
+  color: #B7B7B7;
 }
 
 h1.player {
-  color: #ffffff;
+  color: #B7B7B7;
 }
 
 h1.topic {
@@ -70,6 +76,10 @@ small.author {
 
 .text {
   color: #ffffff;
+}
+
+.grey {
+  color: #B7B7B7;
 }
 
 .green {
@@ -141,7 +151,7 @@ small.author {
 }
 
 ul.nav a:hover { 
-  color: #ffffff !important; 
+  color: #B7B7B7 !important;
 }
 
 .nav-links {
@@ -158,7 +168,7 @@ ul.nav a:hover {
 }
 
 .topic-links {
-  color: #23527C;
+  color: #B7B7B7;
 }
 
 .topic-links:hover {
@@ -176,11 +186,12 @@ ul.nav a:hover {
 }
 
 .post-links {
-  color: #ffffff;
+  color: #B7B7B7;
 }
 
 .post-links:hover {
   text-decoration: none;
+  color: #ffffff;
 }
 
 .devise-links {
@@ -193,11 +204,12 @@ ul.nav a:hover {
 }
 
 .player-links {
-  color: #ffffff;
+  color: #B7B7B7;
 }
 
 .player-links:hover {
   text-decoration: none;
+  color: #ffffff;
 }
 
 .glyphicon-user {
