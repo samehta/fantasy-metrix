@@ -1,19 +1,28 @@
 <div class="row">
-  <h1 class="topic"><%= @topic.name %></h1>
-  <% if policy(@topic).update? %>
-    <%= link_to "Edit Topic", edit_topic_path(@topic), class: 'edit btn btn-success' %>
-  <% end %>
-  <% if policy(@topic).destroy? %>
-    <%= link_to "Delete Topic", @topic, method: :delete, class: 'cancel btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %> 
-  <% end %>
-  <% if policy(Post.new).create? %>
-    <%= link_to "New Post", new_topic_post_path(@topic), class: 'devise btn btn-success' %>
-  <% end %><br><br>
-  <hr width="975">
-  <% @posts.each do |post| %>
-    <h3><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
-    <small class="author">By <%= post.user.username %></small>
-    <hr width="975">
-  <% end %><br><br>
+  <div class="col-md-12">
+    <h1 class="topic"><%= @topic.name %></h1>
+    <% if policy(@topic).update? %>
+      <%= link_to "Edit Topic", edit_topic_path(@topic), class: 'edit btn btn-success' %>
+    <% end %>
+    <% if policy(@topic).destroy? %>
+      <%= link_to "Delete Topic", @topic, method: :delete, class: 'cancel btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %> 
+    <% end %>
+    <% if policy(Post.new).create? %>
+      <%= link_to "New Post", new_topic_post_path(@topic), class: 'devise btn btn-success' %>
+    <% end %><br>
+  </div>
+</div>
+<table class="table">
+  <div class="row">
+    <% @posts.each do |post| %>
+      <tr><td>
+      <h3><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
+      <small class="author">By <%= post.user.username %></small>
+      </td></tr>
+    <% end %><br><br>
+    <tr><td></td></tr>
+  </div>
+</table>
+<div class="row">
   <h4 class="text-center paginate"><%= will_paginate @posts %></h4>
 </div><br><br>

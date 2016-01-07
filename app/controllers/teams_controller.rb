@@ -21,7 +21,7 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     authorize @team
     if @team.save
-      flash[:notice] = "Team was successfully created."
+      flash[:notice] = "#{@team.name} was successfully created."
       redirect_to @team
     else
       flash[:error] = "There was an error creating the team. Please try again."
@@ -33,7 +33,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     authorize @team
     if @team.destroy
-      flash[:notice] = "\"#{@team.name}\" was successfully deleted."
+      flash[:notice] = "#{@team.name} was successfully deleted."
       redirect_to teams_path
     else
       flash[:error] = "There was an error deleting the team. Please try again."

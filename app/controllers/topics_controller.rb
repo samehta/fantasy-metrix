@@ -26,7 +26,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
     authorize @topic
     if @topic.save
-      flash[:notice] = "Topic was successfully created."
+      flash[:notice] = "#{@topic.name} was successfully created."
       redirect_to @topic
     else
       flash[:error] = "There was an error creating the topic. Please try again."
@@ -38,7 +38,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     authorize @topic
     if @topic.update_attribtues(topic_params)
-      flash[:notice] = "Topic was successfully updated."
+      flash[:notice] = "#{@topic.name} was successfully updated."
       redirect_to @topic
     else
       flash[:error] = "There was an error updating the topic. Please try again."
@@ -50,7 +50,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     authorize @topic 
     if @topic.destroy
-      flash[:notice] = "\"#{@topic.name}\" was successfully deleted."
+      flash[:notice] = "#{@topic.name} was successfully deleted."
       redirect_to topics_path
     else
       flash[:error] = "There was an error deleting the topic. Please try again."

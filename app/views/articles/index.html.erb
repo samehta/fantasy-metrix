@@ -1,30 +1,31 @@
 <div class="row">
   <div class="col-md-12">
     <h1 class="article">ARTICLES</h1><br>
-    <hr width="945">
   </div>
 </div>
-<div class="row">
-  <% @articles.each do |article| %>
-    <% if article.image_path? %>
-      <div class="col-md-3">
-        <%= link_to image_tag(article.image_path, :width => 175, :height => 175), article %>
+<table class="table">
+  <div class="row">
+    <% @articles.each do |article| %>
+    <tr><td>
+      <% if article.image_path? %>
+        <div class="col-md-3">
+          <%= link_to image_tag(article.image_path, :width => 175, :height => 175), article %>
+        </div>
+      <% end %>
+      <div class="col-md-9">
+        <h2><%= link_to article.title, article, class: 'article-links' %></h2>
+        <small class="author">
+          By <%= article.user.username %>
+        </small><br><br>
       </div>
+      <div class="col-md-9 article">
+        <p><%= article.body[0...400] %>...</p>
+      </div>
+    </td></tr>
     <% end %>
-    <div class="col-md-9">
-      <h2><%= link_to article.title, article, class: 'article-links' %></h2>
-      <small class="author">
-        By <%= article.user.username %>
-      </small><br><br>
-    </div>
-    <div class="col-md-9 article">
-      <p><%= article.body[0...400] %>...</p>
-    </div>
-    <div class="col-md-12">
-      <hr width="945">
-    </div>
-  <% end %>
-</div>
+    <tr><td></td></tr>
+  </div>
+</table>
 <h4 class="text-center paginate"><%= will_paginate @articles %></h4>
 <div class="row">
   <div class="text-center">
