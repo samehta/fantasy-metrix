@@ -26,10 +26,10 @@ class ArticlesController < ApplicationController
     authorize @article
     @article.user = current_user
     if @article.save
-      flash[:notice] = "Article was successfully saved."
+      flash[:notice] = "Article was successfully created."
       redirect_to @article
     else
-      flash[:error] = "There was an error saving the article. Please try again."
+      flash[:error] = "There was an error creating the article. Please try again."
       render :new
     end
   end
@@ -61,6 +61,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :image_path)
   end
 end

@@ -12,6 +12,7 @@ group :development do
   gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'quiet_assets'
 end
 
 gem 'sass-rails', '~> 5.0'

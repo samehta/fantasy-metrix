@@ -21,10 +21,10 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     authorize @team
     if @team.save
-      flash[:notice] = "Team was successfully saved."
+      flash[:notice] = "Team was successfully created."
       redirect_to @team
     else
-      flash[:error] = "There was an error saving the team. Please try again."
+      flash[:error] = "There was an error creating the team. Please try again."
       render :new
     end
   end
@@ -44,6 +44,6 @@ class TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:team).permit(:name)
+    params.require(:team).permit(:name, :image_path)
   end
 end
