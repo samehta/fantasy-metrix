@@ -25,11 +25,7 @@ feature "Article Process:", js: true do
 
   scenario "admin user edits article" do
     @article = create(:article)
-    visit articles_path
-    click_link "New Article"
-    fill_in :article_title, with: @article.title
-    fill_in :article_body, with: @article.body
-    click_button "Submit" 
+    visit article_path(@article)
     click_link "Edit Article"
     fill_in "Title", with: "Edit Article Title"
     fill_in "Body", with: "This is a new article for FantasyMetrix."
@@ -40,11 +36,7 @@ feature "Article Process:", js: true do
 
   scenario "admin user deletes article" do
     @article = create(:article)
-    visit articles_path
-    click_link "New Article"
-    fill_in :article_title, with: @article.title
-    fill_in :article_body, with: @article.body
-    click_button "Submit"
+    visit article_path(@article)
     click_link "Delete Article"
     page.driver.browser.switch_to.alert.accept
 
