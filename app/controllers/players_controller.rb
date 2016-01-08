@@ -4,22 +4,26 @@ class PlayersController < ApplicationController
   def show
     @team = Team.find(params[:team_id])
     @player = @team.players.find(params[:id])
+    authorize @player
   end
 
   def new
     @team = Team.find(params[:team_id])
     @player = Player.new
+    authorize @player
   end
 
   def edit
     @team = Team.find(params[:team_id])
     @player = Player.find(params[:id])
+    authorize @player
   end
 
   def create
     @team = Team.find(params[:team_id])
     @player = Player.new(player_params)
     @player.team = @team
+    authorize @player
     if @player.save
       flash[:notice] = "#{@player.name} was successfully created."
       redirect_to [@team, @player]
@@ -32,6 +36,7 @@ class PlayersController < ApplicationController
   def update
     @team = Team.find(params[:team_id])
     @player = Player.find(params[:id])
+    authorize @player
     if @player.update_attributes(player_params)
       flash[:notice] = "#{@player.name} was successfully updated."
       redirect_to [@team, @player]
@@ -44,6 +49,7 @@ class PlayersController < ApplicationController
   def destroy
     @team = Team.find(params[:team_id])
     @player = Player.find(params[:id])
+    authorize @player
     if @player.destroy
       flash[:notice] = "#{@player.name} was successfully deleted."
       redirect_to @team
