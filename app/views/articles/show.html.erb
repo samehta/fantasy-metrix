@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <h1 class="post"><%= @article.title %></h1>
-    <small class="date"><%= @article.created_at.strftime("%B %d, %Y") %></small>
+    <small class="date"><%= @article.created_at.strftime("%A, %B %d, %Y") %></small>
     <small class="author">By <%= @article.user.username %></small><br><br>
     <% if policy(@article).update? %>
       <%= link_to "Edit Article", edit_article_path(@article), class: 'edit btn btn-success' %>
