@@ -17,6 +17,11 @@ class TeamsController < ApplicationController
     authorize @team
   end
 
+  def edit
+    @team = Team.find(params[:id])
+    authorize @team
+  end
+
   def create
     @team = Team.new(team_params)
     authorize @team
@@ -26,6 +31,18 @@ class TeamsController < ApplicationController
     else
       flash[:error] = "There was an error creating the team. Please try again."
       render :new
+    end
+  end
+
+  def update
+    @team = Team.find(params[:id])
+    authorize @team
+    if @team.update_attributes(team_params)
+      flash[:notice] = "#{@team.name} was succesffully updated."
+      redirect_to @team
+    else
+      flash[:error] = "There was an error updating the team. Please try again."
+      render :edit
     end
   end
 

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :articles
 
-  resources :teams, except: [:edit, :update] do
+  resources :teams do
     resources :players
   end
   
