@@ -1,10 +1,8 @@
 <div class="row">
   <div class="col-md-12">
     <h1 class="post"><%= @post.title %></h1>
-    <small class="author">
-      Posted <%= time_ago_in_words(@post.created_at) %> ago
-      By <%= @post.user.username %>
-    </small><br><br>
+    <small class="date"><%= @post.created_at.strftime("%B %d, %Y") %></small>
+    <small class="author">By <%= @post.user.username %></small><br><br>
     <div>
       <% if policy(@post).update? %>
         <%= link_to "Edit Post", edit_topic_post_path(@topic, @post), class: 'edit btn btn-success' %>

@@ -1,7 +1,7 @@
 <table class="table">
   <tr><td>
-  <small class="author">
-    <%= comment.user.username %> commented <%= time_ago_in_words(comment.created_at) %> ago
+  <small class="date">
+    <%= comment.user.username %> commented on <%= comment.created_at.strftime("%B %d, %Y") %>
     <% if policy(comment).destroy? %>
       <%= link_to "Delete", [comment.post, comment], method: :delete %>
     <% end %>

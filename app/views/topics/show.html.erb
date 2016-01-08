@@ -17,6 +17,7 @@
     <% @posts.each do |post| %>
       <tr><td>
       <h3><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
+      <small class="date"><%= post.created_at.strftime("%B %d, %Y") %></small>
       <small class="author">By <%= post.user.username %></small><br><br>
       </td></tr>
     <% end %><br>

@@ -55,7 +55,7 @@ h1.player {
 }
 
 h1.topic {
-  color: #23527C;
+  color: #B7B7B7;
 }
 
 h1.post {
@@ -67,6 +67,10 @@ h4.paginate {
 }
 
 small.author {
+  color: #ffffff;
+}
+
+small.date {
   color: #397D02;
 }
 
@@ -178,16 +182,16 @@ ul.nav a:hover {
 
 .article-links:hover {
   text-decoration: none;
-  color: #ffffff;
+  color: #23527C;
 }
 
 .post-links {
-  color: #B7B7B7;
+  color: #23527C;
 }
 
 .post-links:hover {
   text-decoration: none;
-  color: #ffffff;
+  color: #23527C;
 }
 
 .devise-links {
