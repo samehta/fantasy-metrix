@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108004110) do
+ActiveRecord::Schema.define(version: 20160109042521) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -35,18 +35,41 @@ ActiveRecord::Schema.define(version: 20160108004110) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "passing_game_logs", force: :cascade do |t|
+    t.date     "season"
+    t.integer  "week"
+    t.date     "date"
+    t.string   "opponent"
+    t.integer  "completions"
+    t.integer  "passing_attempts"
+    t.integer  "passing_yards"
+    t.integer  "passing_touchdowns"
+    t.integer  "interceptions"
+    t.integer  "rushing_attempts"
+    t.integer  "rushing_yards"
+    t.integer  "rushing_touchdowns"
+    t.decimal  "fantasy_points"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "player_id"
+  end
+
+  add_index "passing_game_logs", ["player_id"], name: "index_passing_game_logs_on_player_id"
+
   create_table "players", force: :cascade do |t|
     t.string   "name"
     t.string   "college"
     t.float    "draft"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "team_id"
     t.string   "image_path"
     t.string   "position"
     t.date     "date_of_birth"
+    t.integer  "passing_game_log_id"
   end
 
+  add_index "players", ["passing_game_log_id"], name: "index_players_on_passing_game_log_id"
   add_index "players", ["team_id"], name: "index_players_on_team_id"
 
   create_table "posts", force: :cascade do |t|
