@@ -1,3 +1,3 @@
 class PassingGameLog < ActiveRecord::Base
-  has_many :players
+  belongs_to :player
 end
