@@ -1,6 +1,6 @@
 <div class="row">
   <% @teams.each do |team| %>
-    <div class="col-md-3 text-center"><br>
+    <div class="col-md-3 text-center"><br><br>
       <%= link_to image_tag(team.image_path, :width => 150, :height => 110), team %>
     </div>
   <% end %>
