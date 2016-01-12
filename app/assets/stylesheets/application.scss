@@ -316,3 +316,8 @@ ul.nav a:hover {
 .heading h4 {
   display: inline;
 }
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  color: #ffffff;
+  background-color: #397D02;
+}

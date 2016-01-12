@@ -20,6 +20,10 @@
     <%= f.number_field :draft, :step => 'any', class: 'form-control', placeholder: "Enter draft pick" %>
   </div>
   <div class="form-group">
+    <%= f.label :experience %>
+    <%= f.text_field :experience, class: 'form-control', placeholder: "Enter experience" %>
+  </div>
+  <div class="form-group">
     <%= f.label :image_path %>
     <%= f.text_field :image_path, class: 'form-control', placeholder: "Enter image path" %>
   </div>

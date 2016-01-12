@@ -15,7 +15,7 @@
   <% end %>
   <%= form_group_tag(post.errors[:body]) do %>
     <%= f.label :body %>
-    <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter post body" %>
+    <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Styling with Markdown is supported" %>
   <% end %>
   <div class="form-group">
     <%= f.submit "Submit", class: 'devise btn btn-success' %>

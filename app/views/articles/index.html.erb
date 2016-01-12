@@ -15,7 +15,7 @@
       <div class="col-md-9">
         <h2><%= link_to article.title, article, class: 'article-links' %></h2>
         <small class="date"><%= article.created_at.strftime("%A, %B %d, %Y") %></small>
-        <small class="author">By <%= article.user.username %></small><br><br>
+        <small class="author"><%= article.user.username %></small><br><br>
       </div>
       <div class="col-md-9 article">
         <p><%= article.body[0...400] %>...</p>
