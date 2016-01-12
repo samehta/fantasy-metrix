@@ -4,6 +4,8 @@ class PlayersController < ApplicationController
   def show
     @team = Team.find(params[:team_id])
     @player = @team.players.find(params[:id])
+    @passing_game_logs = @player.passing_game_logs 
+    @passing_game_log = PassingGameLog.new
     authorize @player
   end
 

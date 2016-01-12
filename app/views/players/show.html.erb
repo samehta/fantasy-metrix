@@ -32,4 +32,28 @@
       <%= link_to "Delete Player", [@team, @player], method: :delete, class: 'cancel btn btn-danger', data: { confirm: 'Are you sure you want to delete this player?' } %>
     <% end %>
   </div>
-</div>
+</div><br>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 text-center">
+    <% if policy(@passing_game_log).create? %>
+      <%= link_to "New Passing Game Log", new_player_passing_game_log_path(@player, @passing_game_log), class: 'edit btn btn-success' %>
+    <% end %>
+  </div>
+</div><br><br>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Game Log</h3>
+    <table class="table table-bordered table-hover grey text-center">
+      <tbody>
+        <tr>
+          <th colspan="3">Game</th><th colspan="7">Passing</th><th colspan="3">Rushing</th><th colspan="1">Fantasy Points</th>
+        </tr>
+        <tr>
+          <th>WEEK</th><th>DATE</th><th>OPP</th><th>COMP</th><th>ATT</th><th>COMP %</th><th>YARDS</th><th>YPA</th><th>TD</th><th>INT</th><th>ATT</th><th>YARDS</th><th>TD</th><th>STANDARD</th>
+        </tr>
+        <%= render @passing_game_logs %>
+      </tbody>
+    </table>
+  </div>
+</div><br><br><br>
