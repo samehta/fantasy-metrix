@@ -1,7 +1,8 @@
 <div class="row">
-  <div class="col-md-4"><br><br><br><br><br><br><br>
+  <div class="col-md-4"><br><br><br><br><br>
     <table class="table table-bordered table-hover grey">
       <tbody>
+        <tr><td>Height</td><td><%= @player.height %></td></tr>
         <tr><td>Position</td><td><%= @player.position %></td></tr>
         <tr><td>Experience</td><td><%= @player.experience %></td></tr>
         <tr><td>DOB / Age</td><td><%= @player.date_of_birth.strftime("%-m/%d/%Y") %> (<%= @player.age %>)</td></tr>
@@ -12,9 +13,10 @@
     <h1 class="grey"><%= @player.name %></h1><br>
     <div class="player"><%= image_tag(@player.image_path) %></div>
   </div>
-  <div class="col-md-4"><br><br><br><br><br><br><br>
+  <div class="col-md-4"><br><br><br><br><br>
     <table class="table table-bordered table-hover grey">
       <tbody>
+        <tr><td>Weight</td><td><%= @player.weight %> lbs</td></tr>
         <tr><td>Draft Pick</td><td><%= @player.draft %></td></tr>
         <tr><td>College</td><td><%= @player.college %></td></tr>
         <tr><td>Current Team</td><td><%= @player.team.name %></td></tr>
