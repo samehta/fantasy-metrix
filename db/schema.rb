@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112220643) do
+ActiveRecord::Schema.define(version: 20160113024853) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20160112220643) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "passing_game_logs", force: :cascade do |t|
-    t.integer  "season"
     t.integer  "week"
     t.date     "date"
     t.string   "opponent"
@@ -52,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160112220643) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "player_id"
+    t.integer  "season"
   end
 
   add_index "passing_game_logs", ["player_id"], name: "index_passing_game_logs_on_player_id"
