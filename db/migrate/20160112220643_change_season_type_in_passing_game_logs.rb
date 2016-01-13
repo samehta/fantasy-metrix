@@ -1,6 +1,6 @@
 class ChangeSeasonTypeInPassingGameLogs < ActiveRecord::Migration
   def self.up
-    change_column :passing_game_logs, :season, 'integer USING CAST("season" AS integer)'
+    change_column :passing_game_logs, :season, "USING season::integer"
   end
  
   def self.down
