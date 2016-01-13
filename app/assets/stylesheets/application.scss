@@ -317,11 +317,15 @@ ul.nav a:hover {
   display: inline;
 }
 
+th {
+  text-align: center;
+}
+
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   color: #ffffff;
   background-color: #397D02;
 }
 
-th {
-  text-align: center;
+.player {
+  border: 2px solid #B7B7B7;
 }

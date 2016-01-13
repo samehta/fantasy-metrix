@@ -60,8 +60,8 @@ Team.create!(name: 'Jacksonville Jaguars', image_path: 'jacksonville/jaguars.png
 Team.create!(name: 'Tennessee Titans', image_path: 'tennessee/titans.png')
 Team.create!(name: 'Denver Broncos', image_path: 'denver/broncos.png')
 Team.create!(name: 'Kansas City Chiefs', image_path: 'kansas_city/chiefs.png')
-Team.create!(name: 'Oakland Raiders', image_path: 'oakland/raiders.png')
 Team.create!(name: 'San Diego Chargers', image_path: 'san_diego/chargers.png')
+Team.create!(name: 'Oakland Raiders', image_path: 'oakland/raiders.png')
 Team.create!(name: 'Dallas Cowboys', image_path: 'dallas/cowboys.png')
 Team.create!(name: 'New York Giants', image_path: 'new_york_giants/giants.png')
 Team.create!(name: 'Philadelphia Eagles', image_path: 'philadelphia/eagles.png')
@@ -75,9 +75,9 @@ Team.create!(name: 'Carolina Panthers', image_path: 'carolina/panthers.png')
 Team.create!(name: 'New Orleans Saints', image_path: 'new_orleans/saints.png')
 Team.create!(name: 'Tampa Bay Buccaneers', image_path: 'tampa_bay/buccaneers.png')
 Team.create!(name: 'Arizona Cardinals', image_path: 'arizona/cardinals.png')
+Team.create!(name: 'Los Angeles Rams', image_path: 'los_angeles/rams.png')
 Team.create!(name: 'San Francisco 49ers', image_path: 'san_francisco/niners.png')
 Team.create!(name: 'Seattle Seahawks', image_path: 'seattle/seahawks.png')
-Team.create!(name: 'St. Louis Rams', image_path: 'st_louis/rams.png')
 teams = Team.all
 
 

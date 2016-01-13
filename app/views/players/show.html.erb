@@ -9,8 +9,8 @@
     </table>
   </div>
   <div class="col-md-4 text-center">
-    <h1 class="player"><%= @player.name %></h1><br>
-    <%= image_tag(@player.image_path) %>
+    <h1 class="grey"><%= @player.name %></h1><br>
+    <div class="player"><%= image_tag(@player.image_path) %></div>
   </div>
   <div class="col-md-4"><br><br><br><br><br><br><br>
     <table class="table table-bordered table-hover grey">
@@ -32,14 +32,6 @@
       <%= link_to "Delete Player", [@team, @player], method: :delete, class: 'cancel btn btn-danger', data: { confirm: 'Are you sure you want to delete this player?' } %>
     <% end %>
   </div>
-</div><br>
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4 text-center">
-    <% if policy(@passing_game_log).create? %>
-      <%= link_to "New Passing Game Log", new_player_passing_game_log_path(@player, @passing_game_log), class: 'edit btn btn-success' %>
-    <% end %>
-  </div>
 </div><br><br>
 <div class="row">
   <div class="col-md-12">
@@ -55,5 +47,13 @@
         <%= render @passing_game_logs %>
       </tbody>
     </table>
+  </div>
+</div><br><br>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 text-center">
+    <% if policy(@passing_game_log).create? %>
+      <%= link_to "New Passing Game Log", new_player_passing_game_log_path(@player, @passing_game_log), class: 'edit btn btn-success' %>
+    <% end %>
   </div>
 </div><br><br><br>
