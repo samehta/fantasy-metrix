@@ -1,5 +1,4 @@
 class PassingGameLogsController < ApplicationController
-  skip_before_action :authenticate_user!
 
   def new
     @player = Player.find(params[:player_id])

@@ -321,7 +321,12 @@ th {
   text-align: center;
 }
 
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+.table-hover tbody tr:hover th {
+  color: #ffffff;
+  background-color: #23527C;
+}
+
+.table-hover tbody tr:hover td {
   color: #ffffff;
   background-color: #397D02;
 }
