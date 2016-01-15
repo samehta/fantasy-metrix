@@ -1,25 +1,30 @@
 <div class="row">
-  <div class="col-md-4"><br><br><br><br><br>
-    <table class="table table-bordered table-hover grey">
+  <div class="col-md-3"></div>
+  <div class="col-md-6 text-center">
+    <h1 class="grey"><%= @player.name %></h1><br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4"><br>
+    <table id="info" class="table table-bordered table-hover grey">
       <tbody>
-        <tr><td>Age</td><td><%= @player.age %></td></tr>
-        <tr><td>Height</td><td><%= @player.height %></td></tr>
-        <tr><td>Weight</td><td><%= @player.weight %> lbs</td></tr>
-        <tr><td>Position</td><td><%= @player.position %></td></tr>
+        <tr><th>Age</th><th><%= @player.age %></th></tr>
+        <tr><th>Height</th><th><%= @player.height %></th></tr>
+        <tr><th>Weight</th><th><%= @player.weight %> lbs</th></tr>
+        <tr><th>Position</th><th><%= @player.position %></th></tr>
       </tbody>
     </table>
   </div>
   <div class="col-md-4 text-center">
-    <h1 class="grey"><%= @player.name %></h1><br>
     <div class="player"><%= image_tag(@player.image_path) %></div>
   </div>
-  <div class="col-md-4"><br><br><br><br><br>
+  <div class="col-md-4"><br>
     <table class="table table-bordered table-hover grey">
       <tbody>
-        <tr><td>Draft Pick</td><td><%= @player.draft %></td></tr>
-        <tr><td>College</td><td><%= @player.college %></td></tr>
-        <tr><td>Experience</td><td><%= @player.experience %></td></tr>
-        <tr><td>Current Team</td><td><%= @player.team.name %></td></tr>
+        <tr><th>Draft Pick</th><th><%= @player.draft %></th></tr>
+        <tr><th>College</th><th><%= @player.college %></th></tr>
+        <tr><th>Experience</th><th><%= @player.experience %></th></tr>
+        <tr><th>Current Team</th><th><%= @player.team.name %></th></tr>
       </tbody>
     </table>
   </div>
@@ -35,27 +40,29 @@
     <% end %>
   </div>
 </div><br><br>
-<div class="row">
-  <div class="col-md-12">
-    <h3>Game Log</h3>
-    <table class="table table-bordered table-hover grey text-center">
-      <tbody>
-        <tr>
-          <th colspan="3">Game</th><th colspan="7">Passing</th><th colspan="3">Rushing</th><th colspan="1">Fantasy Points</th>
-        </tr>
-        <tr>
-          <th>WEEK</th><th>DATE</th><th>OPP</th><th>COMP</th><th>ATT</th><th>COMP %</th><th>YARDS</th><th>YPA</th><th>TD</th><th>INT</th><th>ATT</th><th>YARDS</th><th>TD</th><th>STANDARD</th>
-        </tr>
-        <%= render @passing_game_logs %>
-      </tbody>
-    </table>
-  </div>
-</div><br><br>
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4 text-center">
-    <% if policy(@passing_game_log).create? %>
-      <%= link_to "New Passing Game Log", new_player_passing_game_log_path(@player, @passing_game_log), class: 'edit btn btn-success' %>
-    <% end %>
-  </div>
-</div><br><br><br>
+<% if @player.position == "Quarterback" %>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Game Log</h3>
+      <table id="header" class="table table-bordered table-hover grey text-center">
+        <tbody>
+          <tr>
+            <th colspan="3">Game</th><th colspan="7">Passing</th><th colspan="3">Rushing</th><th colspan="1">Fantasy Points</th>
+          </tr>
+          <tr>
+            <th>WEEK</th><th>DATE</th><th>OPP</th><th>COMP</th><th>ATT</th><th>COMP %</th><th>YARDS</th><th>YPA</th><th>TD</th><th>INT</th><th>ATT</th><th>YARDS</th><th>TD</th><th>STANDARD</th>
+          </tr>
+          <%= render @passing_game_logs %>
+        </tbody>
+      </table>
+    </div>
+  </div><br><br>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 text-center">
+      <% if policy(@passing_game_log).create? %>
+        <%= link_to "New Passing Game Log", new_player_passing_game_log_path(@player, @passing_game_log), class: 'edit btn btn-success' %>
+      <% end %>
+    </div>
+  </div><br><br><br>
+<% end %>
