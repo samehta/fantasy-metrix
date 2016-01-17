@@ -18,6 +18,7 @@ feature "Article User Process:", js: true do
     visit articles_path
 
     expect(page).to have_content("First Article Title")
+    expect(page).to_not have_content("New Article")
   end
 
   scenario "user views article show page" do
@@ -28,6 +29,8 @@ feature "Article User Process:", js: true do
     expect(page).to have_content(article.user.username)
     expect(page).to have_content("First Article Title")
     expect(page).to have_content("This is the first official Article of FantasyMetrix.")
+    expect(page).to_not have_content("Edit Article")
+    expect(page).to_not have_content("Delete Article")
   end
 
 end
