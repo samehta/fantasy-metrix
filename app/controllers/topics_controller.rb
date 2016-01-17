@@ -37,7 +37,7 @@ class TopicsController < ApplicationController
   def update
     @topic = Topic.find(params[:id])
     authorize @topic
-    if @topic.update_attribtues(topic_params)
+    if @topic.update_attributes(topic_params)
       flash[:notice] = "#{@topic.name} was successfully updated."
       redirect_to @topic
     else
@@ -50,7 +50,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     authorize @topic 
     if @topic.destroy
-      flash[:notice] = "#{@topic.name} was successfully deleted."
+      flash[:notice] = "Topic was successfully deleted."
       redirect_to topics_path
     else
       flash[:error] = "There was an error deleting the topic. Please try again."
@@ -61,6 +61,6 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:name, :description, :image_path)
+    params.require(:topic).permit(:name, :image_path)
   end
 end

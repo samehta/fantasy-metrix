@@ -53,7 +53,7 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
     authorize @player
     if @player.destroy
-      flash[:notice] = "#{@player.name} was successfully deleted."
+      flash[:notice] = "Player was successfully deleted."
       redirect_to @team
     else
       flash[:error] = "There was an error deleting #{@player.name}. Please try again."

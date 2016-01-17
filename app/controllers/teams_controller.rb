@@ -50,7 +50,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     authorize @team
     if @team.destroy
-      flash[:notice] = "#{@team.name} was successfully deleted."
+      flash[:notice] = "Team was successfully deleted."
       redirect_to teams_path
     else
       flash[:error] = "There was an error deleting the team. Please try again."
