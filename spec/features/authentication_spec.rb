@@ -35,12 +35,7 @@ feature "Sign In Process:", js: true do
   before do
     @user = create(:user)
     visit root_path
-    click_link "Login"
-    fill_in :user_email, with: @user.email
-    fill_in :user_password, with: "password"
-    click_button "Sign in"
-    expect(current_path).to eq('/')
-    expect(page).to have_content("Signed in successfully")
+    login(@user)
   end
 
   scenario "displays username when signed in" do

@@ -5,12 +5,7 @@ feature "Topic Admin Process:", js: true do
   before do
     admin = create(:admin)
     visit root_path
-    click_link "Login"
-    fill_in :user_email, with: admin.email
-    fill_in :user_password, with: admin.password
-    click_button "Sign in"
-    expect(current_path).to eq('/')
-    expect(page).to have_content("Signed in successfully.")
+    login(admin)
   end
 
   scenario "admin user creates new topic" do

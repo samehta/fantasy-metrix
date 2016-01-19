@@ -5,12 +5,7 @@ feature "Topic User Process:", js: true do
   before do
     user = create(:user)
     visit root_path
-    click_link "Login"
-    fill_in :user_email, with: user.email
-    fill_in :user_password, with: user.password
-    click_button "Sign in"
-    expect(current_path).to eq('/')
-    expect(page).to have_content("Signed in successfully.")
+    login(user)
   end
 
   scenario "user views topic index page" do
@@ -18,7 +13,7 @@ feature "Topic User Process:", js: true do
     visit topics_path
 
     expect(page).to have_content("First Topic")
-    expect(page).to_not have_content("New Topic")
+    expect(page).to_not have_link("New Topic")
   end
 
   scenario "user views topic show page" do
@@ -27,8 +22,7 @@ feature "Topic User Process:", js: true do
     click_link "First Topic"
 
     expect(page).to have_content("First Topic")
-    expect(page).to_not have_content("Edit Topic")
-    expect(page).to_not have_content("Delete Topic")
+    expect(page).to_not have_link("Edit Topic")
+    expect(page).to_not have_link("Delete Topic")
   end
-
 end
