@@ -9,6 +9,6 @@ describe User do
   end
 
   describe "validations" do 
-    it { should validate_uniquness_of(:username) }
+    it { should validate_uniqueness_of(:username).case_insensitive }
   end
 end
