@@ -4,26 +4,16 @@ class Scraper
     puts "Begin scraping..."
     qb_urls = ['http://www.rotoworld.com/player/nfl/2550/carson-palmer',
                'http://www.rotoworld.com/player/nfl/4637/matt-ryan',
-               'http://www.rotoworld.com/player/nfl/4677/joe-flacco',
-               'http://www.rotoworld.com/player/nfl/6509/tyrod-taylor',
                'http://www.rotoworld.com/player/nfl/6491/cam-newton',
                'http://www.rotoworld.com/player/nfl/3608/jay-cutler',
-               'http://www.rotoworld.com/player/nfl/6493/andy-dalton',
-               'http://www.rotoworld.com/player/nfl/2090/josh-mccown',
-               'http://www.rotoworld.com/player/nfl/2730/tony-romo',
                'http://www.rotoworld.com/player/nfl/1493/peyton-manning',
                'http://www.rotoworld.com/player/nfl/5132/matthew-stafford',
                'http://www.rotoworld.com/player/nfl/3118/aaron-rodgers',
                'http://www.rotoworld.com/player/nfl/1163/tom-brady', 
-               'http://www.rotoworld.com/player/nfl/5463/brian-hoyer',
-               'http://www.rotoworld.com/player/nfl/6439/andrew-luck',
                'http://www.rotoworld.com/player/nfl/9320/blake-bortles',
                'http://www.rotoworld.com/player/nfl/3119/alex-smith',
-               'http://www.rotoworld.com/player/nfl/7417/ryan-tannehill',
-               'http://www.rotoworld.com/player/nfl/9274/teddy-bridgewater',
                'http://www.rotoworld.com/player/nfl/591/drew-brees',
                'http://www.rotoworld.com/player/nfl/1657/eli-manning',
-               'http://www.rotoworld.com/player/nfl/3240/ryan-fitzpatrick']
     # url = page.css('div[id=cp1_pnlDepthCharts] table a')[1]['href']
 
     qb_urls.each do |url|
