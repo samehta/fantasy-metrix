@@ -12,16 +12,15 @@
     <% end %>
   </div>
 </div>
-<table class="table">
+<table class="table table-bordered">
   <div class="row">
     <% @posts.each do |post| %>
       <tr><td>
       <h3><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
-      <small class="date"><%= post.created_at.strftime("%A, %B %d, %Y") %></small>
-      <small class="author"><%= post.user.username %></small><br><br>
+      <small class="date"><%= post.user.username %> </small>
+      <small class="date"> posted <%= time_ago_in_words(post.created_at) %></small><br><br>
       </td></tr>
     <% end %><br>
-    <tr><td></td></tr>
   </div>
 </table>
 <div class="row">

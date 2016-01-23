@@ -3,7 +3,7 @@
     <h1 class="article">ARTICLES</h1><br>
   </div>
 </div>
-<table class="table">
+<table class="table table-bordered">
   <div class="row">
     <% @articles.each do |article| %>
     <tr><td>
@@ -14,15 +14,14 @@
       <% end %>
       <div class="col-md-9">
         <h2><%= link_to article.title, article, class: 'article-links' %></h2>
-        <small class="date"><%= article.created_at.strftime("%A, %B %d, %Y") %></small>
-        <small class="author"><%= article.user.username %></small><br><br>
+        <small class="author"><%= article.user.username %></small><br>
+        <small class="date"><%= article.created_at.strftime("%A, %B %d, %Y") %></small><br><br>
       </div>
       <div class="col-md-9 article">
-        <p><%= article.body[0...400] %>...</p>
+        <p><%= article.body[0...290] %>...</p>
       </div>
     </td></tr>
     <% end %>
-    <tr><td></td></tr>
   </div>
 </table>
 <h4 class="text-center paginate"><%= will_paginate @articles %></h4>

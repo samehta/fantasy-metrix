@@ -5,26 +5,26 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-4"><br>
+  <div class="col-md-4"><br><br>
     <table id="info" class="table table-bordered table-hover grey">
       <tbody>
-        <tr><th>Age</th><th><%= @player.age %></th></tr>
-        <tr><th>Height</th><th><%= @player.height %></th></tr>
-        <tr><th>Weight</th><th><%= @player.weight %> lbs</th></tr>
-        <tr><th>Position</th><th><%= @player.position %></th></tr>
+        <tr><th style="width: 150px">Age</th><th class="text-center"><%= @player.age %></th></tr>
+        <tr><th style="width: 150px">Height</th><th class="text-center"><%= @player.height %></th></tr>
+        <tr><th style="width: 150px">Weight</th><th class="text-center"><%= @player.weight %></th></tr>
+        <!-- <tr><th>Draft Pick</th><th><%#= @player.draft %></th></tr> -->
       </tbody>
     </table>
   </div>
   <div class="col-md-4 text-center">
     <div class="player"><%= image_tag(@player.image_path) %></div>
   </div>
-  <div class="col-md-4"><br>
+  <div class="col-md-4"><br><br>
     <table class="table table-bordered table-hover grey">
       <tbody>
-        <tr><th>Draft Pick</th><th><%= @player.draft %></th></tr>
         <tr><th>College</th><th><%= @player.college %></th></tr>
-        <tr><th>Experience</th><th><%= @player.experience %></th></tr>
+        <tr><th>Position</th><th><%= @player.position %></th></tr>
         <tr><th>Current Team</th><th><%= @player.team.name %></th></tr>
+        <!-- <tr><th>Experience</th><th><%#= @player.experience %></th></tr> -->
       </tbody>
     </table>
   </div>
@@ -40,6 +40,7 @@
     <% end %>
   </div>
 </div><br><br>
+
 <% if @player.position == "Quarterback" %>
   <div class="row">
     <div class="col-md-12">

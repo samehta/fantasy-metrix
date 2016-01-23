@@ -74,14 +74,18 @@ small.author {
   color: #ffffff;
 }
 
+.col-md-8 {
+  width: 12.5%;
+}
+
 table#header th {
   text-align: center;
 }
 
-/*table#header tbody tr:hover th {
+table#header tbody tr:hover th {
   color: #ffffff;
-  background-color: #984949 !important;
-}*/
+  background-color: #397D02;
+}
 
 .table-hover tbody tr:hover th {
   color: #ffffff;

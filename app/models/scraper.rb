@@ -13,17 +13,17 @@ class Scraper
                'http://www.rotoworld.com/player/nfl/9320/blake-bortles',
                'http://www.rotoworld.com/player/nfl/3119/alex-smith',
                'http://www.rotoworld.com/player/nfl/591/drew-brees',
-               'http://www.rotoworld.com/player/nfl/1657/eli-manning',
+               'http://www.rotoworld.com/player/nfl/1657/eli-manning',]
     # url = page.css('div[id=cp1_pnlDepthCharts] table a')[1]['href']
 
     qb_urls.each do |url|
       page = Nokogiri::HTML(open(url))
-      player_name = page.css('div.playername').text.match(/(.+) \|/)[1]
+      player_name = page.css('div.playername').text.match(/(.+) \| (.+) \|/)[1]
       team_name = page.css('td:contains("Team:")').first.ancestors('tr').css('a').text
-      position = page.css('div.playername').text.match(/\| (.+)/)[1]
+      position = page.css('div.playername').text.match(/\| (.+) \|/)[1]
       date_of_birth_str = page.css('td:contains("DOB:")').first.ancestors('tr').css('td').last.text.match(%r{(\d\d?/\d\d?/\d\d\d\d)})[1]
       date_of_birth = DateTime.strptime(date_of_birth_str, '%m/%d/%Y')
-      height = page.css('td:contains("Ht")').first.ancestors('tr').css('td').last.text.match(/(.+) \//)[1]
+      height = page.css('td:contains("Ht")').first.ancestors('tr').css('td').last.text.match(/(.+)\' /)[1]
       weight = page.css('td:contains("Wt:")').first.ancestors('tr').css('td').last.text.match(/\/ (.+)/)[1].to_i
       college = page.css('td:contains("College:")').first.ancestors('tr').css('td').last.text
       team_image = team_name.downcase.split(' ').join('_')

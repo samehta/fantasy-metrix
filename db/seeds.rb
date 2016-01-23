@@ -25,7 +25,7 @@ admin.save!
  
 # Create Standard User
 standard = User.new(
-  username: 'Sahil',
+  username: 'Sahil Mehta',
   email:    'samehta91@gmail.com',
   password: 'password'
 )
@@ -46,43 +46,44 @@ articles = Article.all
 
 
 # Create Teams
-Team.create!(name: 'Buffalo Bills', image_path: 'buffalo_bills/bills.png')
-Team.create!(name: 'Miami Dolphins', image_path: 'miami_dolphins/dolphins.png')
-Team.create!(name: 'New England Patriots', image_path: 'new_england_patriots/patriots.png')
-Team.create!(name: 'New York Jets', image_path: 'new_york_jets/jets.png')
 Team.create!(name: 'Baltimore Ravens', image_path: 'baltimore_ravens/ravens.png')
 Team.create!(name: 'Cincinnati Bengals', image_path: 'cincinnati_bengals/bengals.png')
 Team.create!(name: 'Cleveland Browns', image_path: 'cleveland_browns/browns.png')
 Team.create!(name: 'Pittsburgh Steelers', image_path: 'pittsburgh_steelers/steelers.png')
-Team.create!(name: 'Houston Texans', image_path: 'houston_texans/texans.png')
-Team.create!(name: 'Indianapolis Colts', image_path: 'indianapolis_colts/colts.png')
-Team.create!(name: 'Jacksonville Jaguars', image_path: 'jacksonville_jaguars/jaguars.png')
-Team.create!(name: 'Tennessee Titans', image_path: 'tennessee_titans/titans.png')
-Team.create!(name: 'Denver Broncos', image_path: 'denver_broncos/broncos.png')
-Team.create!(name: 'Kansas City Chiefs', image_path: 'kansas_city_chiefs/chiefs.png')
-Team.create!(name: 'San Diego Chargers', image_path: 'san_diego_chargers/chargers.png')
-Team.create!(name: 'Oakland Raiders', image_path: 'oakland_raiders/raiders.png')
-Team.create!(name: 'Dallas Cowboys', image_path: 'dallas_cowboys/cowboys.png')
-Team.create!(name: 'New York Giants', image_path: 'new_york_giants/giants.png')
-Team.create!(name: 'Philadelphia Eagles', image_path: 'philadelphia_eagles/eagles.png')
-Team.create!(name: 'Washington Redskins', image_path: 'washington_redskins/redskins.png')
 Team.create!(name: 'Chicago Bears', image_path: 'chicago_bears/bears.png')
 Team.create!(name: 'Detroit Lions', image_path: 'detroit_lions/lions.png')
 Team.create!(name: 'Green Bay Packers', image_path: 'green_bay_packers/packers.png')
 Team.create!(name: 'Minnesota Vikings', image_path: 'minnesota_vikings/vikings.png')
-Team.create!(name: 'Atlanta Falcons', image_path: 'atlanta_falcons/falcons.png')
-Team.create!(name: 'Carolina Panthers', image_path: 'carolina_panthers/panthers.png')
-Team.create!(name: 'New Orleans Saints', image_path: 'new_orleans_saints/saints.png')
-Team.create!(name: 'Tampa Bay Buccaneers', image_path: 'tampa_bay_buccaneers/buccaneers.png')
+Team.create!(name: 'Denver Broncos', image_path: 'denver_broncos/broncos.png')
+Team.create!(name: 'Kansas City Chiefs', image_path: 'kansas_city_chiefs/chiefs.png')
+Team.create!(name: 'San Diego Chargers', image_path: 'san_diego_chargers/chargers.png')
+Team.create!(name: 'Oakland Raiders', image_path: 'oakland_raiders/raiders.png')
 Team.create!(name: 'Arizona Cardinals', image_path: 'arizona_cardinals/cardinals.png')
 Team.create!(name: 'Los Angeles Rams', image_path: 'los_angeles_rams/rams.png')
 Team.create!(name: 'San Francisco 49ers', image_path: 'san_francisco_49ers/niners.png')
 Team.create!(name: 'Seattle Seahawks', image_path: 'seattle_seahawks/seahawks.png')
+Team.create!(name: 'Buffalo Bills', image_path: 'buffalo_bills/bills.png')
+Team.create!(name: 'Miami Dolphins', image_path: 'miami_dolphins/dolphins.png')
+Team.create!(name: 'New England Patriots', image_path: 'new_england_patriots/patriots.png')
+Team.create!(name: 'New York Jets', image_path: 'new_york_jets/jets.png')
+Team.create!(name: 'Dallas Cowboys', image_path: 'dallas_cowboys/cowboys.png')
+Team.create!(name: 'New York Giants', image_path: 'new_york_giants/giants.png')
+Team.create!(name: 'Philadelphia Eagles', image_path: 'philadelphia_eagles/eagles.png')
+Team.create!(name: 'Washington Redskins', image_path: 'washington_redskins/redskins.png')
+Team.create!(name: 'Houston Texans', image_path: 'houston_texans/texans.png')
+Team.create!(name: 'Indianapolis Colts', image_path: 'indianapolis_colts/colts.png')
+Team.create!(name: 'Jacksonville Jaguars', image_path: 'jacksonville_jaguars/jaguars.png')
+Team.create!(name: 'Tennessee Titans', image_path: 'tennessee_titans/titans.png')
+Team.create!(name: 'Atlanta Falcons', image_path: 'atlanta_falcons/falcons.png')
+Team.create!(name: 'Carolina Panthers', image_path: 'carolina_panthers/panthers.png')
+Team.create!(name: 'New Orleans Saints', image_path: 'new_orleans_saints/saints.png')
+Team.create!(name: 'Tampa Bay Buccaneers', image_path: 'tampa_bay_buccaneers/buccaneers.png')
+
 teams = Team.all
 
 
 # Create Topics
-Topic.create!(name: 'SLEEPERS', image_path: Faker::Avatar.image)
+Topic.create!(name: 'DEFENSES', image_path: Faker::Avatar.image)
 Topic.create!(name: 'DYNASTY', image_path: Faker::Avatar.image)
 Topic.create!(name: 'INJURIES', image_path: Faker::Avatar.image)
 Topic.create!(name: 'WAIVER WIRE', image_path: Faker::Avatar.image)
