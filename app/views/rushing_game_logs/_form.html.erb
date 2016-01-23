@@ -1,0 +1,59 @@
+<%= form_for [player, rushing_game_log] do |f| %>
+  <div class="col-md-4">
+    <div class="form-group">
+      <%= f.label :season %>
+      <%= f.number_field :season, class: 'form-control', placeholder: "SEASON" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :week %>
+      <%= f.number_field :week, class: 'form-control', placeholder: "WEEK" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :date %>
+      <%= f.date_field :date, class: 'form-control', placeholder: "DATE" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :opponent %>
+      <%= f.text_field :opponent, class: 'form-control', placeholder: "OPP" %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <%= f.label :rushing_attempts %>
+      <%= f.number_field :rushing_attempts, class: 'form-control', placeholder: "RUSH" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :rushing_yards %>
+      <%= f.number_field :rushing_yards, class: 'form-control', placeholder: "YARDS" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :rushing_touchdowns %>
+      <%= f.number_field :rushing_touchdowns, class: 'form-control', placeholder: "TD" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :receptions %>
+      <%= f.number_field :receptions, class: 'form-control', placeholder: "REC" %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <%= f.label :receiving_yards %>
+      <%= f.number_field :receiving_yards, class: 'form-control', placeholder: "YARDS" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :receiving_touchdowns %>
+      <%= f.number_field :receiving_touchdowns, class: 'form-control', placeholder: "TD" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :fantasy_points %>
+      <%= f.number_field :fantasy_points, :step => 'any', class: 'form-control', placeholder: "STANDARD" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :fantasy_points %>
+      <%= f.number_field :ppr_fantasy_points, class: 'form-control', placeholder: "PPR" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Save", class: 'devise btn btn-success' %>
+    </div>
+  </div><br><br>
+<% end %>

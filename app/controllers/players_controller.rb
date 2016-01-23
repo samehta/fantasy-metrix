@@ -6,6 +6,8 @@ class PlayersController < ApplicationController
     @player = @team.players.find(params[:id])
     @passing_game_logs = @player.passing_game_logs 
     @passing_game_log = PassingGameLog.new
+    @rushing_game_logs = @player.rushing_game_logs
+    @rushing_game_log = RushingGameLog.new
     authorize @player
   end
 

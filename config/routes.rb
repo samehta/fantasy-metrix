@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :players, only: [] do
     resources :passing_game_logs, except: [:index, :show]
+    resources :rushing_game_logs, except: [:index, :show]
   end
   
   resources :topics do
