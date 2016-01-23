@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113033512) do
+ActiveRecord::Schema.define(version: 20160123190507) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -84,6 +84,26 @@ ActiveRecord::Schema.define(version: 20160113033512) do
 
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "rushing_game_logs", force: :cascade do |t|
+    t.integer  "season"
+    t.integer  "week"
+    t.date     "date"
+    t.string   "opponent"
+    t.integer  "rushing_attempts"
+    t.integer  "rushing_yards"
+    t.integer  "rushing_touchdowns"
+    t.integer  "receptions"
+    t.integer  "receiving_yards"
+    t.integer  "receiving_touchdowns"
+    t.decimal  "fantasy_points"
+    t.decimal  "ppr_fantasy_points"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "player_id"
+  end
+
+  add_index "rushing_game_logs", ["player_id"], name: "index_rushing_game_logs_on_player_id"
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"
