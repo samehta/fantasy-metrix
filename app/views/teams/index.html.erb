@@ -1,12 +1,4 @@
 <div class="row">
-  <div class="col-md-6 text-center">
-    <%= image_tag("background/afc.png", :width => 90, :height => 70, :title => "AFC") %>
-  </div> 
-  <div class="col-md-6 text-center">
-    <%= image_tag("background/nfc.png", :width => 90, :height => 70, :title => "NFC") %>
-  </div>
-</div>
-<div class="row">
   <% @teams.each do |team| %>
     <div class="col-md-8 text-center"><br><br>
       <%= link_to image_tag(team.image_path, :width => 110, :height => 80, :title => "#{team.name}"), team %>

@@ -4,6 +4,7 @@ class Player < ActiveRecord::Base
   has_many :rushing_game_logs
 
   def age
-    (Date.today.strftime('%Y%m%d').to_i - date_of_birth.strftime('%Y%m%d').to_i) / 10000
+    year_constant = 10000
+    (Date.today.strftime('%Y%m%d').to_i - date_of_birth.strftime('%Y%m%d').to_i) / year_constant
   end
 end
