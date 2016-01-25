@@ -8,10 +8,9 @@ describe RushingGameLog do
 
   describe "yards per carry" do
     it "should calculate yards per rushing attempt rounded to 2 decimal points" do
-      rushing = create(:rushing_game_log)
-      YPC = (rushing.rushing_attempts.to_f / rushing.rushing_yards.to_f).round(2)
+      rushing = RushingGameLog.new(rushing_attempts: 15, rushing_yards: 80)
 
-      expect(rushing.yards_per_carry).to eq(YPC)
+      expect(rushing.yards_per_carry).to eq(5.33)
     end
   end
 end

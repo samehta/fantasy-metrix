@@ -2,6 +2,7 @@ class Player < ActiveRecord::Base
   belongs_to :team
   has_many :passing_game_logs
   has_many :rushing_game_logs
+  has_many :receiving_game_logs
 
   def age
     year_constant = 10000

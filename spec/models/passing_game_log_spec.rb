@@ -8,19 +8,17 @@ describe PassingGameLog do
 
   describe "completion percentage" do
     it "should calculate completion percentage rounded to 1 decimal point" do
-      passing = create(:passing_game_log)
-      CP = ((passing.completions.to_f / passing.passing_attempts.to_f) * 100).round(1)
+      passing = PassingGameLog.new(completions: 25, passing_attempts: 40)
 
-      expect(passing.completion_percentage).to eq(CP)
+      expect(passing.completion_percentage).to eq(62.5)
     end
   end
 
   describe "yards per attempt" do
     it "should calculate average yards per attempt rounded to 1 decimal point" do
-      passing = create(:passing_game_log)
-      YPA = (passing.passing_yards.to_f / passing.passing_attempts.to_f).round(1)
+      passing = PassingGameLog.new(passing_attempts: 40, passing_yards: 350)
 
-      expect(passing.yards_per_attempt).to eq(YPA)
+      expect(passing.yards_per_attempt).to eq(8.8)
     end
   end
 end

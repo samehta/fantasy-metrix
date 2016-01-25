@@ -4,16 +4,16 @@ describe Player do
 
   describe "associations" do 
     it { should belong_to(:team) }
-    it { should have_many(:passing_game_logs) }    
+    it { should have_many(:passing_game_logs) }
+    it { should have_many(:rushing_game_logs) }
+    it { should have_many(:receiving_game_logs) }    
   end
 
   describe "age" do
     it "should calculate a player's age from their birth date" do
-      player = create(:player)
-      year_constant = 10000
-      players_age = (Date.today.strftime('%Y%m%d').to_i - player.date_of_birth.strftime('%Y%m%d').to_i) / year_constant
+      player = Player.new(date_of_birth: "November 1, 1991")
 
-      expect(player.age).to eq(players_age)
+      expect(player.age).to eq(24)
     end
   end
 end
