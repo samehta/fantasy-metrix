@@ -1,5 +1,4 @@
 class PassingGameLogsController < ApplicationController
-
   def new
     @player = Player.find(params[:player_id])
     @passing_game_log = PassingGameLog.new

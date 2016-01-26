@@ -8,6 +8,8 @@ class PlayersController < ApplicationController
     @passing_game_log = PassingGameLog.new
     @rushing_game_logs = @player.rushing_game_logs
     @rushing_game_log = RushingGameLog.new
+    @receiving_game_logs = @player.receiving_game_logs
+    @receiving_game_log = ReceivingGameLog.new
     authorize @player
   end
 

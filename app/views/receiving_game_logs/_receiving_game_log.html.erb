@@ -1,0 +1,22 @@
+<tr>
+  <td><%= receiving_game_log.week %></td>
+  <td><%= receiving_game_log.date.strftime("%-m/%d") %></td>
+  <td><%= receiving_game_log.opponent %></td>
+  <td><%= receiving_game_log.targets %></td>
+  <td><%= receiving_game_log.receptions %></td>
+  <td><%= receiving_game_log.receiving_yards %></td>
+  <td><%= receiving_game_log.yards_per_reception %></td>
+  <td><%= receiving_game_log.receiving_touchdowns %></td>
+  <td><%= receiving_game_log.rushing_attempts %></td>
+  <td><%= receiving_game_log.rushing_yards %></td>
+  <td><%= receiving_game_log.rushing_touchdowns %></td>
+  <td><%= receiving_game_log.fantasy_points %></td>
+  <td><%= receiving_game_log.ppr_fantasy_points %></td>
+  <% if policy(receiving_game_log).update? %>
+    <td><%= link_to "Edit", edit_player_receiving_game_log_path(receiving_game_log.player, receiving_game_log), {:style=>'color: #ffffff'} %></td>
+  <% end %>
+  </td>
+  <% if policy(receiving_game_log).destroy? %>
+    <td><%= link_to "Delete", [receiving_game_log.player, receiving_game_log], {:style=>'color: #ffffff', method: :delete} %></td>
+  <% end %>
+</tr>
