@@ -16,12 +16,12 @@
       <%= f.label :opponent %>
       <%= f.text_field :opponent, class: 'form-control', placeholder: "OPP" %>
     </div>
-  </div>
-  <div class="col-md-4">
     <div class="form-group">
       <%= f.label :rushing_attempts %>
       <%= f.number_field :rushing_attempts, class: 'form-control', placeholder: "RUSH" %>
     </div>
+  </div>
+  <div class="col-md-4">
     <div class="form-group">
       <%= f.label :rushing_yards %>
       <%= f.number_field :rushing_yards, class: 'form-control', placeholder: "YARDS" %>
@@ -31,15 +31,18 @@
       <%= f.number_field :rushing_touchdowns, class: 'form-control', placeholder: "TD" %>
     </div>
     <div class="form-group">
+      <%= f.label :targets %>
+      <%= number_field :targets, class: 'form-control', placeholder: "TGTS"
+    <div class="form-group">
       <%= f.label :receptions %>
       <%= f.number_field :receptions, class: 'form-control', placeholder: "REC" %>
     </div>
-  </div>
-  <div class="col-md-4">
     <div class="form-group">
       <%= f.label :receiving_yards %>
       <%= f.number_field :receiving_yards, class: 'form-control', placeholder: "YARDS" %>
     </div>
+  </div>
+  <div class="col-md-4">
     <div class="form-group">
       <%= f.label :receiving_touchdowns %>
       <%= f.number_field :receiving_touchdowns, class: 'form-control', placeholder: "TD" %>
