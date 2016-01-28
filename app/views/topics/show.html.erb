@@ -16,11 +16,15 @@
   <div class="row">
     <% @posts.each do |post| %>
       <tr><td>
-      <%= render partial: 'votes/voter', locals: { post: post } %>
-      <h3><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
-      <small class="date"><%= post.user.username %> </small>
-      <small class="date"> posted <%= time_ago_in_words(post.created_at) %> ago</small><br>
-      <small class="author"><%= post.comments.count %> Comments</small><br><br>
+      <div class="col-md-1">
+        <%= render partial: 'votes/voter', locals: { post: post } %>
+      </div>
+      <div class="col-md-11 topics-show">
+        <h3><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
+        <small class="date"><%= post.user.username %> </small>
+        <small class="date"> posted <%= time_ago_in_words(post.created_at) %> ago</small><br>
+        <small class="comments"><%= post.comments.count %> Comments</small><br><br>
+      </div>
       </td></tr>
     <% end %><br>
   </div>

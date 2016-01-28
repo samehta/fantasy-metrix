@@ -74,6 +74,10 @@ small.author {
   color: #ffffff;
 }
 
+small.comments {
+  color: #B7B7B7;
+}
+
 .col-md-8 {
   width: 12.5%;
 }
@@ -266,21 +270,21 @@ ul.nav a:hover {
 }
 
 .glyphicon-chevron-up {
-  color: #23527C !important;
+  color: #397D02 !important;
 }
 
 .glyphicon-chevron-up:hover {
   text-decoration: none;
-  color: #397D02 !important;
+  color: #23527C !important;
 }
 
 .glyphicon-chevron-down {
-  color: #23527C !important;
+  color: #397D02 !important;
 }
 
 .glyphicon-chevron-down:hover {
   text-decoration: none;
-  color: #397D02 !important;
+  color: #23527C !important;
 }
 
 .index.btn {
@@ -369,7 +373,15 @@ ul.nav a:hover {
 }
 
 .vote-arrows {
-  margin-top: 20px;
-  width: 40px;
+  width: 35px;
+  margin-top: 30px;
   text-align: center;
+}
+
+.topics-show {
+  margin-left: -25px;
+}
+
+.posts-show {
+  margin-left: -35px;
 }
