@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :passing_game_logs, except: [:index, :show]
     resources :rushing_game_logs, except: [:index, :show]
     resources :receiving_game_logs, except: [:index, :show]
+    resources :career_passing_stats, except: [:index, :show]
   end
   
   resources :topics do
