@@ -25,7 +25,7 @@ admin.save!
  
 # Create Standard User
 standard = User.new(
-  username: 'Sahil Mehta',
+  username: 'Sahil',
   email:    'samehta91@gmail.com',
   password: 'password'
 )

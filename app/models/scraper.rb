@@ -54,7 +54,7 @@ class Scraper
         rushing_touchdowns = cells[13].text.to_i
         passing_game_log = player.passing_game_logs.find_or_initialize_by(week: week)
         passing_game_log.update_attributes!(
-          season: year, date: date, opponent: opponent, completions: completions,
+          season: 2015, date: date, opponent: opponent, completions: completions,
           passing_attempts: passing_attempts, passing_yards: passing_yards,
           passing_touchdowns: passing_touchdowns, interceptions: interceptions,
           rushing_attempts: rushing_attempts, rushing_yards: rushing_yards,
@@ -115,7 +115,7 @@ class Scraper
         receiving_touchdowns= cells[10].text.to_i
         rushing_game_log = player.rushing_game_logs.find_or_initialize_by(week: week)
         rushing_game_log.update_attributes!(
-          season: year, date: date, opponent: opponent, rushing_attempts: rushing_attempts,
+          season: 2015, date: date, opponent: opponent, rushing_attempts: rushing_attempts,
           rushing_yards: rushing_yards, rushing_touchdowns: rushing_touchdowns, receptions: receptions, 
           receiving_yards: receiving_yards, receiving_touchdowns: receiving_touchdowns)
       end
@@ -179,7 +179,7 @@ class Scraper
         rushing_touchdowns= cells[10].text.to_i
         receiving_game_log = player.receiving_game_logs.find_or_initialize_by(week: week)
         receiving_game_log.update_attributes!(
-          season: year, date: date, opponent: opponent, receptions: receptions, 
+          season: 2015, date: date, opponent: opponent, receptions: receptions, 
           receiving_yards: receiving_yards, receiving_touchdowns: receiving_touchdowns, 
           rushing_attempts: rushing_attempts, rushing_yards: rushing_yards, 
           rushing_touchdowns: rushing_touchdowns)

@@ -265,6 +265,24 @@ ul.nav a:hover {
   color: #B7B7B7 !important;
 }
 
+.glyphicon-chevron-up {
+  color: #23527C !important;
+}
+
+.glyphicon-chevron-up:hover {
+  text-decoration: none;
+  color: #397D02 !important;
+}
+
+.glyphicon-chevron-down {
+  color: #23527C !important;
+}
+
+.glyphicon-chevron-down:hover {
+  text-decoration: none;
+  color: #397D02 !important;
+}
+
 .index.btn {
   border-color: #ffffff;
   background-color: #171C21;
@@ -351,6 +369,7 @@ ul.nav a:hover {
 }
 
 .vote-arrows {
+  margin-top: 20px;
   width: 40px;
   text-align: center;
 }
