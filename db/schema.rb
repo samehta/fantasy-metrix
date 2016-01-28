@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160128035215) do
+ActiveRecord::Schema.define(version: 20160128084132) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -23,6 +23,26 @@ ActiveRecord::Schema.define(version: 20160128035215) do
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"
+
+  create_table "career_passing_stats", force: :cascade do |t|
+    t.date     "year"
+    t.string   "team"
+    t.integer  "games_played"
+    t.integer  "completions"
+    t.integer  "passing_attempts"
+    t.integer  "passing_yards"
+    t.integer  "passing_touchdowns"
+    t.integer  "three_hundred_plus"
+    t.integer  "rushing_attempts"
+    t.integer  "rushing_yards"
+    t.integer  "rushing_touchdowns"
+    t.decimal  "fantasy_points"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "player_id"
+  end
+
+  add_index "career_passing_stats", ["player_id"], name: "index_career_passing_stats_on_player_id"
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"

@@ -23,7 +23,7 @@
         <h3><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
         <small class="date"><%= post.user.username %> </small>
         <small class="date"> posted <%= time_ago_in_words(post.created_at) %> ago</small><br>
-        <small class="comments"><%= post.comments.count %> Comments</small><br><br>
+        <small class="comments"><%= pluralize(post.comments.count, 'Comment') %></small><br><br>
       </div>
       </td></tr>
     <% end %><br>
