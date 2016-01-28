@@ -19,7 +19,8 @@
       <%= render partial: 'votes/voter', locals: { post: post } %>
       <h3><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
       <small class="date"><%= post.user.username %> </small>
-      <small class="date"> posted <%= time_ago_in_words(post.created_at) %></small><br><br>
+      <small class="date"> posted <%= time_ago_in_words(post.created_at) %> ago</small><br>
+      <small class="author"><%= post.comments.count %> Comments</small><br><br>
       </td></tr>
     <% end %><br>
   </div>

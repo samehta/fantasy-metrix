@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <%= render partial: 'votes/voter', locals: { post: @post } %>
     <h1 class="post"><%= @post.title %></h1>
-    <small class="date"><%= @post.user.username %> posted <%= time_ago_in_words(@post.created_at) %></small><br><br>
+    <small class="date"><%= @post.user.username %> posted <%= time_ago_in_words(@post.created_at) %> ago</small><br><br>
     <div>
       <% if policy(@post).update? %>
         <%= link_to "Edit Post", edit_topic_post_path(@topic, @post), class: 'edit btn btn-success' %>
