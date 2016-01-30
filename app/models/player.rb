@@ -9,4 +9,20 @@ class Player < ActiveRecord::Base
     year_constant = 10000
     (Date.today.strftime('%Y%m%d').to_i - date_of_birth.strftime('%Y%m%d').to_i) / year_constant
   end
+
+  def quarterback?
+    self.position == "Quarterback"
+  end
+
+  def running_back?
+    self.position == "Running Back"
+  end
+
+  def wide_receiver?
+    self.position == "Wide Receiver"
+  end
+
+  def tight_end?
+    self.position == "Tight End"
+  end
 end
