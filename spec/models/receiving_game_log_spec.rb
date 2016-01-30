@@ -12,5 +12,17 @@ describe ReceivingGameLog do
 
       expect(receiving.yards_per_reception).to eq(12.5)
     end
+
+    it "should return 0 if receptions and receiving yards are both equal to 0" do
+      receiving = ReceivingGameLog.new(receptions: 0, receiving_yards: 0)
+
+      expect(receiving.yards_per_reception).to eq(0)
+    end
+
+    it "should return 0 if yards per reception is equal to 0.0" do
+      receiving = ReceivingGameLog.new(receptions: 5, receiving_yards: 0)
+
+      expect(receiving.yards_per_reception).to eq(0)
+    end
   end
 end
