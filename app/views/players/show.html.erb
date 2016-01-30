@@ -50,6 +50,7 @@
 
 
 <% if @player.running_back? %>
+  <%= render partial: 'career_rushing_stat_table', locals: { player: @player } %><br><br><br>
   <%= render partial: 'rushing_game_log_table', locals: { rushing_game_log: @rushing_game_log, passing_game_logs: @passing_game_logs } %><br><br><br>
 <% end %>
 

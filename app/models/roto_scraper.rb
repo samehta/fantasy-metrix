@@ -5,8 +5,7 @@ class RotoScraper
   def self.go
     puts "Begin scraping team urls.."
     # TEAMS LISTING: http://www.rotoworld.com/sports/nfl/football
-    team_urls = ["http://www.rotoworld.com/teams/clubhouse/nfl/cin/cincinnati-bengals",
-                 "http://www.rotoworld.com/teams/clubhouse/nfl/cle/cleveland-browns"]
+    team_urls = ["http://www.rotoworld.com/teams/clubhouse/nfl/arz/arizona-cardinals"]
 
     team_urls.each do |team_url|
       team_page = Nokogiri::HTML(open(team_url))
@@ -101,6 +100,25 @@ class RotoScraper
 
 
         if player.running_back?
+          career_stat_rows.each do |row|
+            cells = row.css("td")
+            year = cells[0].text.to_i
+            team = cells[1].text
+            games_played = cells[2].text.to_i
+            rushing_attempts = cells[3].text.to_i
+            rushing_yards = cells[4].text.to_i
+            hundred_plus = cells[7].text.to_i
+            rushing_touchdowns = cells[8].text.to_i
+            receptions = cells[9].text.to_i
+            receiving_yards = cells[10].text.to_i
+            receiving_touchdowns= cells[14].text.to_i
+            career_rushing_stat = player.career_rushing_stats.find_or_initialize_by(year: year)
+            career_rushing_stat.update_attributes!(
+              year: year, team: team, games_played: games_played, rushing_attempts: rushing_attempts,
+              rushing_yards: rushing_yards, hundred_plus: hundred_plus, rushing_touchdowns: rushing_touchdowns, 
+              receptions: receptions, receiving_yards: receiving_yards, receiving_touchdowns: receiving_touchdowns)
+          end
+
           game_log_rows.each do |row|
             cells = row.css("td")
             week = cells[0].text.to_i
