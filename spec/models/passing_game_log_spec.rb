@@ -6,7 +6,7 @@ describe PassingGameLog do
     it { should belong_to(:player) }    
   end
 
-  describe "completion percentage" do
+  describe "#completion_percentage" do
     it "should calculate completion percentage rounded to 1 decimal point" do
       passing = PassingGameLog.new(completions: 25, passing_attempts: 40)
 
@@ -26,7 +26,7 @@ describe PassingGameLog do
     end
   end
 
-  describe "yards per attempt" do
+  describe "#yards_per_attempt" do
     it "should calculate average yards per attempt rounded to 1 decimal point" do
       passing = PassingGameLog.new(passing_attempts: 40, passing_yards: 350)
 

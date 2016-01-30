@@ -11,7 +11,7 @@ describe Player do
     it { should have_many(:career_rushing_stats) }
   end
 
-  describe "age" do
+  describe "#age" do
     it "should calculate a player's age from their birth date" do
       player = Player.new(date_of_birth: "November 1, 1991")
 

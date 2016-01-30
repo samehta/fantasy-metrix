@@ -6,7 +6,7 @@ describe ReceivingGameLog do
     it { should belong_to(:player) }    
   end
 
-  describe "yards per reception" do
+  describe "#yards_per_reception" do
     it "should calculate yards per reception rounded to 1 decimal point" do
       receiving = ReceivingGameLog.new(receptions: 8, receiving_yards: 100)
 

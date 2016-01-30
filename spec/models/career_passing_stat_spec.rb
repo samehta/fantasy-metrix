@@ -6,7 +6,7 @@ describe CareerPassingStat do
     it { should belong_to(:player) }    
   end
 
-  describe "completion percentage" do
+  describe "#completion_percentage" do
     it "should calculate completion percentage rounded to 1 decimal point" do
       passing = CareerPassingStat.new(completions: 329, passing_attempts: 483)
 
@@ -26,7 +26,7 @@ describe CareerPassingStat do
     end
   end
 
-  describe "yards per attempt" do
+  describe "#yards_per_attempt" do
     it "should calculate average yards per attempt rounded to 1 decimal point" do
       passing = CareerPassingStat.new(passing_attempts: 483, passing_yards: 4024)
 
@@ -46,7 +46,7 @@ describe CareerPassingStat do
     end
   end
 
-  describe "yards per game" do
+  describe "#yards_per_game" do
     it "should calculate average yards per game rounded to 1 decimal point" do
       passing = CareerPassingStat.new(games_played: 16, passing_yards: 4024)
 

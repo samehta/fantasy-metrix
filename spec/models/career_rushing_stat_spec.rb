@@ -26,7 +26,7 @@ describe CareerRushingStat do
     end
   end
 
-  describe "#yards per carry" do
+  describe "#yards_per_carry" do
     it "should calculate yards per rushing attempt rounded to 1 decimal point" do
       rushing = CareerRushingStat.new(rushing_attempts: 327, rushing_yards: 1485)
 
