@@ -56,10 +56,12 @@
 
 
 <% if @player.wide_receiver? %>
+  <%= render partial: 'career_receiving_stat_table', locals: { player: @player } %><br><br><br>
   <%= render partial: 'receiving_game_log_table', locals: { receiving_game_log: @receiving_game_log, receiving_game_logs: @receiving_game_logs } %><br><br><br>
 <% end %>
 
 
 <% if @player.tight_end? %>
+  <%= render partial: 'career_receiving_stat_table', locals: { player: @player } %><br><br><br>
   <%= render partial: 'receiving_game_log_table', locals: { receiving_game_log: @receiving_game_log, receiving_game_logs: @receiving_game_logs } %><br><br><br>
 <% end %>

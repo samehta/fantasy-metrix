@@ -46,6 +46,7 @@ class RotoScraper
         previous_date = Date.new(2015, 1, 1)
 
 
+        # SCRAPE QUARTERBACKS
         if player.quarterback?
           career_stat_rows.each do |row|
             cells = row.css("td")
@@ -98,7 +99,7 @@ class RotoScraper
           end
         end
 
-
+        # SCRAPE RUNNING BACKS
         if player.running_back?
           career_stat_rows.each do |row|
             cells = row.css("td")
@@ -143,8 +144,27 @@ class RotoScraper
           end
         end
 
-
+        # SCRAPE WIDE RECEIVERS
         if player.wide_receiver?
+          career_stat_rows.each do |row|
+            cells = row.css("td")
+            year = cells[0].text.to_i
+            team = cells[1].text
+            games_played = cells[2].text.to_i
+            receptions = cells[3].text.to_i
+            receiving_yards = cells[4].text.to_i
+            hundred_plus = cells[7].text.to_i
+            receiving_touchdowns = cells[8].text.to_i
+            rushing_attempts = cells[9].text.to_i
+            rushing_yards = cells[10].text.to_i
+            rushing_touchdowns= cells[14].text.to_i
+            career_receiving_stat = player.career_receiving_stats.find_or_initialize_by(year: year)
+            career_receiving_stat.update_attributes!(
+              year: year, team: team, games_played: games_played, receptions: receptions, 
+              receiving_yards: receiving_yards, hundred_plus: hundred_plus, receiving_touchdowns: receiving_touchdowns, 
+              rushing_attempts: rushing_attempts, rushing_yards: rushing_yards, rushing_touchdowns: rushing_touchdowns)
+          end
+
           game_log_rows.each do |row|
             cells = row.css("td")
             week = cells[0].text.to_i
@@ -170,8 +190,27 @@ class RotoScraper
           end
         end
 
-
+        # SCRAPE TIGHT ENDS
         if player.tight_end?
+          career_stat_rows.each do |row|
+            cells = row.css("td")
+            year = cells[0].text.to_i
+            team = cells[1].text
+            games_played = cells[2].text.to_i
+            receptions = cells[3].text.to_i
+            receiving_yards = cells[4].text.to_i
+            hundred_plus = cells[7].text.to_i
+            receiving_touchdowns = cells[8].text.to_i
+            rushing_attempts = cells[9].text.to_i
+            rushing_yards = cells[10].text.to_i
+            rushing_touchdowns= cells[14].text.to_i
+            career_receiving_stat = player.career_receiving_stats.find_or_initialize_by(year: year)
+            career_receiving_stat.update_attributes!(
+              year: year, team: team, games_played: games_played, receptions: receptions, 
+              receiving_yards: receiving_yards, hundred_plus: hundred_plus, receiving_touchdowns: receiving_touchdowns, 
+              rushing_attempts: rushing_attempts, rushing_yards: rushing_yards, rushing_touchdowns: rushing_touchdowns)
+          end
+
           game_log_rows.each do |row|
             cells = row.css("td")
             week = cells[0].text.to_i

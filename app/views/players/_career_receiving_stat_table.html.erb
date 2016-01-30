@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3>Career Statistics</h3>
+    <table id="header" class="table table-bordered table-hover grey text-center">
+      <tbody>
+        <tr>
+          <th colspan="3">Year</th><th colspan="7">Receiving</th><th colspan="3">Rushing</th><th colspan="2">Fantasy Points</th>
+        </tr>
+        <tr>
+          <th title="Year">YEAR</th><th title="Team">TEAM</th><th title="Games Played">GP</th><th title="Targets">TGTS</th><th title="Receptions">REC</th><th title="Receiving Yards">YARDS</th><th title="Yards Per Game">YPG</th><th title="Yards Per Reception">YPR</th><th title="100+ Receiving Yard Games">100+</th><th title="Receiving Touchdowns">TD</th><th title="Rushing Attempts">RUSH</th><th title="Rushing Yards">YARDS</th><th title="Rushing Touchdowns">TD</th><th title="Standard Scoring">STANDARD</th><th title="Points Per Reception Scoring">PPR</th>
+        </tr>
+        </tr>
+        <%= render player.career_receiving_stats %>
+      </tbody>
+    </table>
+  </div>
+</div>
