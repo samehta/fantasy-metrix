@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3>Career Statistics</h3>
+    <table id="header" class="table table-bordered table-hover grey text-center">
+      <tbody>
+        <tr>
+          <th colspan="3">Year</th><th colspan="9">Passing</th><th colspan="3">Rushing</th><th colspan="1">Fantasy Points</th>
+        </tr>
+        <tr>
+          <th title="Week">YEAR</th><th title="Team">TEAM</th><th title="Games Played">GP</th><th title="Completions">COMP</th><th title="Passing Attempts">ATT</th><th title="Completion Percentage">COMP %</th><th title="Passing Yards">YARDS</th><th title="Yards Per Attempt">YPA</th><th title="Yards Per Game">YPG</th><th title="300+ Passing Yard Games">300+</th>    <th title="Passing Touchdowns">TD</th><th title="Interceptions">INT</th><th title="Rushing Attempts">ATT</th><th title="Rushing Yards">YARDS</th><th title="Rushing Touchdowns">TD</th><th title="Standard Scoring">STANDARD</th>
+        </tr>
+        <%= render player.career_passing_stats %>
+      </tbody>
+    </table>
+  </div>
+</div>
