@@ -16,8 +16,8 @@
 </div>
 <div class="row">
   <% @players.each do |player| %>
-    <% if player.position == "Quarterback" %>
-      <div class="col-md-4 text-center center-block"><br><br>
+    <% if player.quarterback? %>
+      <div class="col-md-3 text-center center-block"><br><br>
         <h3><%= link_to image_tag(player.image_path, :width => 150, :height => 150), [@team, player] %></h3>
         <h3><%= link_to player.name, [@team, player], class: 'player-links' %>
       </div>
@@ -26,8 +26,8 @@
 </div>
 <div class="row">
   <% @players.each do |player| %>
-    <% if player.position == "Running Back" %>
-      <div class="col-md-4 text-center center-block"><br><br>
+    <% if player.running_back? %>
+      <div class="col-md-3 text-center center-block"><br><br>
         <h3><%= link_to image_tag(player.image_path, :width => 150, :height => 150), [@team, player] %></h3>
         <h3><%= link_to player.name, [@team, player], class: 'player-links' %>
       </div>
@@ -36,8 +36,8 @@
 </div>
 <div class="row">
   <% @players.each do |player| %>
-    <% if player.position == "Wide Receiver" %>
-      <div class="col-md-4 text-center center-block"><br><br>
+    <% if player.wide_receiver? %>
+      <div class="col-md-3 text-center center-block"><br><br>
         <h3><%= link_to image_tag(player.image_path, :width => 150, :height => 150), [@team, player] %></h3>
         <h3><%= link_to player.name, [@team, player], class: 'player-links' %>
       </div>
@@ -46,11 +46,11 @@
 </div>
 <div class="row">
   <% @players.each do |player| %>
-    <% if player.position == "Tight End" %>
-      <div class="col-md-4 text-center center-block"><br><br>
+    <% if player.tight_end? %>
+      <div class="col-md-3 text-center center-block"><br><br>
         <h3><%= link_to image_tag(player.image_path, :width => 150, :height => 150), [@team, player] %></h3>
         <h3><%= link_to player.name, [@team, player], class: 'player-links' %>
       </div>
     <% end %>
   <% end %>
-</div><br><br><br><br>
+</div><br><br><br><br><br>
