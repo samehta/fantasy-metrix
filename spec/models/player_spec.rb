@@ -9,6 +9,7 @@ describe Player do
     it { should have_many(:receiving_game_logs) }
     it { should have_many(:career_passing_stats) }    
     it { should have_many(:career_rushing_stats) }
+    it { should have_many(:career_receiving_stats) }
   end
 
   describe "#age" do

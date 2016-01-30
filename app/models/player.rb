@@ -5,6 +5,7 @@ class Player < ActiveRecord::Base
   has_many :receiving_game_logs
   has_many :career_passing_stats
   has_many :career_rushing_stats
+  has_many :career_receiving_stats
 
   def age
     year_constant = 10000
