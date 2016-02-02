@@ -40,7 +40,7 @@ describe CareerRushingStat do
     end
 
     it "should return 0 if yards per carry is equal to 0.0" do
-      rushing = RushingGameLog.new(rushing_attempts: 30, rushing_yards: 0)
+      rushing = CareerRushingStat.new(rushing_attempts: 30, rushing_yards: 0)
 
       expect(rushing.yards_per_carry).to eq(0)
     end
