@@ -31,7 +31,6 @@ class RotoScraper
 
         player_name = page.css('div.playername').text.match(/(.+?) \|/)[1]
         team_name = page.css('td:contains("Team:")').first.ancestors('tr').css('a').text
-
         date_of_birth_str = page.css('td:contains("DOB:")').first.ancestors('tr').css('td').last.text.match(/\/ (.+)/)[1]
         date_of_birth = DateTime.strptime(date_of_birth_str, '%m/%d/%Y')
         height = page.css('td:contains("Ht")').first.ancestors('tr').css('td').last.text.match(/(.+)\' /)[1]
@@ -48,8 +47,8 @@ class RotoScraper
         career_stat_rows = career_stat_table.css("tr")[3..-1]
         game_log_table = page.css('th:contains("Game Log")').first.ancestors('table')
         game_log_rows = game_log_table.css("tr")[3..-1]
-        career_stats_elements = page.css('td:contains("Career stats are currently unavailable")')
-        career_stats_unavailable = career_stats_elements.any?
+        td_elements = page.css('td:contains("Career stats are currently unavailable")')
+        career_stats_unavailable = td_elements.any?
 
         year = 2015
         previous_date = Date.new(2015, 1, 1)
