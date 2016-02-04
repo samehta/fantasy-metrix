@@ -15,7 +15,10 @@ class RotoScraper
       team_urls << team_link
     end
 
+    # team_urls = ["http://www.rotoworld.com/teams/clubhouse/nfl/sea/seattle-seahawks"]
+
     team_urls.each do |team_url|
+      puts team_url
       team_page = Nokogiri::HTML(open(team_url))
       anchors = team_page.css('table[id=cp1_ctl04_tblDepthCharts] a')
       anchors.each do |anchor|
@@ -28,9 +31,12 @@ class RotoScraper
         if !['Quarterback', 'Running Back', 'Wide Receiver', 'Tight End'].include?(position)
           next
         end
-
         player_name = page.css('div.playername').text.match(/(.+?) \|/)[1]
         team_name = page.css('td:contains("Team:")').first.ancestors('tr').css('a').text
+        dob_elements = page.css('td:contains("DOB:")')
+        if dob_elements.empty?
+          next
+        end
         date_of_birth_str = page.css('td:contains("DOB:")').first.ancestors('tr').css('td').last.text.match(/\/ (.+)/)[1]
         date_of_birth = DateTime.strptime(date_of_birth_str, '%m/%d/%Y')
         height = page.css('td:contains("Ht")').first.ancestors('tr').css('td').last.text.match(/(.+)\' /)[1]
@@ -47,8 +53,8 @@ class RotoScraper
         career_stat_rows = career_stat_table.css("tr")[3..-1]
         game_log_table = page.css('th:contains("Game Log")').first.ancestors('table')
         game_log_rows = game_log_table.css("tr")[3..-1]
-        td_elements = page.css('td:contains("Career stats are currently unavailable")')
-        career_stats_unavailable = td_elements.any?
+        career_stat_elements = page.css('td:contains("Career stats are currently unavailable")')
+        career_stats_unavailable = career_stat_elements.any?
 
         year = 2015
         previous_date = Date.new(2015, 1, 1)
@@ -296,17 +302,4 @@ class RotoScraper
         rushing_touchdowns: rushing_touchdowns)
     end
   end
-
-  # Team Links
-  # "http://www.rotoworld.com/teams/clubhouse/nfl/arz/arizona-cardinals",
-  # "http://www.rotoworld.com/teams/clubhouse/nfl/atl/atlanta-falcons",
-  # "http://www.rotoworld.com/teams/clubhouse/nfl/bal/baltimore-ravens",
-  # "http://www.rotoworld.com/teams/clubhouse/nfl/buf/buffalo-bills",
-  # "http://www.rotoworld.com/teams/clubhouse/nfl/car/carolina-panthers",
-  # "http://www.rotoworld.com/teams/clubhouse/nfl/chi/chicago-bears",
-  # "http://www.rotoworld.com/teams/clubhouse/nfl/cin/cincinnati-bengals",
-  # "http://www.rotoworld.com/teams/clubhouse/nfl/cle/cleveland-browns",
-  # "http://www.rotoworld.com/teams/clubhouse/nfl/dal/dallas-cowboys",
-  # "http://www.rotoworld.com/teams/clubhouse/nfl/den/denver-broncos",
-
 end
