@@ -54,41 +54,13 @@ class RotoScraper
         game_log_table = page.css('th:contains("Game Log")').first.ancestors('table')
         game_log_rows = game_log_table.css("tr")[3..-1]
         career_stat_elements = page.css('td:contains("Career stats are currently unavailable")')
-        career_stats_unavailable = career_stat_elements.any?
+        career_stats_available = career_stat_elements.empty?
 
         year = 2015
         previous_date = Date.new(2015, 1, 1)
 
-        if player.quarterback?
-          if career_stats_unavailable
-            next
-          else
-            scrape_quarterback(player, career_stat_rows, game_log_rows, year, previous_date)
-          end
-        end
-
-        if player.running_back?
-          if career_stats_unavailable
-            next
-          else
-            scrape_running_back(player, career_stat_rows, game_log_rows, year, previous_date)
-          end
-        end
-
-        if player.wide_receiver?
-          if career_stats_unavailable
-            next
-          else
-            scrape_wide_receiver(player, career_stat_rows, game_log_rows, year, previous_date)
-          end
-        end
-
-        if player.tight_end?
-          if career_stats_unavailable
-            next
-          else
-            scrape_tight_end(player, career_stat_rows, game_log_rows, year, previous_date)
-          end
+        if career_stats_available
+          scrape_position(player, career_stat_rows, game_log_rows, year, previous_date)
         end
       end
     end
@@ -98,88 +70,70 @@ class RotoScraper
     player_name.match(POSITION_PATTERN)[1]
   end
 
-  def self.scrape_quarterback(player, career_stat_rows, game_log_rows, year, previous_date)
+  def self.scrape_position(player, career_stat_rows, game_log_rows, year, previous_date)
+    scrape_career_stats(player, career_stat_rows)
+    scrape_game_logs(player, game_log_rows, year, previous_date)
+  end
+
+  def self.scrape_career_stats(player, career_stat_rows)
     career_stat_rows.each do |row|
       cells = row.css("td")
-
       year = cells[0].text.to_i
       team = cells[1].text
       games_played = cells[2].text.to_i
 
-      completions = cells[3].text.to_i
-      passing_attempts = cells[4].text.to_i
-      passing_yards = cells[6].text.to_i
-      three_hundred_plus = cells[9].text.to_i
-      passing_touchdowns = cells[10].text.to_i
-      interceptions = cells[11].text.to_i
-      rushing_attempts = cells[12].text.to_i
-      rushing_yards = cells[13].text.to_i
-      rushing_touchdowns = cells[16].text.to_i
-      career_passing_stat = player.career_passing_stats.find_or_initialize_by(year: year)
-      career_passing_stat.update_attributes!(
-        team: team, games_played: games_played, completions: completions,
-        passing_attempts: passing_attempts, passing_yards: passing_yards,
-        three_hundred_plus: three_hundred_plus, passing_touchdowns: passing_touchdowns, 
-        interceptions: interceptions, rushing_attempts: rushing_attempts, 
-        rushing_yards: rushing_yards, rushing_touchdowns: rushing_touchdowns)
-    end
+      if player.quarterback?
+        completions = cells[3].text.to_i
+        passing_attempts = cells[4].text.to_i
+        passing_yards = cells[6].text.to_i
+        three_hundred_plus = cells[9].text.to_i
+        passing_touchdowns = cells[10].text.to_i
+        interceptions = cells[11].text.to_i
+        rushing_attempts = cells[12].text.to_i
+        rushing_yards = cells[13].text.to_i
+        rushing_touchdowns = cells[16].text.to_i
+        career_passing_stat = player.career_passing_stats.find_or_initialize_by(year: year)
+        career_passing_stat.update_attributes!(
+          team: team, games_played: games_played, completions: completions,
+          passing_attempts: passing_attempts, passing_yards: passing_yards,
+          three_hundred_plus: three_hundred_plus, passing_touchdowns: passing_touchdowns, 
+          interceptions: interceptions, rushing_attempts: rushing_attempts, 
+          rushing_yards: rushing_yards, rushing_touchdowns: rushing_touchdowns)
 
-    game_log_rows.each do |row|
-      cells = row.css("td")
+      elsif player.running_back?
+        rushing_attempts = cells[3].text.to_i
+        rushing_yards = cells[4].text.to_i
+        hundred_plus = cells[7].text.to_i
+        rushing_touchdowns = cells[8].text.to_i
+        receptions = cells[9].text.to_i
+        receiving_yards = cells[10].text.to_i
+        receiving_touchdowns= cells[14].text.to_i
+        career_rushing_stat = player.career_rushing_stats.find_or_initialize_by(year: year)
+        career_rushing_stat.update_attributes!(
+          year: year, team: team, games_played: games_played, rushing_attempts: rushing_attempts,
+          rushing_yards: rushing_yards, hundred_plus: hundred_plus, rushing_touchdowns: rushing_touchdowns, 
+          receptions: receptions, receiving_yards: receiving_yards, receiving_touchdowns: receiving_touchdowns)
 
-      week = cells[0].text.to_i
-      date = (cells[1].text + " #{year}").to_date
-      if previous_date > date
-        year = year + 1
-        date = (cells[1].text + " #{year}").to_date
+      elsif player.wide_receiver? || player.tight_end?
+        receptions = cells[3].text.to_i
+        receiving_yards = cells[4].text.to_i
+        hundred_plus = cells[7].text.to_i
+        receiving_touchdowns = cells[8].text.to_i
+        rushing_attempts = cells[9].text.to_i
+        rushing_yards = cells[10].text.to_i
+        rushing_touchdowns= cells[14].text.to_i
+        career_receiving_stat = player.career_receiving_stats.find_or_initialize_by(year: year)
+        career_receiving_stat.update_attributes!(
+          year: year, team: team, games_played: games_played, receptions: receptions, 
+          receiving_yards: receiving_yards, hundred_plus: hundred_plus, receiving_touchdowns: receiving_touchdowns, 
+          rushing_attempts: rushing_attempts, rushing_yards: rushing_yards, rushing_touchdowns: rushing_touchdowns)
       end
-      previous_date = date
-      opponent = cells[2].text
-
-      completions = cells[3].text.to_i
-      passing_attempts = cells[4].text.to_i
-      passing_yards = cells[6].text.to_i
-      passing_touchdowns = cells[8].text.to_i
-      interceptions = cells[9].text.to_i
-      rushing_attempts = cells[10].text.to_i
-      rushing_yards = cells[11].text.to_i
-      rushing_touchdowns = cells[13].text.to_i
-      passing_game_log = player.passing_game_logs.find_or_initialize_by(week: week)
-      passing_game_log.update_attributes!(
-        season: 2015, date: date, opponent: opponent, completions: completions,
-        passing_attempts: passing_attempts, passing_yards: passing_yards,
-        passing_touchdowns: passing_touchdowns, interceptions: interceptions,
-        rushing_attempts: rushing_attempts, rushing_yards: rushing_yards,
-        rushing_touchdowns: rushing_touchdowns)
     end
   end
 
-
-  def self.scrape_running_back(player, career_stat_rows, game_log_rows, year, previous_date)
-    career_stat_rows.each do |row|
-      cells = row.css("td")
-
-      year = cells[0].text.to_i
-      team = cells[1].text
-      games_played = cells[2].text.to_i
-
-      rushing_attempts = cells[3].text.to_i
-      rushing_yards = cells[4].text.to_i
-      hundred_plus = cells[7].text.to_i
-      rushing_touchdowns = cells[8].text.to_i
-      receptions = cells[9].text.to_i
-      receiving_yards = cells[10].text.to_i
-      receiving_touchdowns= cells[14].text.to_i
-      career_rushing_stat = player.career_rushing_stats.find_or_initialize_by(year: year)
-      career_rushing_stat.update_attributes!(
-        year: year, team: team, games_played: games_played, rushing_attempts: rushing_attempts,
-        rushing_yards: rushing_yards, hundred_plus: hundred_plus, rushing_touchdowns: rushing_touchdowns, 
-        receptions: receptions, receiving_yards: receiving_yards, receiving_touchdowns: receiving_touchdowns)
-    end
-
+  def self.scrape_game_logs(player, game_log_rows, year, previous_date)
     game_log_rows.each do |row|
       cells = row.css("td")
-
       week = cells[0].text.to_i
       date = (cells[1].text + " #{year}").to_date
       if previous_date > date
@@ -189,117 +143,50 @@ class RotoScraper
       previous_date = date
       opponent = cells[2].text
 
-      rushing_attempts = cells[3].text.to_i
-      rushing_yards = cells[4].text.to_i
-      rushing_touchdowns = cells[6].text.to_i
-      receptions = cells[7].text.to_i
-      receiving_yards = cells[8].text.to_i
-      receiving_touchdowns= cells[10].text.to_i
-      rushing_game_log = player.rushing_game_logs.find_or_initialize_by(week: week)
-      rushing_game_log.update_attributes!(
-        season: 2015, date: date, opponent: opponent, rushing_attempts: rushing_attempts,
-        rushing_yards: rushing_yards, rushing_touchdowns: rushing_touchdowns, receptions: receptions, 
-        receiving_yards: receiving_yards, receiving_touchdowns: receiving_touchdowns)
-    end
-  end
+      if player.quarterback?
+        completions = cells[3].text.to_i
+        passing_attempts = cells[4].text.to_i
+        passing_yards = cells[6].text.to_i
+        passing_touchdowns = cells[8].text.to_i
+        interceptions = cells[9].text.to_i
+        rushing_attempts = cells[10].text.to_i
+        rushing_yards = cells[11].text.to_i
+        rushing_touchdowns = cells[13].text.to_i
+        passing_game_log = player.passing_game_logs.find_or_initialize_by(week: week)
+        passing_game_log.update_attributes!(
+          season: 2015, date: date, opponent: opponent, completions: completions,
+          passing_attempts: passing_attempts, passing_yards: passing_yards,
+          passing_touchdowns: passing_touchdowns, interceptions: interceptions,
+          rushing_attempts: rushing_attempts, rushing_yards: rushing_yards,
+          rushing_touchdowns: rushing_touchdowns)
 
+      elsif player.running_back?
+        rushing_attempts = cells[3].text.to_i
+        rushing_yards = cells[4].text.to_i
+        rushing_touchdowns = cells[6].text.to_i
+        receptions = cells[7].text.to_i
+        receiving_yards = cells[8].text.to_i
+        receiving_touchdowns= cells[10].text.to_i
+        rushing_game_log = player.rushing_game_logs.find_or_initialize_by(week: week)
+        rushing_game_log.update_attributes!(
+          season: 2015, date: date, opponent: opponent, rushing_attempts: rushing_attempts,
+          rushing_yards: rushing_yards, rushing_touchdowns: rushing_touchdowns, receptions: receptions, 
+          receiving_yards: receiving_yards, receiving_touchdowns: receiving_touchdowns)
 
-  def self.scrape_wide_receiver(player, career_stat_rows, game_log_rows, year, previous_date)
-    career_stat_rows.each do |row|
-      cells = row.css("td")
-
-      year = cells[0].text.to_i
-      team = cells[1].text
-      games_played = cells[2].text.to_i
-
-      receptions = cells[3].text.to_i
-      receiving_yards = cells[4].text.to_i
-      hundred_plus = cells[7].text.to_i
-      receiving_touchdowns = cells[8].text.to_i
-      rushing_attempts = cells[9].text.to_i
-      rushing_yards = cells[10].text.to_i
-      rushing_touchdowns= cells[14].text.to_i
-      career_receiving_stat = player.career_receiving_stats.find_or_initialize_by(year: year)
-      career_receiving_stat.update_attributes!(
-        year: year, team: team, games_played: games_played, receptions: receptions, 
-        receiving_yards: receiving_yards, hundred_plus: hundred_plus, receiving_touchdowns: receiving_touchdowns, 
-        rushing_attempts: rushing_attempts, rushing_yards: rushing_yards, rushing_touchdowns: rushing_touchdowns)
-    end
-
-    game_log_rows.each do |row|
-      cells = row.css("td")
-
-      week = cells[0].text.to_i
-      date = (cells[1].text + " #{year}").to_date
-      if previous_date > date
-        year = year + 1
-        date = (cells[1].text + " #{year}").to_date
+      elsif player.wide_receiver? || player.tight_end?
+        receptions = cells[3].text.to_i
+        receiving_yards = cells[4].text.to_i
+        receiving_touchdowns = cells[6].text.to_i
+        rushing_attempts = cells[7].text.to_i
+        rushing_yards = cells[8].text.to_i
+        rushing_touchdowns= cells[10].text.to_i
+        receiving_game_log = player.receiving_game_logs.find_or_initialize_by(week: week)
+        receiving_game_log.update_attributes!(
+          season: 2015, date: date, opponent: opponent, receptions: receptions, 
+          receiving_yards: receiving_yards, receiving_touchdowns: receiving_touchdowns, 
+          rushing_attempts: rushing_attempts, rushing_yards: rushing_yards, 
+          rushing_touchdowns: rushing_touchdowns)
       end
-      previous_date = date
-      opponent = cells[2].text
-
-      receptions = cells[3].text.to_i
-      receiving_yards = cells[4].text.to_i
-      receiving_touchdowns = cells[6].text.to_i
-      rushing_attempts = cells[7].text.to_i
-      rushing_yards = cells[8].text.to_i
-      rushing_touchdowns= cells[10].text.to_i
-      receiving_game_log = player.receiving_game_logs.find_or_initialize_by(week: week)
-      receiving_game_log.update_attributes!(
-        season: 2015, date: date, opponent: opponent, receptions: receptions, 
-        receiving_yards: receiving_yards, receiving_touchdowns: receiving_touchdowns, 
-        rushing_attempts: rushing_attempts, rushing_yards: rushing_yards, 
-        rushing_touchdowns: rushing_touchdowns)
-    end
-  end
-
-
-  def self.scrape_tight_end(player, career_stat_rows, game_log_rows, year, previous_date)
-    career_stat_rows.each do |row|
-      cells = row.css("td")
-
-      year = cells[0].text.to_i
-      team = cells[1].text
-      games_played = cells[2].text.to_i
-
-      receptions = cells[3].text.to_i
-      receiving_yards = cells[4].text.to_i
-      hundred_plus = cells[7].text.to_i
-      receiving_touchdowns = cells[8].text.to_i
-      rushing_attempts = cells[9].text.to_i
-      rushing_yards = cells[10].text.to_i
-      rushing_touchdowns= cells[14].text.to_i
-      career_receiving_stat = player.career_receiving_stats.find_or_initialize_by(year: year)
-      career_receiving_stat.update_attributes!(
-        year: year, team: team, games_played: games_played, receptions: receptions, 
-        receiving_yards: receiving_yards, hundred_plus: hundred_plus, receiving_touchdowns: receiving_touchdowns, 
-        rushing_attempts: rushing_attempts, rushing_yards: rushing_yards, rushing_touchdowns: rushing_touchdowns)
-    end
-
-    game_log_rows.each do |row|
-      cells = row.css("td")
-
-      week = cells[0].text.to_i
-      date = (cells[1].text + " #{year}").to_date
-      if previous_date > date
-        year = year + 1
-        date = (cells[1].text + " #{year}").to_date
-      end
-      previous_date = date
-      opponent = cells[2].text
-
-      receptions = cells[3].text.to_i
-      receiving_yards = cells[4].text.to_i
-      receiving_touchdowns = cells[6].text.to_i
-      rushing_attempts = cells[7].text.to_i
-      rushing_yards = cells[8].text.to_i
-      rushing_touchdowns= cells[10].text.to_i
-      receiving_game_log = player.receiving_game_logs.find_or_initialize_by(week: week)
-      receiving_game_log.update_attributes!(
-        season: 2015, date: date, opponent: opponent, receptions: receptions, 
-        receiving_yards: receiving_yards, receiving_touchdowns: receiving_touchdowns, 
-        rushing_attempts: rushing_attempts, rushing_yards: rushing_yards, 
-        rushing_touchdowns: rushing_touchdowns)
     end
   end
 end
