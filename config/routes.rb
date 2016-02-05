@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  resources :rankings, only: [:index]
+
+  resources :statistics, only: [:index]
+
   resources :teams do
     resources :players
   end
