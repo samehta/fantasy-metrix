@@ -3,21 +3,10 @@
     <h1 class="ranking">RANKINGS</h1><br>
   </div>
 </div>
-<% @players.each do |player| %>
-  <% if player.quarterback? %>
-     <%= render partial: 'quarterback', locals: { player: player } %>
-  <% end %>
-
-  <% if player.running_back? %>
-     <%= render partial: 'running_back', locals: { player: player } %>
-  <% end %>
-
-  <% if player.wide_receiver? %>
-     <%= render partial: 'wide_receiver', locals: { player: player } %>
-  <% end %>
-
-  <% if player.tight_end? %>
-     <%= render partial: 'tight_end', locals: { player: player } %>
-  <% end %>
-<% end %>
+<div>
+  <%= render partial: 'quarterback', locals: { players: @players } %>
+  <%= render partial: 'running_back', locals: { players: @players } %>
+  <%= render partial: 'wide_receiver', locals: { players: @players } %>
+  <%= render partial: 'tight_end', locals: { players: @players } %>
+</div>
 <br><br><br><br>
