@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203044921) do
+ActiveRecord::Schema.define(version: 20160211182347) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -98,6 +98,19 @@ ActiveRecord::Schema.define(version: 20160203044921) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
   create_table "passing_game_logs", force: :cascade do |t|
     t.integer  "week"
     t.date     "date"
@@ -130,8 +143,10 @@ ActiveRecord::Schema.define(version: 20160203044921) do
     t.date     "date_of_birth"
     t.string   "height"
     t.integer  "weight"
+    t.string   "slug"
   end
 
+  add_index "players", ["slug"], name: "index_players_on_slug", unique: true
   add_index "players", ["team_id"], name: "index_players_on_team_id"
 
   create_table "posts", force: :cascade do |t|

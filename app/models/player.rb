@@ -1,4 +1,7 @@
 class Player < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
   belongs_to :team
   has_many :passing_game_logs
   has_many :rushing_game_logs
