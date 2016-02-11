@@ -4,7 +4,7 @@
   </div>
   <div class="col-md-12 text-center">
     <% if policy(Player.new).create? %>
-      <%= link_to "New Player", new_team_player_path(@team, @player), class: 'devise btn btn-success' %>
+      <%= link_to "New Player", new_player_path(@player), class: 'devise btn btn-success' %>
     <% end %>
     <% if policy(@team).update? %>
       <%= link_to "Edit Team", edit_team_path(@team), class: 'edit btn btn-danger' %>
@@ -18,8 +18,8 @@
   <% @players.each do |player| %>
     <% if player.quarterback? %>
       <div class="col-md-3 text-center center-block"><br><br>
-        <h3><%= link_to image_tag(player.image_path, :width => 150, :height => 150), [@team, player] %></h3>
-        <h3><%= link_to player.name, [@team, player], class: 'player-links' %>
+        <h3><%= link_to image_tag(player.image_path, :width => 150, :height => 150), [player] %></h3>
+        <h3><%= link_to player.name, [player], class: 'player-links' %>
       </div>
     <% end %>
   <% end %>
@@ -28,8 +28,8 @@
   <% @players.each do |player| %>
     <% if player.running_back? %>
       <div class="col-md-3 text-center center-block"><br><br>
-        <h3><%= link_to image_tag(player.image_path, :width => 150, :height => 150), [@team, player] %></h3>
-        <h3><%= link_to player.name, [@team, player], class: 'player-links' %>
+        <h3><%= link_to image_tag(player.image_path, :width => 150, :height => 150), [player] %></h3>
+        <h3><%= link_to player.name, [player], class: 'player-links' %>
       </div>
     <% end %>
   <% end %>
@@ -38,8 +38,8 @@
   <% @players.each do |player| %>
     <% if player.wide_receiver? %>
       <div class="col-md-3 text-center center-block"><br><br>
-        <h3><%= link_to image_tag(player.image_path, :width => 150, :height => 150), [@team, player] %></h3>
-        <h3><%= link_to player.name, [@team, player], class: 'player-links' %>
+        <h3><%= link_to image_tag(player.image_path, :width => 150, :height => 150), [player] %></h3>
+        <h3><%= link_to player.name, [player], class: 'player-links' %>
       </div>
     <% end %>
   <% end %>
@@ -48,8 +48,8 @@
   <% @players.each do |player| %>
     <% if player.tight_end? %>
       <div class="col-md-3 text-center center-block"><br><br>
-        <h3><%= link_to image_tag(player.image_path, :width => 150, :height => 150), [@team, player] %></h3>
-        <h3><%= link_to player.name, [@team, player], class: 'player-links' %>
+        <h3><%= link_to image_tag(player.image_path, :width => 150, :height => 150), [player] %></h3>
+        <h3><%= link_to player.name, [player], class: 'player-links' %>
       </div>
     <% end %>
   <% end %>

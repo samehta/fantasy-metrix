@@ -2,8 +2,7 @@ class PlayersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
   def show
-    @team = Team.find(params[:team_id])
-    @player = @team.players.find(params[:id])
+    @player = Player.friendly.find(params[:id])
     @passing_game_logs = @player.passing_game_logs 
     @passing_game_log = PassingGameLog.new
     @rushing_game_logs = @player.rushing_game_logs
