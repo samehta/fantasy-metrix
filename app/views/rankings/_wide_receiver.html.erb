@@ -14,7 +14,7 @@
           <tr>
             <% if player.wide_receiver? %>
               <td style="width: 100px"></td>
-              <td align="left"><%= link_to player.name, team_player_path(player.team, player), class: 'player-stats' %></td>
+              <td><%= link_to player.name, player_path(player), class: 'player-stats' %></td>
               <td style="width: 210px"></td>
               <td style="width: 210px"></td>
               <td style="width: 210px"></td>

@@ -29,7 +29,7 @@
         <% @players.each do |player| %>
           <tr>
             <% if player.quarterback? %>
-              <td align="left"><%= link_to player.name, team_player_path(player.team, player), class: 'player-stats' %></td>
+              <td align="left"><%= link_to player.name, player_path(player), class: 'player-stats' %></td>
               <td></td>
               <td></td>
               <td></td>

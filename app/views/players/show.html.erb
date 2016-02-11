@@ -36,7 +36,7 @@
         <%= link_to "Edit Player", edit_player_path(@player), class: 'edit btn btn-success' %>
       <% end %>
       <% if policy(@player).destroy? %>
-        <%= link_to "Delete Player", [@player], method: :delete, class: 'cancel btn btn-danger', data: { confirm: 'Are you sure you want to delete this player?' } %>
+        <%= link_to "Delete Player", @player, method: :delete, class: 'cancel btn btn-danger', data: { confirm: 'Are you sure you want to delete this player?' } %>
       <% end %>
     </div>
   </div><br>

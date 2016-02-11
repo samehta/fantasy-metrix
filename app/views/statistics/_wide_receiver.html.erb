@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <h3>2015 Wide Receiver Leaders</h3>
-    <table id="header" class="table table-bordered table-hover grey text-center">
+    <table id="header" class="table table-bordered grey text-center">
       <tbody>
         <tr>
           <th colspan="2">Player</th>
@@ -28,7 +28,7 @@
         <% @players.each do |player| %>
           <tr>
             <% if player.wide_receiver? %>
-              <td align="left"><%= link_to player.name, team_player_path(player.team, player), class: 'player-stats' %></td>
+              <td align="left"><%= link_to player.name, player_path(player), class: 'player-stats' %></td>
               <td></td>
               <td></td>
               <td></td>
