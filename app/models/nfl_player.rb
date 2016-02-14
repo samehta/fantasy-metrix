@@ -1,8 +1,8 @@
-class Player < ActiveRecord::Base
+class NflPlayer < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
   
-  belongs_to :team
+  belongs_to :nfl_team
   has_many :passing_game_logs
   has_many :rushing_game_logs
   has_many :receiving_game_logs

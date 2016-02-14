@@ -1,5 +1,5 @@
 class PassingGameLog < ActiveRecord::Base
-  belongs_to :player
+  belongs_to :nfl_player
 
   def completion_percentage 
     return 0 if (completions == 0 && passing_attempts == 0)

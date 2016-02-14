@@ -1,5 +1,5 @@
 class RushingGameLog < ActiveRecord::Base
-  belongs_to :player
+  belongs_to :nfl_player
 
   def yards_per_carry
     return 0 if (rushing_yards == 0 && rushing_attempts == 0)

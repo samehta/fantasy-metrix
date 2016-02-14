@@ -1,5 +1,5 @@
 class ReceivingGameLog < ActiveRecord::Base
-  belongs_to :player
+  belongs_to :nfl_player
 
   def yards_per_reception
     return 0 if (receptions == 0 && receiving_yards == 0)

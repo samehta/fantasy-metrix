@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211222942) do
+ActiveRecord::Schema.define(version: 20160212004153) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 20160211222942) do
     t.decimal  "fantasy_points"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.integer  "player_id"
+    t.integer  "nfl_player_id"
     t.integer  "interceptions"
   end
 
-  add_index "career_passing_stats", ["player_id"], name: "index_career_passing_stats_on_player_id"
+  add_index "career_passing_stats", ["nfl_player_id"], name: "index_career_passing_stats_on_nfl_player_id"
 
   create_table "career_receiving_stats", force: :cascade do |t|
     t.date     "year"
@@ -61,10 +61,10 @@ ActiveRecord::Schema.define(version: 20160211222942) do
     t.decimal  "ppr_fantasy_points"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.integer  "player_id"
+    t.integer  "nfl_player_id"
   end
 
-  add_index "career_receiving_stats", ["player_id"], name: "index_career_receiving_stats_on_player_id"
+  add_index "career_receiving_stats", ["nfl_player_id"], name: "index_career_receiving_stats_on_nfl_player_id"
 
   create_table "career_rushing_stats", force: :cascade do |t|
     t.date     "year"
@@ -82,10 +82,10 @@ ActiveRecord::Schema.define(version: 20160211222942) do
     t.decimal  "ppr_fantasy_points"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.integer  "player_id"
+    t.integer  "nfl_player_id"
   end
 
-  add_index "career_rushing_stats", ["player_id"], name: "index_career_rushing_stats_on_player_id"
+  add_index "career_rushing_stats", ["nfl_player_id"], name: "index_career_rushing_stats_on_nfl_player_id"
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -111,6 +111,33 @@ ActiveRecord::Schema.define(version: 20160211222942) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "nfl_players", force: :cascade do |t|
+    t.string   "name"
+    t.string   "college"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "nfl_team_id"
+    t.string   "image_path"
+    t.string   "position"
+    t.date     "date_of_birth"
+    t.string   "height"
+    t.integer  "weight"
+    t.string   "slug"
+  end
+
+  add_index "nfl_players", ["nfl_team_id"], name: "index_nfl_players_on_nfl_team_id"
+  add_index "nfl_players", ["slug"], name: "index_nfl_players_on_slug", unique: true
+
+  create_table "nfl_teams", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image_path"
+    t.string   "slug"
+  end
+
+  add_index "nfl_teams", ["slug"], name: "index_nfl_teams_on_slug", unique: true
+
   create_table "passing_game_logs", force: :cascade do |t|
     t.integer  "week"
     t.date     "date"
@@ -126,28 +153,11 @@ ActiveRecord::Schema.define(version: 20160211222942) do
     t.decimal  "fantasy_points"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.integer  "player_id"
+    t.integer  "nfl_player_id"
     t.integer  "season"
   end
 
-  add_index "passing_game_logs", ["player_id"], name: "index_passing_game_logs_on_player_id"
-
-  create_table "players", force: :cascade do |t|
-    t.string   "name"
-    t.string   "college"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "team_id"
-    t.string   "image_path"
-    t.string   "position"
-    t.date     "date_of_birth"
-    t.string   "height"
-    t.integer  "weight"
-    t.string   "slug"
-  end
-
-  add_index "players", ["slug"], name: "index_players_on_slug", unique: true
-  add_index "players", ["team_id"], name: "index_players_on_team_id"
+  add_index "passing_game_logs", ["nfl_player_id"], name: "index_passing_game_logs_on_nfl_player_id"
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -178,10 +188,10 @@ ActiveRecord::Schema.define(version: 20160211222942) do
     t.decimal  "ppr_fantasy_points"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.integer  "player_id"
+    t.integer  "nfl_player_id"
   end
 
-  add_index "receiving_game_logs", ["player_id"], name: "index_receiving_game_logs_on_player_id"
+  add_index "receiving_game_logs", ["nfl_player_id"], name: "index_receiving_game_logs_on_nfl_player_id"
 
   create_table "rushing_game_logs", force: :cascade do |t|
     t.integer  "season"
@@ -198,21 +208,11 @@ ActiveRecord::Schema.define(version: 20160211222942) do
     t.decimal  "ppr_fantasy_points"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.integer  "player_id"
+    t.integer  "nfl_player_id"
     t.integer  "targets"
   end
 
-  add_index "rushing_game_logs", ["player_id"], name: "index_rushing_game_logs_on_player_id"
-
-  create_table "teams", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "image_path"
-    t.string   "slug"
-  end
-
-  add_index "teams", ["slug"], name: "index_teams_on_slug", unique: true
+  add_index "rushing_game_logs", ["nfl_player_id"], name: "index_rushing_game_logs_on_nfl_player_id"
 
   create_table "topics", force: :cascade do |t|
     t.string   "name"

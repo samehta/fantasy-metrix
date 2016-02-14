@@ -1,5 +1,5 @@
 class CareerRushingStat < ActiveRecord::Base
-  belongs_to :player
+  belongs_to :nfl_player
 
   def yards_per_game
     return 0 if (games_played == 0 && rushing_yards == 0)
