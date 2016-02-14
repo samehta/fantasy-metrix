@@ -3,7 +3,7 @@ require 'rails_helper'
 describe PassingGameLog do 
 
   describe "associations" do 
-    it { should belong_to(:player) }    
+    it { should belong_to(:nfl_player) }    
   end
 
   describe "#completion_percentage" do
