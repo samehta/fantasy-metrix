@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h1 class="team"><%= @nfl_team.name %></h1><br>
+  </div>
+  <div class="col-md-12 text-center">
+    <% if policy(NflPlayer.new).create? %>
+      <%= link_to "New Player", new_nfl_player_path(@nfl_player), class: 'devise btn btn-success' %>
+    <% end %>
+    <% if policy(@nfl_team).update? %>
+      <%= link_to "Edit Team", edit_nfl_team_path(@nfl_team), class: 'edit btn btn-danger' %>
+    <% end %>
+    <% if policy(@nfl_team).destroy? %>
+      <%= link_to "Delete Team", @nfl_team, method: :delete, class: 'cancel btn btn-danger', data: { confirm: 'Are you sure you want to delete this team?' } %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <% @nfl_players.each do |nfl_player| %>
+    <% if nfl_player.quarterback? %>
+      <div class="col-md-3 text-center center-block"><br><br>
+        <h3><%= link_to image_tag(nfl_player.image_path, :width => 150, :height => 150), nfl_player %></h3>
+        <h3><%= link_to nfl_player.name, nfl_player, class: 'player-links' %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class="row">
+  <% @nfl_players.each do |nfl_player| %>
+    <% if nfl_player.running_back? %>
+      <div class="col-md-3 text-center center-block"><br><br>
+        <h3><%= link_to image_tag(nfl_player.image_path, :width => 150, :height => 150), nfl_player %></h3>
+        <h3><%= link_to nfl_player.name, nfl_player, class: 'player-links' %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class="row">
+  <% @nfl_players.each do |nfl_player| %>
+    <% if nfl_player.wide_receiver? %>
+      <div class="col-md-3 text-center center-block"><br><br>
+        <h3><%= link_to image_tag(nfl_player.image_path, :width => 150, :height => 150), nfl_player %></h3>
+        <h3><%= link_to nfl_player.name, nfl_player, class: 'player-links' %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class="row">
+  <% @nfl_players.each do |nfl_player| %>
+    <% if nfl_player.tight_end? %>
+      <div class="col-md-3 text-center center-block"><br><br>
+        <h3><%= link_to image_tag(nfl_player.image_path, :width => 150, :height => 150), nfl_player %></h3>
+        <h3><%= link_to nfl_player.name, nfl_player, class: 'player-links' %>
+      </div>
+    <% end %>
+  <% end %>
+</div><br><br><br><br><br>

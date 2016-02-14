@@ -14,11 +14,11 @@
   <td><%= passing_game_log.rushing_touchdowns %></td>
   <td><%= passing_game_log.fantasy_points %></td>
   <% if policy(passing_game_log).update? %>
-    <td><%= link_to "Edit", edit_player_passing_game_log_path(passing_game_log.player, passing_game_log), {:style=>'color: #ffffff'} %></td>
+    <td><%= link_to "Edit", edit_nfl_player_passing_game_log_path(passing_game_log.nfl_player, passing_game_log), {:style=>'color: #ffffff'} %></td>
   <% end %>
   </td>
   <% if policy(passing_game_log).destroy? %>
-    <td><%= link_to "Delete", [passing_game_log.player, passing_game_log], {:style=>'color: #ffffff', method: :delete} %></td>
+    <td><%= link_to "Delete", [passing_game_log.nfl_player, passing_game_log], {:style=>'color: #ffffff', method: :delete} %></td>
   <% end %>
 </tr>
 

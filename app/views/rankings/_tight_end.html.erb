@@ -10,11 +10,11 @@
           <th>Half PPR</th>
           <th>Full PPR</th>
         </tr>
-        <% @players.each do |player| %>
+        <% @nfl_players.each do |nfl_player| %>
           <tr>
-            <% if player.tight_end? %>
+            <% if nfl_player.tight_end? %>
               <td style="width: 100px"></td>
-              <td><%= link_to player.name, player_path(player), class: 'player-stats' %></td>
+              <td style="text-align:left"><%= link_to nfl_player.name, nfl_player_path(nfl_player), class: 'player-stats' %></td>
               <td style="width: 210px"></td>
               <td style="width: 210px"></td>
               <td style="width: 210px"></td>

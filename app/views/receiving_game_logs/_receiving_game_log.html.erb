@@ -13,10 +13,10 @@
   <td><%= receiving_game_log.fantasy_points %></td>
   <td><%= receiving_game_log.ppr_fantasy_points %></td>
   <% if policy(receiving_game_log).update? %>
-    <td><%= link_to "Edit", edit_player_receiving_game_log_path(receiving_game_log.player, receiving_game_log), {:style=>'color: #ffffff'} %></td>
+    <td><%= link_to "Edit", edit_nfl_player_receiving_game_log_path(receiving_game_log.nfl_player, receiving_game_log), {:style=>'color: #ffffff'} %></td>
   <% end %>
   </td>
   <% if policy(receiving_game_log).destroy? %>
-    <td><%= link_to "Delete", [receiving_game_log.player, receiving_game_log], {:style=>'color: #ffffff', method: :delete} %></td>
+    <td><%= link_to "Delete", [receiving_game_log.nfl_player, receiving_game_log], {:style=>'color: #ffffff', method: :delete} %></td>
   <% end %>
 </tr>

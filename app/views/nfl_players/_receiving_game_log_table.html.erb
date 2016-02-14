@@ -5,26 +5,26 @@
       <tbody>
         <tr>
           <th colspan="3">Game</th>
-          <th colspan="4">Rushing</th>
-          <th colspan="4">Receiving</th>
+          <th colspan="5">Receiving</th>
+          <th colspan="3">Rushing</th>
           <th colspan="2">Fantasy Points</th>
         </tr>
         <tr>
           <th title="Week">WEEK</th>
           <th title="Date">DATE</th>
           <th title="Opponent">OPP</th>
-          <th title="Rushing Attempts">RUSH</th>
-          <th title="Rushing Yards">YARDS</th>
-          <th title="Yards Per Carry">YPC</th>
-          <th title="Rushing Touchdowns">TD</th>
           <th title="Targets">TGTS</th>
           <th title="Receptions">REC</th>
           <th title="Receiving Yards">YARDS</th>
+          <th title="Yards Per Reception">YPR</th>
           <th title="Receiving Touchdowns">TD</th>
+          <th title="Rushing Attempts">RUSH</th>
+          <th title="Rushing Yards">YARDS</th>
+          <th title="Rushing Touchdowns">TD</th>
           <th title="Standard Scoring">STANDARD</th>
           <th title="Points Per Reception Scoring">PPR</th>
         </tr>
-        <%= render @rushing_game_logs %>
+        <%= render @receiving_game_logs %>
       </tbody>
     </table>
   </div>
@@ -32,8 +32,8 @@
 <div class="row">
   <div class="col-md-4"></div>
   <div class="col-md-4 text-center">
-    <% if policy(@rushing_game_log).create? %>
-      <%= link_to "New Rushing Game Log", new_player_rushing_game_log_path(@player, @rushing_game_log), class: 'edit btn btn-success' %>
+    <% if policy(@receiving_game_log).create? %>
+      <%= link_to "New Receiving Game Log", new_nfl_player_receiving_game_log_path(@nfl_player, @receiving_game_log), class: 'edit btn btn-success' %>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,14 @@
+<div class="row">
+  <% @nfl_teams.each do |nfl_team| %>
+    <div class="col-md-8 text-center"><br><br>
+      <%= link_to image_tag(nfl_team.image_path, :width => 110, :height => 80, :title => "#{nfl_team.name}"), nfl_team %>
+    </div>
+  <% end %>
+</div><br><br><br> 
+<div class="row">
+  <div class="col-md-12 text-center">
+    <% if policy(NflTeam.new).create? %>
+      <%= link_to "New Team", new_nfl_team_path, class: 'devise btn btn-success' %>
+    <% end %>
+  </div>
+</div><br><br><br>

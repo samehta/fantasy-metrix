@@ -25,10 +25,10 @@
           <th title="Standard Scoring">STANDARD</th>
           <th title="Points Per Reception Scoring">PPR</th>
         </tr>
-        <% @players.each do |player| %>
+        <% @nfl_players.each do |nfl_player| %>
           <tr>
-            <% if player.tight_end? %>
-              <td align="left"><%= link_to player.name, player_path(player), class: 'player-stats' %></td>
+            <% if nfl_player.tight_end? %>
+              <td align="left"><%= link_to nfl_player.name, nfl_player_path(nfl_player), class: 'player-stats' %></td>
               <td></td>
               <td></td>
               <td></td>
