@@ -1,23 +1,23 @@
 class PassingGameLogsController < ApplicationController
   def new
-    @player = Player.find(params[:player_id])
+    @nfl_player = NflPlayer.find(params[:nfl_player_id])
     @passing_game_log = PassingGameLog.new
     authorize @passing_game_log
   end
 
   def edit
-    @player = Player.find(params[:player_id])
+    @nfl_player = NflPlayer.find(params[:nfl_player_id])
     @passing_game_log = PassingGameLog.find(params[:id])
     authorize @passing_game_log
   end
 
   def create
-    @player = Player.find(params[:player_id])
-    @passing_game_log = @player.passing_game_logs.new(passing_game_log_params)
+    @nfl_player = NflPlayer.find(params[:nfl_player_id])
+    @passing_game_log = @nfl_player.passing_game_logs.new(passing_game_log_params)
     authorize @passing_game_log
     if @passing_game_log.save
       flash[:notice] = "Week #{@passing_game_log.week} was successfully created."
-      redirect_to [@player.team, @player]
+      redirect_to @nfl_player
     else
       flash[:error] = "There was an error creating Week #{@passing_game_log.week}. Please try again."
       redirect_to :new
@@ -25,12 +25,12 @@ class PassingGameLogsController < ApplicationController
   end
 
   def update
-    @player = Player.find(params[:player_id])
+    @nfl_player = NflPlayer.find(params[:nfl_player_id])
     @passing_game_log = PassingGameLog.find(params[:id])
     authorize @passing_game_log
     if @passing_game_log.update_attributes(passing_game_log_params)
       flash[:notice] = "Week #{@passing_game_log.week} was successfully updated."
-      redirect_to [@player.team, @player]
+      redirect_to @nfl_player
     else
       flash[:error] = "There was an error updating Week #{@passing_game_log.week}. Please try again."
       render :edit
@@ -38,15 +38,15 @@ class PassingGameLogsController < ApplicationController
   end
 
   def destroy
-    @player = Player.find(params[:player_id])
-    @passing_game_log = @player.passing_game_logs.find(params[:id])
+    @nfl_player = NflPlayer.find(params[:nfl_player_id])
+    @passing_game_log = @nfl_player.passing_game_logs.find(params[:id])
     authorize @passing_game_log
     if @passing_game_log.destroy
       flash[:notice] = "Passing Game Log was successfully deleted."
-      redirect_to [@player.team, @player]
+      redirect_to @nfl_player
     else
       flash[:error] = "There was an error deleting Week #{@passing_game_log.week}. Please try again."
-      redirect_to [@player.team, @player]
+      redirect_to @nfl_player
     end
   end
 

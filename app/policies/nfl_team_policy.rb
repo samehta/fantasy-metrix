@@ -1,4 +1,8 @@
-class PlayerPolicy < ApplicationPolicy
+class NflTeamPolicy < ApplicationPolicy
+  def index?
+    true
+  end
+ 
   def create?
     user.present? && user.admin?
   end

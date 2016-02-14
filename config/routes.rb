@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 
   resources :statistics, only: [:index]
 
-  resources :teams
+  resources :nfl_teams
   
-  resources :players, except: [:index] do
+  resources :nfl_players, except: [:index] do
     resources :passing_game_logs, except: [:index, :show]
     resources :rushing_game_logs, except: [:index, :show]
     resources :receiving_game_logs, except: [:index, :show]
