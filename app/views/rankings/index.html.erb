@@ -3,10 +3,21 @@
     <h1 class="ranking">RANKINGS</h1><br>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-3">
+    <h3><%= link_to "Quarterbacks", rankings_path(position: 'quarterbacks'), class: 'position-links' %></h3>
+  </div>
+  <div class="col-md-3">
+    <h3><%= link_to "Running Backs", rankings_path(position: 'running-backs'), class: 'position-links' %></h3>
+  </div>
+  <div class="col-md-3">
+    <h3><%= link_to "Wide Receivers", rankings_path(position: 'wide-receivers'), class: 'position-links' %></h3>
+  </div>
+  <div class="col-md-3">
+    <h3><%= link_to "Tight Ends", rankings_path(position: 'tight-ends'), class: 'position-links' %></h3>
+  </div>
+</div><br>
 <div>
-  <%= render partial: 'quarterback', locals: { nfl_players: @nfl_players } %>
-  <%= render partial: 'running_back', locals: { nfl_players: @nfl_players } %>
-  <%= render partial: 'wide_receiver', locals: { nfl_players: @nfl_players } %>
-  <%= render partial: 'tight_end', locals: { nfl_players: @nfl_players } %>
+  <%= render partial: @position.gsub(' ', '_').downcase, locals: { nfl_players: @nfl_players } %>
 </div>
 <br><br><br><br>
