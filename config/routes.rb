@@ -4,13 +4,13 @@ Rails.application.routes.draw do
 
   resources :articles
 
-  resources :rankings, only: [:index]
+  resources :rankings, path: 'nfl/rankings', only: [:index]
 
-  resources :statistics, only: [:index]
+  resources :metrics, path: 'nfl/metrics', only: [:index]
 
-  resources :nfl_teams
+  resources :nfl_teams, path: '/nfl/teams'
   
-  resources :nfl_players, except: [:index] do
+  resources :nfl_players, path: '/nfl/players', except: [:index] do
     resources :passing_game_logs, except: [:index, :show]
     resources :rushing_game_logs, except: [:index, :show]
     resources :receiving_game_logs, except: [:index, :show]
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :career_receiving_stats, except: [:index, :show]
   end
   
-  resources :topics do
+  resources :topics, path: 'forums' do
     resources :posts, except: [:index]
   end
 

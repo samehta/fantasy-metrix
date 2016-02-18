@@ -12,7 +12,7 @@ function getPlayer() {
   var slug = playerName.toLowerCase().replace(' ', '-');
 
   // Request new URL in browser
-  var urlPath = '/nfl_players/' + slug;
+  var urlPath = '/nfl/players/' + slug;
   window.location.href = urlPath;
 
   // Return false to stop <form> from doing its default
