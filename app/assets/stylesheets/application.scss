@@ -100,10 +100,10 @@ table#header th {
   text-align: center;
 }
 
-table#header tbody tr:hover th {
+/*table#header tbody tr:hover th {
   color: #ffffff;
   background-color: #397D02;
-}
+}*/
 
 .table-hover tbody tr:hover th {
   color: #ffffff;
@@ -251,6 +251,15 @@ ul.nav a:hover {
 .player-links:hover {
   text-decoration: none;
   color: #ffffff;
+}
+
+.position-links {
+  color: #397D02;
+}
+
+.position-links:hover {
+  text-decoration: none;
+  color: #B7B7B7;
 }
 
 .player-stats {

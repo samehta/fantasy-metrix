@@ -27,22 +27,21 @@
         </tr>
         <% @nfl_players.each do |nfl_player| %>
           <tr>
-            <% if nfl_player.wide_receiver? %>
-              <td align="left"><%= link_to nfl_player.name, nfl_player_path(nfl_player), class: 'player-stats' %></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            <% end %>
+            <% career_receiving_stat = nfl_player.career_receiving_stats.find_by(year: 2015) %>
+            <td align="left"><%= link_to nfl_player.name, nfl_player_path(nfl_player), class: 'player-stats' %></td>
+            <td><%= career_receiving_stat.team %></td>
+            <td><%= career_receiving_stat.targets %></td>
+            <td><%= career_receiving_stat.receptions %></td>
+            <td><%= career_receiving_stat.receiving_yards %></td>
+            <td><%= career_receiving_stat.yards_per_game %></td>
+            <td><%= career_receiving_stat.yards_per_reception %></td>
+            <td><%= career_receiving_stat.hundred_plus %></td>
+            <td><%= career_receiving_stat.receiving_touchdowns %></td>
+            <td><%= career_receiving_stat.rushing_attempts %></td>
+            <td><%= career_receiving_stat.rushing_yards %></td>
+            <td><%= career_receiving_stat.rushing_touchdowns %></td>
+            <td><%= career_receiving_stat.fantasy_points %></td>
+            <td><%= career_receiving_stat.ppr_fantasy_points %></td>
           </tr>
         <% end %>
       </tbody>

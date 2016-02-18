@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   resources :articles
 
-  resources :rankings, path: 'nfl/rankings', only: [:index]
+  resources :rankings, path: 'nfl/rankings/:position', only: [:index]
 
-  resources :metrics, path: 'nfl/metrics', only: [:index]
+  resources :metrics, path: 'nfl/metrics/:position', only: [:index]
 
   resources :nfl_teams, path: '/nfl/teams'
   

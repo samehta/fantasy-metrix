@@ -36,8 +36,8 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "Home", root_path, class: 'nav-links' %></li>
             <li><%= link_to "Articles", articles_path, class: 'nav-links' %></li>
-            <li><%= link_to "Rankings", rankings_path, class: 'nav-links' %></li>
-            <li><%= link_to "Metrics", metrics_path, class: 'nav-links' %></li>
+            <li><%= link_to "Rankings", rankings_path(position: 'quarterbacks'), class: 'nav-links' %></li>
+            <li><%= link_to "Metrics", metrics_path(position: 'quarterbacks'), class: 'nav-links' %></li>
             <li><%= link_to "Teams", nfl_teams_path, class: 'nav-links' %></li>
             <li><%= link_to "Forums", topics_path, class: 'nav-links' %></li>
           </ul>

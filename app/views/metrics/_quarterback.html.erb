@@ -28,23 +28,22 @@
         </tr>
         <% @nfl_players.each do |nfl_player| %>
           <tr>
-            <% if nfl_player.quarterback? %>
-              <td align="left"><%= link_to nfl_player.name, nfl_player_path(nfl_player), class: 'player-stats' %></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            <% end %>
+            <% career_passing_stat = nfl_player.career_passing_stats.find_by(year: 2015) %>
+            <td align="left"><%= link_to nfl_player.name, nfl_player_path(nfl_player), class: 'player-stats' %></td>
+            <td><%= career_passing_stat.team %></td>
+            <td><%= career_passing_stat.completions %></td>
+            <td><%= career_passing_stat.passing_attempts %></td>
+            <td><%= career_passing_stat.completion_percentage %></td>
+            <td><%= career_passing_stat.passing_yards %></td>
+            <td><%= career_passing_stat.yards_per_attempt %></td>
+            <td><%= career_passing_stat.yards_per_game %></td>
+            <td><%= career_passing_stat.three_hundred_plus %></td>
+            <td><%= career_passing_stat.passing_touchdowns %></td>
+            <td><%= career_passing_stat.interceptions %></td>
+            <td><%= career_passing_stat.rushing_attempts %></td>
+            <td><%= career_passing_stat.rushing_yards %></td>
+            <td><%= career_passing_stat.rushing_touchdowns %></td>
+            <td><%= career_passing_stat.fantasy_points %></td>
           </tr>
         <% end %>
       </tbody>
