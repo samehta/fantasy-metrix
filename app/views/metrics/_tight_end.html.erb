@@ -12,18 +12,18 @@
         <tr>
           <th title="Name">NAME</th>
           <th title="Team">TEAM</th>
-          <th title="Targets">TGTS</th>
-          <th title="Receptions">REC</th>
-          <th title="Receiving Yards">YARDS</th>
-          <th title="Yards Per Game">YPG</th>
-          <th title="Yards Per Reception">YPR</th>
-          <th title="100+ Receiving Yard Games">100+</th>
-          <th title="Receiving Touchdowns">TD</th>
-          <th title="Rushing Attempts">RUSH</th>
-          <th title="Rushing Yards">YARDS</th>
-          <th title="Rushing Touchdowns">TD</th>
-          <th title="Standard Scoring">STANDARD</th>
-          <th title="Points Per Reception Scoring">PPR</th>
+          <th title="Targets"><%= sortable "targets", "TGTS" %></th>
+          <th title="Receptions"><%= sortable "receptions", "REC" %></th>
+          <th title="Receiving Yards"><%= sortable "receiving_yards", "YARDS" %></th>
+          <th title="Yards Per Game"><%= sortable "yards_per_game", "YPG" %></th>
+          <th title="Yards Per Reception"><%= sortable "yards_per_reception", "YPR" %></th>
+          <th title="100+ Receiving Yard Games"><%= sortable "hundred_plus", "100+" %></th>
+          <th title="Receiving Touchdowns"><%= sortable "receiving_touchdowns", "TD" %></th>
+          <th title="Rushing Attempts"><%= sortable "rushing_attempts", "RUSH" %></th>
+          <th title="Rushing Yards"><%= sortable "rushing_yards", "YARDS" %></th>
+          <th title="Rushing Touchdowns"><%= sortable "rushing_touchdowns", "TD" %></th>
+          <th title="Standard Scoring"><%= sortable "fantasy_points", "STANDARD" %></th>
+          <th title="Points Per Reception Scoring"><%= sortable "ppr_fantasy_points", "PPR" %></th>
         </tr>
         <% @nfl_players.each do |nfl_player| %>
           <tr>
