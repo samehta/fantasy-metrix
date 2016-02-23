@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h3>2015 Quarterback Leaders</h3>
+    <h3>Quarterback Leaders - 2015</h3>
     <table id="header" class="table table-bordered grey text-center">
       <tbody>
         <tr>
@@ -29,21 +29,23 @@
         <% @nfl_players.each do |nfl_player| %>
           <tr>
             <% career_passing_stat = nfl_player.career_passing_stats.find_by(year: 2015) %>
-            <td align="left"><%= link_to nfl_player.name, nfl_player_path(nfl_player), class: 'player-stats' %></td>
-            <td><%= career_passing_stat.team %></td>
-            <td><%= career_passing_stat.completions %></td>
-            <td><%= career_passing_stat.passing_attempts %></td>
-            <td><%= career_passing_stat.completion_percentage %></td>
-            <td><%= career_passing_stat.passing_yards %></td>
-            <td><%= career_passing_stat.yards_per_attempt %></td>
-            <td><%= career_passing_stat.yards_per_game %></td>
-            <td><%= career_passing_stat.three_hundred_plus %></td>
-            <td><%= career_passing_stat.passing_touchdowns %></td>
-            <td><%= career_passing_stat.interceptions %></td>
-            <td><%= career_passing_stat.rushing_attempts %></td>
-            <td><%= career_passing_stat.rushing_yards %></td>
-            <td><%= career_passing_stat.rushing_touchdowns %></td>
-            <td><%= career_passing_stat.fantasy_points %></td>
+            <% if career_passing_stat.passing_attempts > 200 %>
+              <td align="left"><%= link_to nfl_player.name, nfl_player_path(nfl_player), class: 'player-stats' %></td>
+              <td><%= career_passing_stat.team %></td>
+              <td><%= career_passing_stat.completions %></td>
+              <td><%= career_passing_stat.passing_attempts %></td>
+              <td><%= career_passing_stat.completion_percentage %></td>
+              <td><%= career_passing_stat.passing_yards %></td>
+              <td><%= career_passing_stat.yards_per_attempt %></td>
+              <td><%= career_passing_stat.yards_per_game %></td>
+              <td><%= career_passing_stat.three_hundred_plus %></td>
+              <td><%= career_passing_stat.passing_touchdowns %></td>
+              <td><%= career_passing_stat.interceptions %></td>
+              <td><%= career_passing_stat.rushing_attempts %></td>
+              <td><%= career_passing_stat.rushing_yards %></td>
+              <td><%= career_passing_stat.rushing_touchdowns %></td>
+              <td><%= career_passing_stat.fantasy_points %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h3>2015 Running Back Leaders</h3>
+    <h3>Running Back Leaders - 2015</h3>
     <table id="header" class="table table-bordered grey text-center">
       <tbody>
         <tr>
@@ -28,20 +28,22 @@
         <% @nfl_players.each do |nfl_player| %>
           <tr>
             <% career_rushing_stat = nfl_player.career_rushing_stats.find_by(year: 2015) %>
-            <td align="left"><%= link_to nfl_player.name, nfl_player_path(nfl_player), class: 'player-stats' %></td>
-            <td><%= career_rushing_stat.team %></td>
-            <td><%= career_rushing_stat.rushing_attempts %></td>
-            <td><%= career_rushing_stat.rushing_yards %></td>
-            <td><%= career_rushing_stat.yards_per_game %></td>
-            <td><%= career_rushing_stat.yards_per_carry %></td>
-            <td><%= career_rushing_stat.hundred_plus %></td>
-            <td><%= career_rushing_stat.rushing_touchdowns %></td>
-            <td><%= career_rushing_stat.targets %></td>
-            <td><%= career_rushing_stat.receptions %></td>
-            <td><%= career_rushing_stat.receiving_yards %></td>
-            <td><%= career_rushing_stat.receiving_touchdowns %></td>
-            <td><%= career_rushing_stat.fantasy_points %></td>
-            <td><%= career_rushing_stat.ppr_fantasy_points %></td>
+            <% if career_rushing_stat.rushing_attempts > 100 %>
+              <td align="left"><%= link_to nfl_player.name, nfl_player_path(nfl_player), class: 'player-stats' %></td>
+              <td><%= career_rushing_stat.team %></td>
+              <td><%= career_rushing_stat.rushing_attempts %></td>
+              <td><%= career_rushing_stat.rushing_yards %></td>
+              <td><%= career_rushing_stat.yards_per_game %></td>
+              <td><%= career_rushing_stat.yards_per_carry %></td>
+              <td><%= career_rushing_stat.hundred_plus %></td>
+              <td><%= career_rushing_stat.rushing_touchdowns %></td>
+              <td><%= career_rushing_stat.targets %></td>
+              <td><%= career_rushing_stat.receptions %></td>
+              <td><%= career_rushing_stat.receiving_yards %></td>
+              <td><%= career_rushing_stat.receiving_touchdowns %></td>
+              <td><%= career_rushing_stat.fantasy_points %></td>
+              <td><%= career_rushing_stat.ppr_fantasy_points %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

@@ -85,7 +85,10 @@ class RotoScraper
       if nfl_player.quarterback?
         completions = cells[3].text.to_i
         passing_attempts = cells[4].text.to_i
+        completion_percentage = cells[5].text.to_f
         passing_yards = cells[6].text.to_i
+        yards_per_game = cells[7].text.to_f
+        yards_per_attempt = cells[8].text.to_f
         three_hundred_plus = cells[9].text.to_i
         passing_touchdowns = cells[10].text.to_i
         interceptions = cells[11].text.to_i
@@ -95,7 +98,8 @@ class RotoScraper
         career_passing_stat = nfl_player.career_passing_stats.find_or_initialize_by(year: year)
         career_passing_stat.update_attributes!(
           team: team, games_played: games_played, completions: completions,
-          passing_attempts: passing_attempts, passing_yards: passing_yards,
+          completion_percentage: completion_percentage, passing_attempts: passing_attempts, 
+          passing_yards: passing_yards, yards_per_game: yards_per_game, yards_per_attempt: yards_per_attempt,
           three_hundred_plus: three_hundred_plus, passing_touchdowns: passing_touchdowns, 
           interceptions: interceptions, rushing_attempts: rushing_attempts, 
           rushing_yards: rushing_yards, rushing_touchdowns: rushing_touchdowns)
@@ -103,6 +107,8 @@ class RotoScraper
       elsif nfl_player.running_back?
         rushing_attempts = cells[3].text.to_i
         rushing_yards = cells[4].text.to_i
+        yards_per_game = cells[5].text.to_f
+        yards_per_carry = cells[6].text.to_f
         hundred_plus = cells[7].text.to_i
         rushing_touchdowns = cells[8].text.to_i
         receptions = cells[9].text.to_i
@@ -111,12 +117,15 @@ class RotoScraper
         career_rushing_stat = nfl_player.career_rushing_stats.find_or_initialize_by(year: year)
         career_rushing_stat.update_attributes!(
           year: year, team: team, games_played: games_played, rushing_attempts: rushing_attempts,
-          rushing_yards: rushing_yards, hundred_plus: hundred_plus, rushing_touchdowns: rushing_touchdowns, 
-          receptions: receptions, receiving_yards: receiving_yards, receiving_touchdowns: receiving_touchdowns)
+          rushing_yards: rushing_yards, yards_per_game: yards_per_game, yards_per_carry: yards_per_carry, 
+          hundred_plus: hundred_plus, rushing_touchdowns: rushing_touchdowns, receptions: receptions, 
+          receiving_yards: receiving_yards, receiving_touchdowns: receiving_touchdowns)
 
       elsif nfl_player.wide_receiver? || nfl_player.tight_end?
         receptions = cells[3].text.to_i
         receiving_yards = cells[4].text.to_i
+        yards_per_game = cells[5].text.to_f
+        yards_per_reception = cells[6].text.to_f
         hundred_plus = cells[7].text.to_i
         receiving_touchdowns = cells[8].text.to_i
         rushing_attempts = cells[9].text.to_i
@@ -124,9 +133,10 @@ class RotoScraper
         rushing_touchdowns= cells[14].text.to_i
         career_receiving_stat = nfl_player.career_receiving_stats.find_or_initialize_by(year: year)
         career_receiving_stat.update_attributes!(
-          year: year, team: team, games_played: games_played, receptions: receptions, 
-          receiving_yards: receiving_yards, hundred_plus: hundred_plus, receiving_touchdowns: receiving_touchdowns, 
-          rushing_attempts: rushing_attempts, rushing_yards: rushing_yards, rushing_touchdowns: rushing_touchdowns)
+          year: year, team: team, games_played: games_played, receptions: receptions, receiving_yards: receiving_yards, 
+          yards_per_game: yards_per_game, yards_per_reception: yards_per_reception, hundred_plus: hundred_plus, 
+          receiving_touchdowns: receiving_touchdowns, rushing_attempts: rushing_attempts, rushing_yards: rushing_yards, 
+          rushing_touchdowns: rushing_touchdowns)
       end
     end
   end
