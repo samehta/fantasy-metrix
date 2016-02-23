@@ -1,15 +1,27 @@
 class CareerRushingStat < ActiveRecord::Base
   belongs_to :nfl_player
+  before_save :calculate_yards_per_game
+  before_save :calculate_yards_per_carry
 
-  def yards_per_game
-    return 0 if (games_played == 0 && rushing_yards == 0)
-    ypg = (rushing_yards.to_f / games_played.to_f).round(1)
-    ypg == 0.0 ? 0 : ypg
+  private
+
+  def calculate_yards_per_game
+    if (games_played == 0 && rushing_yards == 0)
+      yards_per_game = 0
+    else
+      yards_per_game = (rushing_yards.to_f / games_played.to_f).round(1)
+      yards_per_game = 0 if yards_per_game == 0.0
+    end
+    self.yards_per_game = yards_per_game
   end
 
-  def yards_per_carry
-    return 0 if (rushing_yards == 0 && rushing_attempts == 0)
-    ypc = (rushing_yards.to_f / rushing_attempts.to_f).round(1)
-    ypc == 0.0 ? 0 : ypc
+  def calculate_yards_per_carry
+    if (rushing_yards == 0 && rushing_attempts == 0)
+      yards_per_carry = 0
+    else
+      yards_per_carry = (rushing_yards.to_f / rushing_attempts.to_f).round(1)
+      yards_per_carry = 0 if yards_per_carry == 0.0
+    end
+    self.yards_per_carry = yards_per_carry
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212004153) do
+ActiveRecord::Schema.define(version: 20160223013235) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -37,10 +37,13 @@ ActiveRecord::Schema.define(version: 20160212004153) do
     t.integer  "rushing_yards"
     t.integer  "rushing_touchdowns"
     t.decimal  "fantasy_points"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "nfl_player_id"
     t.integer  "interceptions"
+    t.float    "completion_percentage"
+    t.float    "yards_per_attempt"
+    t.float    "yards_per_game"
   end
 
   add_index "career_passing_stats", ["nfl_player_id"], name: "index_career_passing_stats_on_nfl_player_id"
@@ -62,6 +65,8 @@ ActiveRecord::Schema.define(version: 20160212004153) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "nfl_player_id"
+    t.float    "yards_per_game"
+    t.float    "yards_per_reception"
   end
 
   add_index "career_receiving_stats", ["nfl_player_id"], name: "index_career_receiving_stats_on_nfl_player_id"
@@ -83,6 +88,8 @@ ActiveRecord::Schema.define(version: 20160212004153) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "nfl_player_id"
+    t.float    "yards_per_game"
+    t.float    "yards_per_carry"
   end
 
   add_index "career_rushing_stats", ["nfl_player_id"], name: "index_career_rushing_stats_on_nfl_player_id"

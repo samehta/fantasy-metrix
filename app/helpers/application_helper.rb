@@ -16,6 +16,6 @@ module ApplicationHelper
 
   def sortable(column, title = nil)
     title ||= column
-    link_to title, {:sort => column}
+    link_to title, {:sort => column}, class: 'sorter'
   end
 end

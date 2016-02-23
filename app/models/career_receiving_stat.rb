@@ -1,15 +1,27 @@
 class CareerReceivingStat < ActiveRecord::Base
   belongs_to :nfl_player
+  before_save :calculate_yards_per_game
+  before_save :calculate_yards_per_reception
 
-  def yards_per_game
-    return 0 if (games_played == 0 && receiving_yards == 0)
-    ypg = (receiving_yards.to_f / games_played.to_f).round(1)
-    ypg == 0.0 ? 0 : ypg
+  private
+
+  def calculate_yards_per_game
+    if (games_played == 0 && receiving_yards == 0)
+      yards_per_game = 0
+    else
+      yards_per_game = (receiving_yards.to_f / games_played.to_f).round(1)
+      yards_per_game = 0 if yards_per_game == 0.0
+    end
+    self.yards_per_game = yards_per_game
   end
 
-  def yards_per_reception
-    return 0 if (receptions == 0 && receiving_yards == 0)
-    ypr = (receiving_yards.to_f / receptions.to_f).round(1)
-    ypr == 0.0 ? 0 : ypr
+  def calculate_yards_per_reception
+    if (receptions == 0 && receiving_yards == 0)
+      yards_per_reception = 0
+    else
+      yards_per_reception = (receiving_yards.to_f / receptions.to_f).round(1)
+      yards_per_reception = 0 if yards_per_reception == 0.0
+    end
+    self.yards_per_reception = yards_per_reception
   end
 end

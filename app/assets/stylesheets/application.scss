@@ -105,6 +105,15 @@ table#header th {
   background-color: #397D02;
 }*/
 
+.sorter {
+  color: #B7B7B7;
+}
+
+.sorter:hover {
+  text-decoration: none;
+  color: #397D02;
+}
+
 .table-hover tbody tr:hover th {
   color: #ffffff;
   background-color: #23527C;
