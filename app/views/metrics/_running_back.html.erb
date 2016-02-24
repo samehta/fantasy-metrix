@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h3>Running Back Leaders - 2015</h3>
+    <h3>2015 Running Back Leaders</h3>
     <table id="header" class="table table-bordered grey text-center">
       <tbody>
         <tr>
@@ -22,13 +22,13 @@
           <th title="Receptions"><%= sortable "receptions", "REC" %></th>
           <th title="Receiving Yards"><%= sortable "receiving_yards", "YARDS" %></th>
           <th title="Receiving Touchdowns"><%= sortable "receiving_touchdowns", "TD" %></th>
-          <th title="Standard Scoring"><%= sortable "fantasy_points", "STANDARD" %></th>
+          <th title="Standard Yahoo Scoring"><%= sortable "fantasy_points", "STANDARD" %></th>
           <th title="Points Per Reception Scoring"><%= sortable "ppr_fantasy_points", "PPR" %></th>
         </tr>
         <% @nfl_players.each do |nfl_player| %>
           <tr>
             <% career_rushing_stat = nfl_player.career_rushing_stats.find_by(year: 2015) %>
-            <% if career_rushing_stat.rushing_attempts > 100 %>
+            <% if career_rushing_stat.rushing_attempts > 50 %>
               <td align="left"><%= link_to nfl_player.name, nfl_player_path(nfl_player), class: 'player-stats' %></td>
               <td><%= career_rushing_stat.team %></td>
               <td><%= career_rushing_stat.rushing_attempts %></td>
