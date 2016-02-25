@@ -1,23 +1,25 @@
 <div class="row">
   <div class="col-md-12">
-    <h3>Week 1 - Quarterback Rankings</h3>
+    <h3>Quarterback - Draft Rankings</h3>
     <table id="header" class="table table-bordered grey text-center">
       <tbody>
         <tr>
-          <th>Rank</th>
-          <th>Player</th>
-          <th>Standard</th>
-          <th>Half PPR</th>
-          <th>Full PPR</th>
+          <th title="Player Ranking">Rank</th>
+          <th title="Player Name">Player</th>
+          <th title="Team Name">Team</th>
+          <th title="Standard Yahoo Scoring">Standard</th>
+          <th title="Half Point Per Reception Scoring">Half PPR</th>
+          <th title="Full Point Per Reception Scoring">Full PPR</th>
         </tr>
         <% @nfl_players.each do |nfl_player| %>
           <tr>
             <% if nfl_player.quarterback? %>
-              <td style="width: 100px"></td>
+              <td style="width: 100px"><%= nfl_player.rank %></td>
               <td style="text-align:left"><%= link_to nfl_player.name, nfl_player_path(nfl_player), class: 'player-stats' %></td>
-              <td style="width: 220px"></td>
-              <td style="width: 220px"></td>
-              <td style="width: 220px"></td>
+              <td style="width: 100px" class="green"><%= nfl_player.nfl_team.abbreviation %></td>
+              <td style="width: 180px"></td>
+              <td style="width: 180px"></td>
+              <td style="width: 180px"></td>
             <% end %>
           </tr>
         <% end %>

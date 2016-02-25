@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223013235) do
+ActiveRecord::Schema.define(version: 20160224234502) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20160223013235) do
     t.string   "height"
     t.integer  "weight"
     t.string   "slug"
+    t.integer  "rank"
   end
 
   add_index "nfl_players", ["nfl_team_id"], name: "index_nfl_players_on_nfl_team_id"
@@ -137,10 +138,11 @@ ActiveRecord::Schema.define(version: 20160223013235) do
 
   create_table "nfl_teams", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "image_path"
     t.string   "slug"
+    t.string   "abbreviation"
   end
 
   add_index "nfl_teams", ["slug"], name: "index_nfl_teams_on_slug", unique: true
