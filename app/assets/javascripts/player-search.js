@@ -8,12 +8,22 @@ function getPlayer() {
   // Get the player name from the search input field:
   var playerName = $('input[data-player-search]').val();
 
-  // Convert the player name to the slug form:
-  var slug = playerName.toLowerCase().replace(' ', '-');
+  var playerNames = $('input[data-player-search]').data('player-search');
 
-  // Request new URL in browser
-  var urlPath = '/nfl/players/' + slug;
-  window.location.href = urlPath;
+  if (playerNames.indexOf(playerName) < 0) {
+    // player not found
+    var flashHtml = '<div class="alert alert-warning text-center">' + 
+      '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+      'Player was not found.' + '</div>';
+    $('body').prepend(flashHtml);
+  } else {
+    // Convert the player name to the slug form:
+    var slug = playerName.toLowerCase().replace(' ', '-');
+
+    // Request new URL in browser
+    var urlPath = '/nfl/players/' + slug;
+    window.location.href = urlPath;
+  }
 
   // Return false to stop <form> from doing its default
   // behaviour of HTTP POST-ing the form fields:
