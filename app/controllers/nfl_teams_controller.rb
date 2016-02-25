@@ -61,6 +61,6 @@ class NflTeamsController < ApplicationController
   private
 
   def nfl_team_params
-    params.require(:nfl_team).permit(:name, :image_path)
+    params.require(:nfl_team).permit(:name, :abbreviation, :image_path)
   end
 end
