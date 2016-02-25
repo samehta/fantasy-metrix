@@ -24,6 +24,7 @@ class NflPlayersController < ApplicationController
 
   def create
     @nfl_player = NflPlayer.new(nfl_player_params)
+    @nfl_player.nfl_team = NflTeam.find(params[:nfl_player][:nfl_team_id])
     authorize @nfl_player
     if @nfl_player.save
       flash[:notice] = "#{@nfl_player.name} was successfully created."
