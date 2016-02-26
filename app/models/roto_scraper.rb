@@ -15,7 +15,7 @@ class RotoScraper
       nfl_team_urls << nfl_team_link
     end
 
-    # nfl_team_urls = ["http://www.rotoworld.com/teams/clubhouse/nfl/was/washington-redskins"]
+    # nfl_team_urls = ["http://www.rotoworld.com/teams/clubhouse/nfl/sea/seattle-seahawks"]
 
     nfl_team_urls.each do |nfl_team_url|
       puts nfl_team_url
@@ -31,6 +31,7 @@ class RotoScraper
         if !['Quarterback', 'Running Back', 'Wide Receiver', 'Tight End'].include?(position)
           next
         end
+        # nfl_player_image = page.css('//img[@id="cp1_ctl00_imgPlayerPhoto"]/@src').text
         nfl_player_name = page.css('div.playername').text.match(/(.+?) \|/)[1]
         nfl_team_name = page.css('td:contains("Team:")').first.ancestors('tr').css('a').text
         dob_elements = page.css('td:contains("DOB:")')
@@ -42,12 +43,11 @@ class RotoScraper
         height = page.css('td:contains("Ht")').first.ancestors('tr').css('td').last.text.match(/(.+)\' /)[1]
         weight = page.css('td:contains("Wt:")').first.ancestors('tr').css('td').last.text.match(/\/ (.+)/)[1].to_i
         college = page.css('td:contains("College:")').first.ancestors('tr').css('td').last.text
-        nfl_team_image = nfl_team_name.downcase.split(' ').join('_')
-        nfl_player_image = nfl_player_name.downcase.split(' ').join('_') + ".png"
+        nfl_player_image = nfl_player_name.gsub(/[^0-9A-Za-z\s]/, '').downcase.split(' ').join('_')
         nfl_team = NflTeam.find_or_create_by!(name: nfl_team_name)
         nfl_player = nfl_team.nfl_players.find_or_create_by!(name: nfl_player_name)
         nfl_player.update_attributes!(position: position, date_of_birth: date_of_birth, height: height, 
-                                  weight: weight, college: college, image_path: "#{nfl_team_image}/#{nfl_player_image}")
+                                  weight: weight, college: college, image_path: "nfl_players/#{nfl_player_image}.png")
         
         career_stat_table = page.css('th:contains("Career Stats")').first.ancestors('table')
         career_stat_rows = career_stat_table.css("tr")[3..-1]
