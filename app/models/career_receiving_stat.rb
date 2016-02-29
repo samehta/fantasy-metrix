@@ -3,6 +3,8 @@ class CareerReceivingStat < ActiveRecord::Base
   before_save :calculate_yards_per_game
   before_save :calculate_yards_per_reception
 
+  default_scope { order('created_at ASC') }
+
   private
 
   def calculate_yards_per_game

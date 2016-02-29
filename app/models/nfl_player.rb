@@ -10,6 +10,8 @@ class NflPlayer < ActiveRecord::Base
   has_many :career_rushing_stats
   has_many :career_receiving_stats
 
+  default_scope { order('created_at ASC') }
+
   def age
     year_constant = 10000
     (Date.today.strftime('%Y%m%d').to_i - date_of_birth.strftime('%Y%m%d').to_i) / year_constant

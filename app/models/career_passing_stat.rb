@@ -4,6 +4,8 @@ class CareerPassingStat < ActiveRecord::Base
   before_save :calculate_yards_per_attempt
   before_save :calculate_yards_per_game
 
+  default_scope { order('created_at ASC') }
+
   private
 
   def calculate_completion_percentage

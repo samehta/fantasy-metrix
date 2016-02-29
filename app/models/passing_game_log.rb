@@ -1,6 +1,8 @@
 class PassingGameLog < ActiveRecord::Base
   belongs_to :nfl_player
 
+  default_scope { order('created_at ASC') }
+
   def completion_percentage 
     return 0 if (completions == 0 && passing_attempts == 0)
     cp = ((completions.to_f / passing_attempts.to_f) * 100).round(1)

@@ -1,6 +1,8 @@
 class RushingGameLog < ActiveRecord::Base
   belongs_to :nfl_player
 
+  default_scope { order('created_at ASC') }
+
   def yards_per_carry
     return 0 if (rushing_yards == 0 && rushing_attempts == 0)
     ypc = (rushing_yards.to_f / rushing_attempts.to_f).round(1)
