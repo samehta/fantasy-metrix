@@ -14,7 +14,7 @@ function getPlayer() {
     // player not found
     var flashHtml = '<div class="alert alert-warning text-center">' + 
       '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-      'Player was not found.' + '</div>';
+      'NFL Player does not exist. Please try again.' + '</div>';
     $('body').prepend(flashHtml);
   } else {
     // Convert the player name to the slug form:

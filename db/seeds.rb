@@ -59,7 +59,7 @@ NflTeam.create!(name: 'Kansas City Chiefs', abbreviation: "KC", image_path: 'nfl
 NflTeam.create!(name: 'San Diego Chargers', abbreviation: "SD", image_path: 'nfl_teams/chargers.png')
 NflTeam.create!(name: 'Oakland Raiders', abbreviation: "OAK", image_path: 'nfl_teams/raiders.png')
 NflTeam.create!(name: 'Arizona Cardinals', abbreviation: "ARZ", image_path: 'nfl_teams/cardinals.png')
-NflTeam.create!(name: 'Los Angeles Rams', abbreviation: "LAM", image_path: 'nfl_teams/rams.png')
+NflTeam.create!(name: 'Los Angeles Rams', abbreviation: "LAR", image_path: 'nfl_teams/rams.png')
 NflTeam.create!(name: 'San Francisco 49ers', abbreviation: "SF", image_path: 'nfl_teams/niners.png')
 NflTeam.create!(name: 'Seattle Seahawks', abbreviation: "SEA", image_path: 'nfl_teams/seahawks.png')
 NflTeam.create!(name: 'Buffalo Bills', abbreviation: "BUF", image_path: 'nfl_teams/bills.png')
