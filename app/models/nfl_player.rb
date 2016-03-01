@@ -10,7 +10,7 @@ class NflPlayer < ActiveRecord::Base
   has_many :career_rushing_stats
   has_many :career_receiving_stats
 
-  default_scope { order('created_at ASC') }
+  # default_scope { order('created_at ASC') }
 
   def age
     year_constant = 10000
