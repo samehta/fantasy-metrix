@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160225172738) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160225172738) do
     t.string   "image_path"
   end
 
-  add_index "articles", ["user_id"], name: "index_articles_on_user_id"
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "career_passing_stats", force: :cascade do |t|
     t.integer  "year"
@@ -46,7 +49,7 @@ ActiveRecord::Schema.define(version: 20160225172738) do
     t.float    "yards_per_game"
   end
 
-  add_index "career_passing_stats", ["nfl_player_id"], name: "index_career_passing_stats_on_nfl_player_id"
+  add_index "career_passing_stats", ["nfl_player_id"], name: "index_career_passing_stats_on_nfl_player_id", using: :btree
 
   create_table "career_receiving_stats", force: :cascade do |t|
     t.integer  "year"
@@ -69,7 +72,7 @@ ActiveRecord::Schema.define(version: 20160225172738) do
     t.float    "yards_per_reception"
   end
 
-  add_index "career_receiving_stats", ["nfl_player_id"], name: "index_career_receiving_stats_on_nfl_player_id"
+  add_index "career_receiving_stats", ["nfl_player_id"], name: "index_career_receiving_stats_on_nfl_player_id", using: :btree
 
   create_table "career_rushing_stats", force: :cascade do |t|
     t.integer  "year"
@@ -92,7 +95,7 @@ ActiveRecord::Schema.define(version: 20160225172738) do
     t.float    "yards_per_carry"
   end
 
-  add_index "career_rushing_stats", ["nfl_player_id"], name: "index_career_rushing_stats_on_nfl_player_id"
+  add_index "career_rushing_stats", ["nfl_player_id"], name: "index_career_rushing_stats_on_nfl_player_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -102,8 +105,8 @@ ActiveRecord::Schema.define(version: 20160225172738) do
     t.integer  "user_id"
   end
 
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -113,10 +116,10 @@ ActiveRecord::Schema.define(version: 20160225172738) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "nfl_players", force: :cascade do |t|
     t.string   "name"
@@ -133,8 +136,8 @@ ActiveRecord::Schema.define(version: 20160225172738) do
     t.integer  "rank"
   end
 
-  add_index "nfl_players", ["nfl_team_id"], name: "index_nfl_players_on_nfl_team_id"
-  add_index "nfl_players", ["slug"], name: "index_nfl_players_on_slug", unique: true
+  add_index "nfl_players", ["nfl_team_id"], name: "index_nfl_players_on_nfl_team_id", using: :btree
+  add_index "nfl_players", ["slug"], name: "index_nfl_players_on_slug", unique: true, using: :btree
 
   create_table "nfl_teams", force: :cascade do |t|
     t.string   "name"
@@ -145,7 +148,7 @@ ActiveRecord::Schema.define(version: 20160225172738) do
     t.string   "abbreviation"
   end
 
-  add_index "nfl_teams", ["slug"], name: "index_nfl_teams_on_slug", unique: true
+  add_index "nfl_teams", ["slug"], name: "index_nfl_teams_on_slug", unique: true, using: :btree
 
   create_table "passing_game_logs", force: :cascade do |t|
     t.integer  "week"
@@ -166,7 +169,7 @@ ActiveRecord::Schema.define(version: 20160225172738) do
     t.integer  "season"
   end
 
-  add_index "passing_game_logs", ["nfl_player_id"], name: "index_passing_game_logs_on_nfl_player_id"
+  add_index "passing_game_logs", ["nfl_player_id"], name: "index_passing_game_logs_on_nfl_player_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -178,8 +181,8 @@ ActiveRecord::Schema.define(version: 20160225172738) do
     t.float    "rank"
   end
 
-  add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+  add_index "posts", ["topic_id"], name: "index_posts_on_topic_id", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "receiving_game_logs", force: :cascade do |t|
     t.integer  "season"
@@ -200,7 +203,7 @@ ActiveRecord::Schema.define(version: 20160225172738) do
     t.integer  "nfl_player_id"
   end
 
-  add_index "receiving_game_logs", ["nfl_player_id"], name: "index_receiving_game_logs_on_nfl_player_id"
+  add_index "receiving_game_logs", ["nfl_player_id"], name: "index_receiving_game_logs_on_nfl_player_id", using: :btree
 
   create_table "rushing_game_logs", force: :cascade do |t|
     t.integer  "season"
@@ -221,7 +224,7 @@ ActiveRecord::Schema.define(version: 20160225172738) do
     t.integer  "targets"
   end
 
-  add_index "rushing_game_logs", ["nfl_player_id"], name: "index_rushing_game_logs_on_nfl_player_id"
+  add_index "rushing_game_logs", ["nfl_player_id"], name: "index_rushing_game_logs_on_nfl_player_id", using: :btree
 
   create_table "topics", force: :cascade do |t|
     t.string   "name"
@@ -252,8 +255,8 @@ ActiveRecord::Schema.define(version: 20160225172738) do
     t.string   "avatar"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "votes", force: :cascade do |t|
     t.integer  "value"
@@ -263,7 +266,10 @@ ActiveRecord::Schema.define(version: 20160225172738) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "votes", ["post_id"], name: "index_votes_on_post_id"
-  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
+  add_index "votes", ["post_id"], name: "index_votes_on_post_id", using: :btree
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
 
+  add_foreign_key "comments", "posts"
+  add_foreign_key "votes", "posts"
+  add_foreign_key "votes", "users"
 end
