@@ -5,7 +5,7 @@ A fantasy-friendly football analytics platform where users can evaluate and comp
 
 # Developer Setup
 
-Requires PostgreSQL.
+Requires PostgreSQL
 
 ```
 git clone REPO_URL_GOES_HERE
