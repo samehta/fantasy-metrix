@@ -10,6 +10,8 @@ describe User do
   end
 
   describe "validations" do 
+    it { should validate_length_of(:username).is_at_least(3) }
+    it { should validate_length_of(:username).is_at_most(10) }
     it { should validate_uniqueness_of(:username).case_insensitive }
   end
 end

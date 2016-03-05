@@ -10,8 +10,10 @@ class User < ActiveRecord::Base
   
   mount_uploader :avatar, AvatarUploader
 
-  validates_uniqueness_of :username, case_sensitive: false
+  validates :username, length: { minimum: 3 }
+  validates :username, length: { maximum: 10 }
   validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/ }
+  validates_uniqueness_of :username, case_sensitive: false
 
   def admin?
     role == 'admin'
