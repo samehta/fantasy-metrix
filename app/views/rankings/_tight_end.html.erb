@@ -16,7 +16,7 @@
             <% if nfl_player.tight_end? %>
               <td style="width: 100px"><%= nfl_player.rank %></td>
               <td style="text-align:left"><%= link_to nfl_player.name, nfl_player_path(nfl_player), class: 'player-stats' %></td>
-              <td style="width: 100px" class="green"><%= nfl_player.nfl_team.abbreviation %></td>
+              <td style="width: 100px" class="green"><%= link_to nfl_player.nfl_team.abbreviation, nfl_team_path(nfl_player.nfl_team.id), class: 'player-stats' %></td>
               <td style="width: 180px"></td>
               <td style="width: 180px"></td>
               <td style="width: 180px"></td>

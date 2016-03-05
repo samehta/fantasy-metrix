@@ -16,7 +16,6 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
 
 
 body {
@@ -100,11 +99,6 @@ small.comments {
 table#header th {
   text-align: center;
 }
-
-/*table#header tbody tr:hover th {
-  color: #ffffff;
-  background-color: #397D02;
-}*/
 
 .sorter {
   color: #B7B7B7;

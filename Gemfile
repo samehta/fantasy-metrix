@@ -33,6 +33,7 @@ gem 'fog'
 gem 'will_paginate', '~> 3.0.6'
 gem 'friendly_id', '~> 5.1.0'
 gem 'jquery-turbolinks'
+gem 'font_assets'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
