@@ -40,8 +40,8 @@
             <li><%= link_to "Metrics", metrics_path(position: 'quarterbacks'), class: 'nav-links' %></li>
             <li><%= link_to "Teams", nfl_teams_path, class: 'nav-links' %></li>
             <li><%= link_to "Forums", topics_path, class: 'nav-links' %></li>
-            <li style="width: 200px">
-              <% unless url_for == root_path %>
+            <% unless url_for == root_path %>
+              <li style="width: 200px">
                 <form class="navbar-form" role="search" onsubmit="return getPlayer()">
                   <div class="input-group" style="width: 240px">
                     <input type="text" data-player-search="<%= NflPlayer.pluck(:name).to_json %>" autocomplete="off" class="form-control" placeholder="Search Current NFL Player" name="srch-term" id="srch-term">
@@ -50,8 +50,8 @@
                     </div>
                   </div>
                 </form>
-              <% end %>
-            </li>
+              </li>
+            <% end %>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if !user_signed_in? %>

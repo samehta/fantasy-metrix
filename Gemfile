@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
+ruby '2.2.4'
 
 
 gem 'rails', '4.2.3'
-
 gem 'pg'
 
 group :production do 
@@ -33,7 +33,7 @@ gem 'fog'
 gem 'will_paginate', '~> 3.0.6'
 gem 'friendly_id', '~> 5.1.0'
 gem 'jquery-turbolinks'
-gem 'font_assets'
+gem 'puma'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
