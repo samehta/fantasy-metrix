@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h3>Running Back - Early Season Rankings</h3>
+    <h3>Running Back - Draft Rankings</h3>
     <table id="header" class="table table-bordered grey text-center">
       <tbody>
         <tr>
@@ -8,8 +8,9 @@
           <th title="Player Name">Player</th>
           <th title="Team Name">Team</th>
           <th>Sahil Mehta</th>
-          <th>Arun Alagappan</th>
           <th>Evan Silva</th>
+          <th>Matt Harmon</th>
+          <th>Arun Alagappan</th>
         </tr>
         <% @nfl_players.each do |nfl_player| %>
           <tr>
@@ -17,9 +18,10 @@
               <td style="width: 100px"><%= nfl_player.rank %></td>
               <td style="text-align:left"><%= link_to nfl_player.name, nfl_player_path(nfl_player), class: 'player-stats' %></td>
               <td style="width: 100px" class="green"><%= link_to nfl_player.nfl_team.abbreviation, nfl_team_path(nfl_player.nfl_team.id), class: 'player-stats' %></td>
-              <td style="width: 180px"></td>
-              <td style="width: 180px"></td>
-              <td style="width: 180px"></td>
+              <td style="width: 140px"></td>
+              <td style="width: 140px"></td>
+              <td style="width: 140px"></td>
+              <td style="width: 140px"></td>
             <% end %>
           </tr>
         <% end %>

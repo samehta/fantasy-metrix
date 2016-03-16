@@ -14,8 +14,13 @@ function getPlayer() {
     // player not found
     var flashHtml = '<div class="alert alert-warning text-center">' + 
       '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-      'NFL Player does not exist. Please try again.' + '</div>';
+      'Player does not exist. Please try again.' + '</div>';
     $('body').prepend(flashHtml);
+    // refresh page after 2 seconds
+    setTimeout(function() {
+      location.reload(1);
+    }, 2000);
+
   } else {
     // Convert the player name to the slug form:
     var slug = playerName.toLowerCase().replace(' ', '-');
