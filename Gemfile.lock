@@ -249,7 +249,6 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
-    puma (3.0.2)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     quiet_assets (1.1.0)
@@ -388,7 +387,6 @@ DEPENDENCIES
   mini_magick
   pg
   pry-rails
-  puma
   pundit
   quiet_assets
   rails (= 4.2.3)
