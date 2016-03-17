@@ -7,6 +7,7 @@ gem 'pg'
 
 group :production do 
   gem 'rails_12factor'
+  gem 'puma'
 end
 
 group :development do
@@ -33,7 +34,6 @@ gem 'fog'
 gem 'will_paginate', '~> 3.0.6'
 gem 'friendly_id', '~> 5.1.0'
 gem 'jquery-turbolinks'
-gem 'puma'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

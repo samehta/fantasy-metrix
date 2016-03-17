@@ -17,11 +17,8 @@ function getPlayer() {
       'Player does not exist. Please try again.' + '</div>';
     $('body').prepend(flashHtml);
     // refresh page after 2 seconds
-    console.log("before set-timeout")
     setTimeout(function() {
-      console.log("pre-load")
       window.location.reload();
-      console.log("after load")
     }, 2000);
 
   } else {
