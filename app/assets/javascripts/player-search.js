@@ -18,7 +18,7 @@ function getPlayer() {
     $('body').prepend(flashHtml);
     // refresh page after 2 seconds
     setTimeout(function() {
-      location.reload(1);
+      window.location.reload(1);
     }, 2000);
 
   } else {
