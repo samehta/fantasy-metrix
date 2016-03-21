@@ -29,7 +29,7 @@ class MetricsController < ApplicationController
       CareerPassingStat.column_names.include?(params[:sort]) ? params[:sort] : "passing_yards"
     elsif @position == 'Running Back'
       CareerRushingStat.column_names.include?(params[:sort]) ? params[:sort] : "rushing_yards"
-    elsif @position == 'Wide Receiver' || 'Tight End'
+    elsif @position == 'Wide Receiver' || @position =='Tight End'
       CareerReceivingStat.column_names.include?(params[:sort]) ? params[:sort] : "receiving_yards"     
     end
   end
