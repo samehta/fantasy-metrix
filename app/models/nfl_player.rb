@@ -3,12 +3,12 @@ class NflPlayer < ActiveRecord::Base
   friendly_id :name, use: :slugged
   
   belongs_to :nfl_team
-  has_many :passing_game_logs
-  has_many :rushing_game_logs
-  has_many :receiving_game_logs
-  has_many :career_passing_stats
-  has_many :career_rushing_stats
-  has_many :career_receiving_stats
+  has_many :passing_game_logs, dependent: :destroy
+  has_many :rushing_game_logs, dependent: :destroy
+  has_many :receiving_game_logs, dependent: :destroy
+  has_many :career_passing_stats, dependent: :destroy
+  has_many :career_rushing_stats, dependent: :destroy
+  has_many :career_receiving_stats, dependent: :destroy
 
   def age
     year_constant = 10000
