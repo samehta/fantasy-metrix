@@ -14,6 +14,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
+  gem 'web-console', '~> 2.0'
 end
 
 gem 'sass-rails', '~> 5.0'
@@ -42,7 +43,6 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'selenium-webdriver'
   gem 'pry-rails'
