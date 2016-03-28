@@ -1,6 +1,6 @@
 # Create Admin User
 admin = User.new(
-  username: 'Randall Cobblepot',
+  username: 'Cobblepot',
   email:    'smeht004@ucr.edu',
   password: 'selfmade',
   role:     'admin'
