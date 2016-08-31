@@ -3,13 +3,13 @@
     <% topics.each do |topic| %>
       <div class="col-md-4 text-center">
         <h1><%= link_to topic.name, topic, class: 'topic-links' %></h1>
-        <%= link_to image_tag(topic.image_path, :width => 170, :height => 190), topic %>
+        <%= link_to image_tag(topic.image_path, :width => 170, :height => 190), topic %><br>
       </div>
     <% end %>
-  </div><br><br>
+  </div><br><br><br>
 <% end %>
 <div class="text-center"><br>
   <% if policy(Topic.new).create? %>
     <%= link_to "New Topic", new_topic_path, class: 'devise btn btn-success' %>
   <% end %>
-</div><br><br><br>
+</div>

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12 text-center">
-    <h1 class="team"><%= @nfl_team.name %></h1><br>
+    <h1 class="grey" style="font-size:50px"><%= @nfl_team.name %></h1><br>
   </div>
   <div class="col-md-12 text-center">
     <% if policy(NflPlayer.new).create? %>
@@ -21,7 +21,7 @@
     <div class="row">
       <% @nfl_players.each do |nfl_player| %>
         <% if nfl_player.quarterback? %>
-          <div class="col-md-3 text-center center-block"><br><br>
+          <div class="col-md-3 text-center"><br><br>
             <h3><%= link_to image_tag(nfl_player.image_path, :width => 150, :height => 150), nfl_player %></h3>
             <h3><%= link_to nfl_player.name, nfl_player, class: 'player-links' %>
           </div>
@@ -35,7 +35,7 @@
     <div class="row">
       <% @nfl_players.each do |nfl_player| %>
         <% if nfl_player.running_back? %>
-          <div class="col-md-3 text-center center-block"><br><br>
+          <div class="col-md-3 text-center"><br><br>
             <h3><%= link_to image_tag(nfl_player.image_path, :width => 150, :height => 150), nfl_player %></h3>
             <h3><%= link_to nfl_player.name, nfl_player, class: 'player-links' %>
           </div>
@@ -49,7 +49,7 @@
     <div class="row">
       <% @nfl_players.each do |nfl_player| %>
         <% if nfl_player.wide_receiver? %>
-          <div class="col-md-3 text-center center-block"><br><br>
+          <div class="col-md-3 text-center"><br><br>
             <h3><%= link_to image_tag(nfl_player.image_path, :width => 150, :height => 150), nfl_player %></h3>
             <h3><%= link_to nfl_player.name, nfl_player, class: 'player-links' %>
           </div>
@@ -63,7 +63,7 @@
     <div class="row">
       <% @nfl_players.each do |nfl_player| %>
         <% if nfl_player.tight_end? %>
-          <div class="col-md-3 text-center center-block"><br><br>
+          <div class="col-md-3 text-center"><br><br>
             <h3><%= link_to image_tag(nfl_player.image_path, :width => 150, :height => 150), nfl_player %></h3>
             <h3><%= link_to nfl_player.name, nfl_player, class: 'player-links' %>
           </div>
@@ -71,4 +71,4 @@
       <% end %>
     </div>
   </td></tr>
-</table><br><br><br><br><br>
+</table>

@@ -3,8 +3,8 @@
     <%= render partial: 'votes/voter', locals: { post: @post } %>
   </div>
   <div class="col-md-11 posts-show">
-    <h1 class="post"><%= @post.title %></h1>
-    <small class="date"><%= @post.user.username %> posted <%= time_ago_in_words(@post.created_at) %> ago</small><br><br>
+    <h1 class="blue"><%= @post.title %></h1>
+    <small class="green"><%= @post.user.username %> posted <%= time_ago_in_words(@post.created_at) %> ago</small><br><br>
   </div>
 </div>
 <div class="row">
@@ -18,7 +18,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12 grey">
     <p><%= markdown_to_html @post.body %></p><br><br>
   </div>
 </div><br><br><br>

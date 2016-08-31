@@ -1,23 +1,16 @@
 <div class="row">
   <div class="col-md-12">
-    <h1 class="metric">METRICS</h1><br>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-3">
-    <h3><%= link_to "Quarterbacks", metrics_path(position: 'quarterbacks'), class: 'position-links' %></h3>
-  </div>
-  <div class="col-md-3">
-    <h3><%= link_to "Running Backs", metrics_path(position: 'running-backs'), class: 'position-links' %></h3>
-  </div>
-  <div class="col-md-3">
-    <h3><%= link_to "Wide Receivers", metrics_path(position: 'wide-receivers'), class: 'position-links' %></h3>
-  </div>
-  <div class="col-md-3">
-    <h3><%= link_to "Tight Ends", metrics_path(position: 'tight-ends'), class: 'position-links' %></h3>
+    <div class="dropdown">
+      <button class="devise btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Metrics <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Quarterbacks", metrics_path(position: 'quarterbacks') %></li>
+        <li><%= link_to "Running Backs", metrics_path(position: 'running-backs') %></li>
+        <li><%= link_to "Wide Receivers", metrics_path(position: 'wide-receivers') %></li>
+        <li><%= link_to "Tight Ends", metrics_path(position: 'tight-ends') %></li>
+      </ul>
+    </div>
   </div>
 </div><br>
 <div>
   <%= render partial: @position.gsub(' ', '_').downcase, locals: { nfl_players: @nfl_players } %>
 </div>
-<br><br><br><br>

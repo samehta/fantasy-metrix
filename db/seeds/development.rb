@@ -111,7 +111,6 @@ posts = Post.all
   )
 end
 
-
 puts "Development Seed finished"
 puts "#{User.count} users created"
 puts "#{Article.count} articles created"

@@ -45,23 +45,23 @@
 
 <% if @nfl_player.quarterback? %>
   <%= render partial: 'career_passing_stat_table', locals: { nfl_player: @nfl_player } %><br><br><br>
-  <%= render partial: 'passing_game_log_table', locals: { passing_game_log: @passing_game_log, passing_game_logs: @passing_game_logs } %><br><br><br>
+  <%= render partial: 'passing_game_log_table', locals: { passing_game_log: @passing_game_log, passing_game_logs: @passing_game_logs } %>
 <% end %>
 
 
 <% if @nfl_player.running_back? %>
   <%= render partial: 'career_rushing_stat_table', locals: { nfl_player: @nfl_player } %><br><br><br>
-  <%= render partial: 'rushing_game_log_table', locals: { rushing_game_log: @rushing_game_log, passing_game_logs: @passing_game_logs } %><br><br><br>
+  <%= render partial: 'rushing_game_log_table', locals: { rushing_game_log: @rushing_game_log, passing_game_logs: @passing_game_logs } %>
 <% end %>
 
 
 <% if @nfl_player.wide_receiver? %>
   <%= render partial: 'career_receiving_stat_table', locals: { nfl_player: @nfl_player } %><br><br><br>
-  <%= render partial: 'receiving_game_log_table', locals: { receiving_game_log: @receiving_game_log, receiving_game_logs: @receiving_game_logs } %><br><br><br>
+  <%= render partial: 'receiving_game_log_table', locals: { receiving_game_log: @receiving_game_log, receiving_game_logs: @receiving_game_logs } %>
 <% end %>
 
 
 <% if @nfl_player.tight_end? %>
   <%= render partial: 'career_receiving_stat_table', locals: { nfl_player: @nfl_player } %><br><br><br>
-  <%= render partial: 'receiving_game_log_table', locals: { receiving_game_log: @receiving_game_log, receiving_game_logs: @receiving_game_logs } %><br><br><br>
+  <%= render partial: 'receiving_game_log_table', locals: { receiving_game_log: @receiving_game_log, receiving_game_logs: @receiving_game_logs } %>
 <% end %>

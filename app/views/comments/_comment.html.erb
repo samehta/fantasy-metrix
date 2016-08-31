@@ -1,11 +1,11 @@
 <table class="table table-bordered">
   <tr><td>
-  <small class="date">
+  <small class="green">
     <%= comment.user.username %> commented <%= time_ago_in_words(comment.created_at) %> ago
     <% if policy(comment).destroy? %>
       <%= link_to "Delete", [comment.post, comment], method: :delete %>
     <% end %>
   </small>
-  <p><%= comment.body %></p>
+  <p class="grey"><%= comment.body %></p>
   </td></tr>
 </table>

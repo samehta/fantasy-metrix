@@ -26,56 +26,52 @@
     </div>
   <% end %>
 
-  <div class="container">
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand">FantasyMetrix</a>
-        </div>
-        <div>
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Home", root_path, class: 'nav-links' %></li>
-            <li><%= link_to "Articles", articles_path, class: 'nav-links' %></li>
-            <li><%= link_to "Rankings", rankings_path(position: 'quarterbacks'), class: 'nav-links' %></li>
-            <li><%= link_to "Metrics", metrics_path(position: 'quarterbacks'), class: 'nav-links' %></li>
-            <li><%= link_to "Teams", nfl_teams_path, class: 'nav-links' %></li>
-            <li><%= link_to "Forums", topics_path, class: 'nav-links' %></li>
-            <% unless url_for == root_path %>
-              <li style="width: 200px">
-                <form class="navbar-form" role="search" onsubmit="return getPlayer()">
-                  <div class="input-group" style="width: 240px">
-                    <input type="text" data-player-search="<%= NflPlayer.pluck(:name).to_json %>" autocomplete="off" class="form-control" placeholder="Search Current NFL Player" name="srch-term" id="srch-term">
-                    <div class="input-group-btn">
-                      <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                    </div>
-                  </div>
-                </form>
-              </li>
-            <% end %>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <% if !user_signed_in? %>
-              <li><%= link_to " Guest", new_user_registration_path, class: 'glyphicon glyphicon-user' %></li>
-              <li><%= link_to " Login", new_user_session_path, class: 'glyphicon glyphicon-log-in' %><li>
-            <% else %>
-              <li><%= link_to " #{current_user.username}", edit_user_registration_path, class: 'glyphicon glyphicon-user' %></li> 
-              <li><%= link_to " Logout", destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out' %></li>
-            <% end %>
-          </ul>
-        </div>
+  <div class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <span class="navbar-brand">FantasyMetrix</span>
+        <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
       </div>
-    </nav>
-    <div class="home"><br><br>
-      <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-
-          <%= yield %>
-
-        </div>
+      <div class="collapse navbar-collapse navHeaderCollapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Home", root_path, class: "nav-links" %></li>
+          <li><%= link_to "Articles", articles_path, class: "nav-links" %></li>
+          <li><%= link_to "Metrics", metrics_path(position: "quarterbacks"), class: "nav-links" %></li>
+          <li><%= link_to "Teams", nfl_teams_path, class: "nav-links" %></li>
+          <li><%= link_to "Forums", topics_path, class: "nav-links" %></li>
+          <li>
+            <% unless url_for == root_path %>
+              <form class="navbar-form" role="search" onsubmit="return getPlayer()">
+                <div class="input-group" style="width: 275px; padding-left: 25px">
+                  <input type="text" data-player-search="<%= NflPlayer.pluck(:name).to_json %>" autocomplete="off" class="form-control" placeholder="Search Current NFL Player" name="srch-term" id="srch-term">
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                  </div>
+                </div>
+              </form>
+            <% end %>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if !user_signed_in? %>
+            <li><%= link_to " Guest", new_user_registration_path, class: 'nav-links' %></li>
+            <li><%= link_to " Login", new_user_session_path, class: 'nav-links' %><li>
+          <% else %>
+            <li><%= link_to " #{current_user.username}", edit_user_registration_path, class: 'nav-links' %></li>
+            <li><%= link_to " Logout", destroy_user_session_path, method: :delete, class: 'nav-links' %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
-  </div><br><br><br>
+  </div>
+
+  <div class="main container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

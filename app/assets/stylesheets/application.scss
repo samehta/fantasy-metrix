@@ -17,126 +17,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+*, *::before, *::after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 100%;
+}
 
 body {
-  background: asset-url('backgrounds/classy.png');
+  color: white;
+  min-height: 100%;
+  font-family: 'Helvetica';
+  background: asset-url('backgrounds/carbon.png');
   background-color: #13181A !important;
-}
-
-h1, h2 {
-  color: #ffffff;
-  font: Helvetica, Arial, Sans-Serif;
-}
-
-h3, h4, h5, h6, p {
-  color: #B7B7B7;
-  font: Helvetica, Arial, Sans-Serif;
-}
-
-h1.title {
-  color: #397D02;
-  font-size: 90px;
-  text-shadow: 1px 1px #13181A, 
-               2px 2px #13181A, 
-               3px 3px #13181A;
-}
-
-h1.article {
-  color: #B7B7B7;
-}
-
-h1.ranking {
-  color: #B7B7B7;
-}
-
-h1.metric {
-  color: #B7B7B7;
-}
-
-h1.team {
-  font-size: 50px;
-  color: #B7B7B7;
-}
-
-h1.player {
-  color: #B7B7B7;
-}
-
-h1.topic {
-  color: #B7B7B7;
-}
-
-h1.post {
-  color: #23527C;
-}
-
-h4.paginate {
-  color: #397D02;
-}
-
-small.date {
-  color: #397D02;
-}
-
-small.author {
-  color: #ffffff;
-}
-
-small.comments {
-  color: #B7B7B7;
-}
-
-.col-md-8 {
-  width: 12.5%;
-}
-
-.profile {
-  padding-left: 20px;
-  padding-right: 20px;
-  border: 1px solid #ffffff;
-}
-
-table#header th {
-  text-align: center;
-}
-
-.sorter {
-  color: #B7B7B7;
-}
-
-.sorter:hover {
-  text-decoration: none;
-  color: #397D02;
-}
-
-.table-hover tbody tr:hover th {
-  color: #ffffff;
-  background-color: #23527C;
-}
-
-.table-hover tbody tr:hover td {
-  color: #ffffff;
-  background-color: #397D02;
-}
-
-.text {
-  color: #ffffff;
-}
-
-.grey {
-  color: #B7B7B7;
-}
-
-.green {
-  color: #397D02;
-}
-
-.blue {
-  color: #23527C;
-}
-
-.red {
-  color: #984949;
 }
 
 .alert-success {
@@ -160,162 +57,53 @@ table#header th {
   background-color: #984949;
 }
 
-.center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.container {
-  margin-top: 15px;
+.main.container {
+  padding-bottom: 100px;
 }
 
 .navbar {
-  height: 60px;
   background: asset-url('backgrounds/carbon.png');
 }
 
-.navbar-brand {
+.navbar-static-top {
+  min-height: 80px;
+}
+
+.navbar-header {
+  margin-top: 10px;
+}
+
+.navbar-header .navbar-brand {
+  color: white;
+  font-size: 20px;
   font-weight: bold;
 }
 
-.home {
-  border-radius: 5px;
-  min-height: 600px;
-  background: asset-url('backgrounds/carbon.png');
+.navHeaderCollapse {
+  font-size: 16px;
+  margin-top: 15px;
 }
 
-.jumbotron {
-  min-height: 300px;
-  width: 750px;
-  background: none;
-}
-
-.nav {
-  margin-top: 5px;
+.navHeaderCollapse .navbar-nav .nav-links {
+  color: #397D02;
 }
 
 ul.nav a:hover { 
   color: #B7B7B7 !important;
 }
 
-.nav-links {
-  font-size: 16px;
-  color: #397D02 !important;
+.jumbotron {
+  min-height: 300px;
+  width: 750px;
+  background: asset-url('backgrounds/carbon.png');
 }
 
-.input-group {
-  width: 300px;
-}
-
-.articles {
-  font-size: 16px;
-  text-align: justify;
-}
-
-.topic-links {
-  color: #B7B7B7;
-}
-
-.topic-links:hover {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.article-links {
-  color: #23527C;
-}
-
-.article-links:hover {
-  text-decoration: none;
-  color: #23527C;
-}
-
-.post-links {
-  color: #23527C;
-}
-
-.post-links:hover {
-  text-decoration: none;
-  color: #23527C;
-}
-
-.devise-links {
+.jumbotron .hero-title {
   color: #397D02;
-}
-
-.devise-links:hover {
-  color: #23527C;
-  text-decoration: none;
-}
-
-.player-links {
-  color: #B7B7B7;
-}
-
-.player-links:hover {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.position-links {
-  color: #397D02;
-}
-
-.position-links:hover {
-  text-decoration: none;
-  color: #B7B7B7;
-}
-
-.player-stats {
-  color: #397D02;
-}
-
-.player-stats:hover {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.glyphicon-user {
-  color: #397D02 !important;
-}
-
-.glyphicon-user:hover {
-  color: #B7B7B7 !important;
-}
-
-.glyphicon-log-in {
-  color: #397D02 !important;
-}
-
-.glyphicon-log-in:hover {
-  color: #B7B7B7 !important;
-}
-
-.glyphicon-log-out {
-  color: #984949 !important;
-}
-
-.glyphicon-log-out:hover {
-  color: #B7B7B7 !important;
-}
-
-.glyphicon-chevron-up {
-  color: #397D02 !important;
-}
-
-.glyphicon-chevron-up:hover {
-  text-decoration: none;
-  color: #23527C !important;
-}
-
-.glyphicon-chevron-down {
-  color: #397D02 !important;
-}
-
-.glyphicon-chevron-down:hover {
-  text-decoration: none;
-  color: #23527C !important;
+  font-size: 90px;
+  text-shadow: 1px 1px #13181A, 
+               2px 2px #13181A, 
+               3px 3px #13181A;
 }
 
 .index.btn {
@@ -350,6 +138,15 @@ ul.nav a:hover {
 
 .devise.btn:focus {
   outline: none !important;
+}
+
+.devise-links {
+  color: #397D02;
+}
+
+.devise-links:hover {
+  color: #23527C;
+  text-decoration: none;
 }
 
 .cancel.btn {
@@ -390,17 +187,144 @@ ul.nav a:hover {
   outline: none !important;
 }
 
-.image {
+.blue {
+  color: #23527C;
+}
+
+.blue:hover{
+  color: #23527C;
+  text-decoration: none;
+}
+
+.green {
+  color: #397D02;
+}
+
+.green:hover {
+  color: #397D02;
+}
+
+.grey {
+  color: #B7B7B7;
+  text-decoration: none;
+}
+
+.grey:hover {
+  color: #B7B7B7;
+  text-decoration: none;
+}
+
+.article-links {
+  color: #23527C;
+}
+
+.article-links:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.article-body {
+  font-size: 15px;
+  text-align: justify;
+}
+
+.article-image {
   float: right;
   margin-left: 5px;
 }
 
-.heading h4 {
-  display: inline;
+.sorter {
+  color: #B7B7B7;
+}
+
+.sorter:hover {
+  color: #397D02;
+  text-decoration: none;
+}
+
+.topics-show {
+  padding-right: -25px;
+}
+
+.topic-links {
+  color: #B7B7B7;
+}
+
+.topic-links:hover {
+  color: #397D02;
+  text-decoration: none;
+}
+
+.posts-show {
+  margin-left: -35px;
+}
+
+.post-links {
+  color: #23527C;
+}
+
+.post-links:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.team-page {
+  width: 12.5%;
+}
+
+.team-id {
+  color: #397D02;
+}
+
+.team-id:hover {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .player {
   border: 2px solid #B7B7B7;
+}
+
+.player-links {
+  color: #B7B7B7;
+}
+
+.player-links:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.player-stats {
+  color: #397D02;
+}
+
+.player-stats:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.profile {
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #ffffff;
+}
+
+table#header th {
+  text-align: center;
+}
+
+.table-hover tbody tr:hover th {
+  color: #ffffff;
+  background-color: #23527C;
+}
+
+.table-hover tbody tr:hover td {
+  color: #ffffff;
+  background-color: #397D02;
+}
+
+.heading h4 {
+  display: inline;
 }
 
 .vote-arrows {
@@ -409,10 +333,35 @@ ul.nav a:hover {
   text-align: center;
 }
 
-.topics-show {
-  margin-left: -25px;
+.glyphicon-chevron-up {
+  color: #397D02 !important;
 }
 
-.posts-show {
-  margin-left: -35px;
+.glyphicon-chevron-up:hover {
+  text-decoration: none;
+  color: #23527C !important;
+}
+
+.glyphicon-chevron-down {
+  color: #397D02 !important;
+}
+
+.glyphicon-chevron-down:hover {
+  text-decoration: none;
+  color: #23527C !important;
+}
+
+@media (max-width: 680px) {
+  .jumbotron {
+    min-height: 300px;
+    width: 400px;
+  }
+
+  .jumbotron .hero-title {
+    font-size: 55px;
+  }
+
+  .input-group {
+    width: 200px;
+  }
 }

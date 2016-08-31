@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-md-12">
-    <h1 class="post"><%= @article.title %></h1>
-    <small class="date"><%= @article.created_at.strftime("%A, %B %d, %Y") %></small><br>
-    <small class="author">By <%= @article.user.username %></small><br><br>
+    <h1 class="blue"><%= @article.title %></h1>
+    <small class="green">By <%= @article.user.username %></small><br>
+    <small class="grey"><%= @article.created_at.strftime("%A, %B %d, %Y") %></small><br><br>
     <% if policy(@article).update? %>
       <%= link_to "Edit Article", edit_article_path(@article), class: 'edit btn btn-success' %>
     <% end %>
@@ -12,9 +12,9 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-12 articles">
+  <div class="col-md-12 article-body grey">
     <% if @article.image_path %>
-    <div class="col-md-4 image">
+    <div class="col-md-4 article-image">
       <%= image_tag(@article.image_path, :width => 220, :height => 220) %><br><br>
     </div>
     <% end %>

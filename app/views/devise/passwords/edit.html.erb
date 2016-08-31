@@ -1,7 +1,7 @@
 <h2>Change Your Password</h2><br>
 
 <div class="row">
-  <div class="col-md-4 text">
+  <div class="col-md-4">
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
       

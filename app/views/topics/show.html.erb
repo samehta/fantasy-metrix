@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h1 class="topic"><%= @topic.name %></h1>
+    <h1 class="grey"><%= @topic.name %></h1>
     <% if policy(@topic).update? %>
       <%= link_to "Edit Topic", edit_topic_path(@topic), class: 'edit btn btn-success' %>
     <% end %>
@@ -21,14 +21,13 @@
       </div>
       <div class="col-md-11 topics-show">
         <h3><%= link_to post.title, [@topic, post], class: 'post-links' %></h3>
-        <small class="date"><%= post.user.username %> </small>
-        <small class="date"> posted <%= time_ago_in_words(post.created_at) %> ago</small><br>
-        <small class="comments"><%= pluralize(post.comments.count, 'Comment') %></small><br><br>
+        <small class="green"><%= post.user.username %> posted <%= time_ago_in_words(post.created_at) %> ago</small><br>
+        <small class="grey"><%= pluralize(post.comments.count, 'Comment') %></small><br><br>
       </div>
       </td></tr>
     <% end %><br>
   </div>
 </table>
 <div class="row">
-  <h4 class="text-center paginate"><%= will_paginate @posts %></h4>
-</div><br><br>
+  <h4 class="text-center green"><%= will_paginate @posts %></h4>
+</div>
