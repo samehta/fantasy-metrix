@@ -25,6 +25,10 @@ function getPlayer() {
     // Convert the player name to the slug form:
     var slug = playerName.toLowerCase().replace(' ', '-');
 
+    if (playerName.indexOf('.')) {
+      slug = slug.replace('.', '-');
+    }
+
     // Request new URL in browser
     var urlPath = '/nfl/players/' + slug;
     window.location.href = urlPath;
